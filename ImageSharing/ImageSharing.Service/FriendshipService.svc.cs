@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 using ImageSharing.DAL;
-using ImageSharing.DAL.EntityNew;
+using ImageSharing.DAL.Entity;
 using ImageSharing.Business.Helper;
 
 namespace ImageSharing.Service

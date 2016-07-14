@@ -6,15 +6,15 @@ using System.Web;
 using System.Web.Mvc;
 using ImageSharing.Models;
 using ImageSharing.Models.EntityInfo;
-using ImageSharing.UserServiceNew;
-using ImageSharing.TapeServiceNew;
-using ImageSharing.PostServiceNew;
-using ImageSharing.SubscriptionServiceNew;
-using ImageSharing.CommentServiceNew;
-using ImageSharing.FriendshipRequestServiceNew;
+using ImageSharing.DAL.Entity;
+using ImageSharing.UserService;
+using ImageSharing.TapeService;
+using ImageSharing.PostService;
+using ImageSharing.SubscriptionService;
+using ImageSharing.CommentService;
+using ImageSharing.FriendshipRequestService;
 using ImageSharing.FriendshipService;
-using ImageSharing.DAL.EntityNew;
-using ImageSharing.Models.InfoCreatorNew;
+using ImageSharing.Models.InfoCreator;
 using ImageSharing.Security;
 
 namespace ImageSharing.Areas.User.Controllers
@@ -23,13 +23,13 @@ namespace ImageSharing.Areas.User.Controllers
     {
         //
         // GET: /User/UserHome/
-        UserServiceNewClient userClient = new UserServiceNewClient();
-        TapeServiceNewClient tapeClient = new TapeServiceNewClient();
-        PostServiceNewClient postClient = new PostServiceNewClient();
-        SubscriptionServiceNewClient subClient = new SubscriptionServiceNewClient();
-        CommentServiceNewClient commentClient = new CommentServiceNewClient();
+        UserServiceClient userClient = new UserServiceClient();
+        TapeServiceClient tapeClient = new TapeServiceClient();
+        PostServiceClient postClient = new PostServiceClient();
+        SubscriptionServiceClient subClient = new SubscriptionServiceClient();
+        CommentServiceClient commentClient = new CommentServiceClient();
         FriendshipServiceClient friendshipClient = new FriendshipServiceClient();
-        FriendshipRequestServiceNewClient requestClient = new FriendshipRequestServiceNewClient();
+        FriendshipRequestServiceClient requestClient = new FriendshipRequestServiceClient();
 
         #region Actions
         public ActionResult Home()

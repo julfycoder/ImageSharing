@@ -5,25 +5,17 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 using ImageSharing.DAL;
-using ImageSharing.Business;
+using ImageSharing.DAL.Entity;
+using ImageSharing.Business.Helper;
 
 namespace ImageSharing.Service
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "PostService" in code, svc and config file together.
-    // NOTE: In order to launch WCF Test Client for testing this service, please select PostService.svc or PostService.svc.cs at the Solution Explorer and start debugging.
-    public class PostService : IPostService
+    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "PostServiceNew" in code, svc and config file together.
+    // NOTE: In order to launch WCF Test Client for testing this service, please select PostServiceNew.svc or PostServiceNew.svc.cs at the Solution Explorer and start debugging.
+    public class PostServiceNew : IPostService
     {
-        PostHelper helper = new PostHelper(new Repository());
-        public void AddComment(int id, int commentId)
-        {
-            helper.AddComment(id, commentId);
-        }
-
-        public void RemoveComment(int id, int commentId)
-        {
-            helper.RemoveComment(id, commentId);
-        }
-
+        PostHelper helper = new PostHelper(new ImageSharingRepository());
+        
         public void ChangeImagePath(int id, string photoPath)
         {
             helper.ChangeImagePath(id, photoPath);
@@ -34,17 +26,17 @@ namespace ImageSharing.Service
             helper.ChangeDateTime(id, dateTime);
         }
 
-        public DAL.Entity.Post GetPost(int id)
+        public Post GetPost(int id)
         {
             return helper.GetPost(id);
         }
 
-        public IEnumerable<DAL.Entity.Post> GetPosts()
+        public IEnumerable<Post> GetPosts()
         {
             return helper.GetPosts();
         }
 
-        public void AddPost(DAL.Entity.Post post)
+        public void AddPost(Post post)
         {
             helper.AddPost(post);
         }
@@ -53,12 +45,6 @@ namespace ImageSharing.Service
         {
             helper.RemovePost(id);
         }
-
-        public IEnumerable<DAL.Entity.Comment> GetComments(int id)
-        {
-            return helper.GetComments(id);
-        }
-
         public void ChangeDescription(int id, string text)
         {
             helper.ChangeDescription(id, text);

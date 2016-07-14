@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
-using ImageSharing.DAL.EntityNew;
+using ImageSharing.DAL.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace ImageSharing.DAL

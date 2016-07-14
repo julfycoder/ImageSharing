@@ -16,10 +16,10 @@ namespace ImageSharing.FriendshipService {
     public interface IFriendshipService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFriendshipService/AddFriendship", ReplyAction="http://tempuri.org/IFriendshipService/AddFriendshipResponse")]
-        void AddFriendship(ImageSharing.DAL.EntityNew.Friendship friendship);
+        void AddFriendship(ImageSharing.DAL.Entity.Friendship friendship);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFriendshipService/AddFriendship", ReplyAction="http://tempuri.org/IFriendshipService/AddFriendshipResponse")]
-        System.Threading.Tasks.Task AddFriendshipAsync(ImageSharing.DAL.EntityNew.Friendship friendship);
+        System.Threading.Tasks.Task AddFriendshipAsync(ImageSharing.DAL.Entity.Friendship friendship);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFriendshipService/RemoveFriendship", ReplyAction="http://tempuri.org/IFriendshipService/RemoveFriendshipResponse")]
         void RemoveFriendship(int id);
@@ -28,16 +28,16 @@ namespace ImageSharing.FriendshipService {
         System.Threading.Tasks.Task RemoveFriendshipAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFriendshipService/GetFriendship", ReplyAction="http://tempuri.org/IFriendshipService/GetFriendshipResponse")]
-        ImageSharing.DAL.EntityNew.Friendship GetFriendship(int id);
+        ImageSharing.DAL.Entity.Friendship GetFriendship(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFriendshipService/GetFriendship", ReplyAction="http://tempuri.org/IFriendshipService/GetFriendshipResponse")]
-        System.Threading.Tasks.Task<ImageSharing.DAL.EntityNew.Friendship> GetFriendshipAsync(int id);
+        System.Threading.Tasks.Task<ImageSharing.DAL.Entity.Friendship> GetFriendshipAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFriendshipService/GetFriendships", ReplyAction="http://tempuri.org/IFriendshipService/GetFriendshipsResponse")]
-        ImageSharing.DAL.EntityNew.Friendship[] GetFriendships();
+        ImageSharing.DAL.Entity.Friendship[] GetFriendships();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFriendshipService/GetFriendships", ReplyAction="http://tempuri.org/IFriendshipService/GetFriendshipsResponse")]
-        System.Threading.Tasks.Task<ImageSharing.DAL.EntityNew.Friendship[]> GetFriendshipsAsync();
+        System.Threading.Tasks.Task<ImageSharing.DAL.Entity.Friendship[]> GetFriendshipsAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -67,11 +67,11 @@ namespace ImageSharing.FriendshipService {
                 base(binding, remoteAddress) {
         }
         
-        public void AddFriendship(ImageSharing.DAL.EntityNew.Friendship friendship) {
+        public void AddFriendship(ImageSharing.DAL.Entity.Friendship friendship) {
             base.Channel.AddFriendship(friendship);
         }
         
-        public System.Threading.Tasks.Task AddFriendshipAsync(ImageSharing.DAL.EntityNew.Friendship friendship) {
+        public System.Threading.Tasks.Task AddFriendshipAsync(ImageSharing.DAL.Entity.Friendship friendship) {
             return base.Channel.AddFriendshipAsync(friendship);
         }
         
@@ -83,19 +83,19 @@ namespace ImageSharing.FriendshipService {
             return base.Channel.RemoveFriendshipAsync(id);
         }
         
-        public ImageSharing.DAL.EntityNew.Friendship GetFriendship(int id) {
+        public ImageSharing.DAL.Entity.Friendship GetFriendship(int id) {
             return base.Channel.GetFriendship(id);
         }
         
-        public System.Threading.Tasks.Task<ImageSharing.DAL.EntityNew.Friendship> GetFriendshipAsync(int id) {
+        public System.Threading.Tasks.Task<ImageSharing.DAL.Entity.Friendship> GetFriendshipAsync(int id) {
             return base.Channel.GetFriendshipAsync(id);
         }
         
-        public ImageSharing.DAL.EntityNew.Friendship[] GetFriendships() {
+        public ImageSharing.DAL.Entity.Friendship[] GetFriendships() {
             return base.Channel.GetFriendships();
         }
         
-        public System.Threading.Tasks.Task<ImageSharing.DAL.EntityNew.Friendship[]> GetFriendshipsAsync() {
+        public System.Threading.Tasks.Task<ImageSharing.DAL.Entity.Friendship[]> GetFriendshipsAsync() {
             return base.Channel.GetFriendshipsAsync();
         }
     }

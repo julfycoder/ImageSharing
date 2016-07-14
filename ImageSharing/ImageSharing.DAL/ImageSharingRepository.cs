@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ImageSharing.DAL;
-using ImageSharing.DAL.EntityNew;
+using ImageSharing.DAL.Entity;
 
 namespace ImageSharing.DAL
 {
@@ -46,12 +46,12 @@ namespace ImageSharing.DAL
             get { return context.Friendships; }
         }
 
-        public void AddEntity<T>(T entity) where T : EntityNew.Entity
+        public void AddEntity<T>(T entity) where T : Entity.Entity
         {
             context.Set<T>().Add(entity);
         }
 
-        public void RemoveEntity<T>(T entity) where T : EntityNew.Entity
+        public void RemoveEntity<T>(T entity) where T : Entity.Entity
         {
             context.Set<T>().Remove(entity);
         }

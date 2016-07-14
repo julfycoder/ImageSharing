@@ -2,29 +2,29 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using ImageSharing.UserServiceNew;
-using ImageSharing.TapeServiceNew;
-using ImageSharing.PostServiceNew;
-using ImageSharing.SubscriptionServiceNew;
-using ImageSharing.CommentServiceNew;
-using ImageSharing.FriendshipRequestServiceNew;
+using ImageSharing.DAL.Entity;
+using ImageSharing.UserService;
+using ImageSharing.TapeService;
+using ImageSharing.PostService;
+using ImageSharing.SubscriptionService;
+using ImageSharing.CommentService;
+using ImageSharing.FriendshipRequestService;
 using ImageSharing.FriendshipService;
-using ImageSharing.DAL.EntityNew;
 using ImageSharing.Models;
 using ImageSharing.Models.EntityInfo;
-using ImageSharing.Models.InfoCreatorNew;
+using ImageSharing.Models.InfoCreator;
 
 namespace ImageSharing.Models
 {
     public class WCFAccess:IAccessible
     {
-        UserServiceNewClient userClient = new UserServiceNewClient();
-        TapeServiceNewClient tapeClient = new TapeServiceNewClient();
-        PostServiceNewClient postClient = new PostServiceNewClient();
-        SubscriptionServiceNewClient subClient = new SubscriptionServiceNewClient();
-        CommentServiceNewClient commentClient = new CommentServiceNewClient();
+        UserServiceClient userClient = new UserServiceClient();
+        TapeServiceClient tapeClient = new TapeServiceClient();
+        PostServiceClient postClient = new PostServiceClient();
+        SubscriptionServiceClient subClient = new SubscriptionServiceClient();
+        CommentServiceClient commentClient = new CommentServiceClient();
         FriendshipServiceClient friendshipClient = new FriendshipServiceClient();
-        FriendshipRequestServiceNewClient requestClient = new FriendshipRequestServiceNewClient();
+        FriendshipRequestServiceClient requestClient = new FriendshipRequestServiceClient();
         public T GetEntity<T>(int id)
         {
             throw new NotImplementedException();

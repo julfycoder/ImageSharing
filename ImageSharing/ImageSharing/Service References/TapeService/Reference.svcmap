@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="ba4f68dd-e1a0-4049-8b88-ba4fc936f445" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:6982/TapeService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="TapeService.xsd" MetadataType="Schema" ID="71ca39d1-b775-4ff4-ae0c-1d533b1f4b61" SourceId="1" SourceUrl="http://localhost:6982/TapeService.svc?xsd=xsd0" />
+    <MetadataFile FileName="TapeService.disco" MetadataType="Disco" ID="1a364f7d-ebe9-40e2-9bf4-b0ac66a48267" SourceId="1" SourceUrl="http://localhost:6982/TapeService.svc?disco" />
+    <MetadataFile FileName="TapeService1.xsd" MetadataType="Schema" ID="d09e3abb-7061-4463-842d-ab9ce2a80424" SourceId="1" SourceUrl="http://localhost:6982/TapeService.svc?xsd=xsd2" />
+    <MetadataFile FileName="TapeServiceNew.wsdl" MetadataType="Wsdl" ID="eef220eb-3057-435a-bbd8-f3f94f656437" SourceId="1" SourceUrl="http://localhost:6982/TapeService.svc?wsdl" />
+    <MetadataFile FileName="TapeService2.xsd" MetadataType="Schema" ID="eeec012b-0aea-4d2d-a3bc-09742e228914" SourceId="1" SourceUrl="http://localhost:6982/TapeService.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

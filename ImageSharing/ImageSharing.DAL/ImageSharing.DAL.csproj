@@ -48,14 +48,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EntityNew\Comment.cs" />
-    <Compile Include="EntityNew\Entity.cs" />
-    <Compile Include="EntityNew\Friendship.cs" />
-    <Compile Include="EntityNew\FriendshipRequest.cs" />
-    <Compile Include="EntityNew\Post.cs" />
-    <Compile Include="EntityNew\Subscription.cs" />
-    <Compile Include="EntityNew\Tape.cs" />
-    <Compile Include="EntityNew\UserAccount.cs" />
+    <Compile Include="Entity\Comment.cs" />
+    <Compile Include="Entity\Entity.cs" />
+    <Compile Include="Entity\Friendship.cs" />
+    <Compile Include="Entity\FriendshipRequest.cs" />
+    <Compile Include="Entity\Post.cs" />
+    <Compile Include="Entity\Subscription.cs" />
+    <Compile Include="Entity\Tape.cs" />
+    <Compile Include="Entity\UserAccount.cs" />
     <Compile Include="IImageSharingRepository.cs" />
     <Compile Include="ImageSharingContext.cs" />
     <Compile Include="ImageSharingRepository.cs" />

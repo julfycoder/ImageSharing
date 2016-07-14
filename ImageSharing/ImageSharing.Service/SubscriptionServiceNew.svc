@@ -1,1 +1,0 @@
-﻿<%@ ServiceHost Language="C#" Debug="true" Service="ImageSharing.Service.SubscriptionServiceNew" CodeBehind="SubscriptionServiceNew.svc.cs" %>

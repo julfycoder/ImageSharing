@@ -6,16 +6,16 @@ using System.Web.Mvc;
 using ImageSharing.Models;
 using ImageSharing.Models.EntityInfo;
 using ImageSharing.DAL;
-using ImageSharing.UserServiceNew;
-using ImageSharing.TapeServiceNew;
-using ImageSharing.PostServiceNew;
-using ImageSharing.SubscriptionServiceNew;
-using ImageSharing.CommentServiceNew;
-using ImageSharing.FriendshipRequestServiceNew;
+using ImageSharing.DAL.Entity;
+using ImageSharing.UserService;
+using ImageSharing.TapeService;
+using ImageSharing.PostService;
+using ImageSharing.SubscriptionService;
+using ImageSharing.CommentService;
+using ImageSharing.FriendshipRequestService;
 using ImageSharing.FriendshipService;
-using ImageSharing.DAL.EntityNew;
 using ImageSharing.Mail;
-using ImageSharing.Models.InfoCreatorNew;
+using ImageSharing.Models.InfoCreator;
 using ImageSharing.Security;
 
 namespace ImageSharing.Controllers
@@ -24,13 +24,13 @@ namespace ImageSharing.Controllers
     {
         //
         // GET: /Home/
-        UserServiceNewClient userClient = new UserServiceNewClient();
-        TapeServiceNewClient tapeClient = new TapeServiceNewClient();
-        PostServiceNewClient postClient = new PostServiceNewClient();
-        SubscriptionServiceNewClient subClient = new SubscriptionServiceNewClient();
-        CommentServiceNewClient commentClient = new CommentServiceNewClient();
+        UserServiceClient userClient = new UserServiceClient();
+        TapeServiceClient tapeClient = new TapeServiceClient();
+        PostServiceClient postClient = new PostServiceClient();
+        SubscriptionServiceClient subClient = new SubscriptionServiceClient();
+        CommentServiceClient commentClient = new CommentServiceClient();
         FriendshipServiceClient friendshipClient = new FriendshipServiceClient();
-        FriendshipRequestServiceNewClient requestClient = new FriendshipRequestServiceNewClient();
+        FriendshipRequestServiceClient requestClient = new FriendshipRequestServiceClient();
 
         public ActionResult Index()
         {
@@ -49,7 +49,7 @@ namespace ImageSharing.Controllers
         {
             string hash = Scrambler.GetMD5Hash(model.Password);
             UserAccount user = new UserAccount();
-            if (!userClient.GetUsers().Any(u => u.Email == model.Email && u.Password == Scrambler.GetMD5Hash(model.Password)))
+            if (model.Password!=null&&model.Password!=""&&model.Email!=null&&!userClient.GetUsers().Any(u => u.Email == model.Email && u.Password == Scrambler.GetMD5Hash(model.Password)))
             {
                 ViewBag.Message = "Password or email is incorrect!";
                 return View("LoginPage");

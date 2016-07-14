@@ -1,1 +1,1 @@
-﻿<%@ ServiceHost Language="C#" Debug="true" Service="ImageSharing.Service.PostService" CodeBehind="PostService.svc.cs" %>
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="ImageSharing.Service.PostServiceNew" CodeBehind="PostService.svc.cs" %>

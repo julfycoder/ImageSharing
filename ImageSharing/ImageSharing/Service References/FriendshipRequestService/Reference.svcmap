@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="0d334656-3065-43fe-a7bc-9ee2e23b70c1" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:6982/FriendshipRequestService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="FriendshipRequestServiceNew.wsdl" MetadataType="Wsdl" ID="2ad2dc9f-96ac-4e10-b5ca-daacfd66b324" SourceId="1" SourceUrl="http://localhost:6982/FriendshipRequestService.svc?wsdl" />
+    <MetadataFile FileName="FriendshipRequestService.xsd" MetadataType="Schema" ID="a0b7265d-e769-4785-a94e-0d6433015809" SourceId="1" SourceUrl="http://localhost:6982/FriendshipRequestService.svc?xsd=xsd2" />
+    <MetadataFile FileName="FriendshipRequestService1.xsd" MetadataType="Schema" ID="a018fa55-c008-4462-9fdf-8f5b31870bc6" SourceId="1" SourceUrl="http://localhost:6982/FriendshipRequestService.svc?xsd=xsd0" />
+    <MetadataFile FileName="FriendshipRequestService.disco" MetadataType="Disco" ID="cba2a444-c196-43fc-8e6a-3d6f4c704ff4" SourceId="1" SourceUrl="http://localhost:6982/FriendshipRequestService.svc?disco" />
+    <MetadataFile FileName="FriendshipRequestService2.xsd" MetadataType="Schema" ID="200b0edd-1337-484c-832e-f66fcde97b64" SourceId="1" SourceUrl="http://localhost:6982/FriendshipRequestService.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

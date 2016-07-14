@@ -3,25 +3,36 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using ImageSharing.Models.EntityInfo;
-using ImageSharing.UserService;
-using ImageSharing.PostService;
 using ImageSharing.DAL.Entity;
+using ImageSharing.UserService;
+using ImageSharing.TapeService;
+using ImageSharing.PostService;
+using ImageSharing.SubscriptionService;
+using ImageSharing.CommentService;
+using ImageSharing.FriendshipRequestService;
+using ImageSharing.FriendshipService;
 
 namespace ImageSharing.Models.InfoCreator
 {
     public class SubscriptionInfoCreator:EntityInfoCreator
     {
-        public override EntityInfoBase Create(Entity entity, UserServiceClient userClient, PostServiceClient postClient, TapeService.TapeServiceClient tapeClient)
+        public override EntityInfoBase Create(Entity entity,
+            UserServiceClient userClient,
+            PostServiceClient postClient,
+            TapeServiceClient tapeClient,
+            FriendshipServiceClient friendshipClient,
+            CommentServiceClient commentClient,
+            SubscriptionServiceClient subClient)
         {
             Subscription subscription = (Subscription)entity;
             return new SubscriptionInfo
             {
                 ID = subscription.ID,
-                UserName = userClient.GetUser(subscription.UserId).Name,
-                Surname = userClient.GetUser(subscription.UserId).Surname,
-                PostsCount = postClient.GetPosts().Where(p => p.AuthorID == subscription.UserId && p.DateTime > subscription.DateTime).Count(),
+                UserName = userClient.GetUser(subscription.UserID).Name,
+                Surname = userClient.GetUser(subscription.UserID).Surname,
+                PostsCount = postClient.GetPosts().Where(p => p.AuthorID == subscription.UserID && p.DateTime > subscription.DateTime).Count(),
                 DateTime = subscription.DateTime,
-                friendId = subscription.UserId
+                friendId = subscription.UserID
             };
         }
     }

@@ -8,7 +8,8 @@ namespace ImageSharing.DAL.Entity
 {
     public class Subscription : Entity
     {
-        public int UserId { get; set; }
+        public int UserID { get; set; }
+        public int FollowerID { get; set; }
         public DateTime DateTime { get; set; }
     }
 }

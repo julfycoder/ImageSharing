@@ -8,7 +8,7 @@ using ImageSharing.DAL.Entity;
 
 namespace ImageSharing.Service
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IFriendshipRequestService" in both code and config file together.
+    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IFriendshipRequestServiceNew" in both code and config file together.
     [ServiceContract]
     public interface IFriendshipRequestService
     {

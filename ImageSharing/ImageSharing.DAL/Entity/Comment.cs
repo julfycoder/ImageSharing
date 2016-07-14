@@ -3,11 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ImageSharing.DAL.Entity
 {
     public class Comment:Entity
     {
+        [ForeignKey("Post")]
+        public int PostID { get; set; }
         public string Text { get; set; }
+
+        public Post Post { get; set; }
     }
 }

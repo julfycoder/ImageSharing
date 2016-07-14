@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ImageSharing.DAL.EntityNew;
+using ImageSharing.DAL.Entity;
 
 namespace ImageSharing.DAL
 {
@@ -16,8 +16,8 @@ namespace ImageSharing.DAL
         IEnumerable<Subscription> Subscriptions { get; }
         IEnumerable<FriendshipRequest> Requests { get; }
         IEnumerable<Friendship> Friendships { get; }
-        void AddEntity<T>(T entity) where T : EntityNew.Entity;
-        void RemoveEntity<T>(T entity) where T : EntityNew.Entity;
+        void AddEntity<T>(T entity) where T : Entity.Entity;
+        void RemoveEntity<T>(T entity) where T : Entity.Entity;
         void SaveChanges();
     }
 }

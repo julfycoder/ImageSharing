@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 
-
 namespace ImageSharing.DAL.Entity
 {
     public class Entity
