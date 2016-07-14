@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="ImageSharing.Service.TapeServiceNew" CodeBehind="TapeServiceNew.svc.cs" %>

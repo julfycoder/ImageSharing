@@ -1,0 +1,16 @@
+﻿@model ImageSharing.Models.RecoveryModel
+@{
+    ViewBag.Title = "RecoveryPage";
+}
+
+@section Body{
+    <h2>Recover</h2>
+@using(Html.BeginForm("Recovery","Home"))
+{
+    @Html.LabelFor(m => m.Email)
+    @Html.TextBoxFor(m => m.Email)
+    <br />
+    <input type="submit" value="submit" />
+}
+    <h2>@ViewBag.Message</h2>
+}

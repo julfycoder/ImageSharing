@@ -1,0 +1,168 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+
+    @Styles.Render("~/Content/PopupStyle")
+    <link href="~/Content/PopupStyle/jquery-ui.css" rel="stylesheet" />
+    <link type="text/css" rel="stylesheet" href="~/Content/SiteStyle.css" />
+    <script src="~/Scripts/jquery-1.8.2.js"></script>
+    <script src="~/Scripts/jquery-ui-1.8.24.js"></script>
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div id="MainContainer">
+        <div id="HeaderContainer">
+            <div id="HeaderContentContainer">
+                <div id="HeaderContentContainerRow">
+                    @{if(HttpContext.Current.Request.Cookies != null && 
+                          HttpContext.Current.Request.Cookies["Role"] != null && 
+                          (HttpContext.Current.Request.Cookies["Role"].Value == "admin"||
+                          HttpContext.Current.Request.Cookies["Role"].Value=="user"))
+                          
+                      {
+                    <div id="NavigationContainer">
+                        <div id="NavigationContainerRow">
+                            <div class="ReferenceContainer">
+                                <a href="@Url.Action("Home","UserHome",new {area="User"})">
+                                    <div>
+                                        <p>Home </p>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="ReferenceContainer">
+                                <a href="@Url.Action("FriendsPage","UserHome",new {area="User"})">
+                                    <div>
+                                        <p>Friends </p>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="ReferenceContainer">
+                                <a href="@Url.Action("AccountPage","UserHome",new {area="User"})">
+                                    <div>
+                                        <p>Account </p>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="ReferenceContainer">
+                                <a href="@Url.Action("SubscriptionsPage","UserHome",new {area="User"})">
+                                    <div>
+                                        <p>Subscriptions </p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    }
+                    }
+                    <div id="LocalizationContainer">
+                        <div id="LocalizationContainerRow">
+                            <div class="ReferenceContainer">
+                                <a href="HomeController/OtherPage">
+                                    <div>
+                                        <p>EN</p>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="ReferenceContainer">
+                                <a href="HomeController/OtherPage">
+                                    <div>
+                                        <p>RU</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="SearchContainer">
+                        <div id="SearchContainerRow">
+                            <div id="SearchContainerContent">
+                                <form action="@Url.Action("UsersPage", "Home", new {area="" })">
+                                    <input name="searchString" placeholder="search" />
+                                    <input type="submit" value="Search" />
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    @{
+                        if (HttpContext.Current.Request.Cookies == null ||
+                          HttpContext.Current.Request.Cookies["Role"] == null ||
+                          (HttpContext.Current.Request.Cookies["Role"].Value != "admin" &&
+                          HttpContext.Current.Request.Cookies["Role"].Value != "user"))
+                        {
+                    <div id="RegisterLoginContainer">
+                        <div id="RegisterLoginContainerRow">
+                            <div class="ReferenceContainer">
+                                <a href="/Home/RegisterPage">
+                                    <div>
+                                        <p>Register </p>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="ReferenceContainer">
+                                <a href="/Home/LoginPage">
+                                    <div>
+                                        <p>Login </p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    }
+                    else
+                    {
+                        <div id="RegisterLoginContainer">
+                        <div id="RegisterLoginContainerRow">
+                            <div class="ReferenceContainer">
+                                <a href="@Url.Action("Logout","UserHome",new {area="User"})">
+                                    <div>
+                                        <p>Logout </p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    }
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div id="MiddleContainer">
+            @RenderSection("Body")
+        </div>
+
+        <div id="FooterContainer">
+            <div id="FooterContentContainer">
+                <div id="FooterContentContainerRow">
+                    <div id="PolicyAboutContainer">
+                        <div id="PolicyAboutContainerRow">
+                            <div class="ReferenceContainer">
+                                <a href="/Home/AboutPage">
+                                    <div>
+                                        <p>About System</p>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="ReferenceContainer">
+                                <a href="/Home/PrivatePolicyPage">
+                                    <div>
+                                        <p>Private Policy</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

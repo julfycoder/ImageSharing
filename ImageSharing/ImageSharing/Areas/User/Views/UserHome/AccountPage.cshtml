@@ -1,0 +1,33 @@
+﻿@model ImageSharing.Models.EntityInfo.UserAccountInfo
+
+@{
+    ViewBag.Title = "AccountPage";
+}
+
+@section Body
+{
+    <div id="AccountContainer">
+        @using (Html.BeginForm("ChangeAccountInfo", "UserHome", FormMethod.Post, new { area = "User", enctype = "multipart/form-data" }))
+        {
+            <div id="ChangeAvatarContainer">
+                <img src="@Url.Content(@"..\..\..\..\Content\AvatarImages\" + Model.AvatarPath)" alt="Avatar" /><br />
+                <input type="file" name="Avatar" /><br />
+            </div><br />
+            <br />
+    
+            @Html.Label("Name: ");
+            @Html.TextBox("Name", Model.Name);
+            <br /><br />
+            @Html.Label("Surname: ");
+            @Html.TextBox("Surname", Model.Surname);
+            <br /><br />
+            @Html.Label("Email: ");
+            @Html.TextBox("Email", Model.Email);
+            <br /><br />
+            @Html.Label("Password: ");
+            @Html.TextBox("Password", Model.Password);
+            <br /><br />
+            <input type="submit" value="Save changes" />
+        }
+    </div>
+}

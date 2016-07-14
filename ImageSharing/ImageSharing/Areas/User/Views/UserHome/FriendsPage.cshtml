@@ -1,0 +1,40 @@
+﻿@model IEnumerable<ImageSharing.Models.EntityInfo.FriendInfo>
+@{
+    ViewBag.Title = "Friends";
+}
+
+@section Body
+{
+<div id="FriendsContainer">
+    <div id="FriendsNavigationContainer">
+        <div class="ReferenceContainer">
+            <a href="@Url.Action("RequestsPage","UserHome",new {area="User"})">
+               <div>
+                   <p>Requests </p>
+               </div>
+            </a>
+        </div>
+    </div>
+    @using(Html.BeginForm("SearchFriends","UserHome"))
+    {
+        <input type="text" name="searchString" />
+        <input type="submit" value="Search" />
+    }
+    <div id="UsersContainer">
+        @foreach(ImageSharing.Models.EntityInfo.FriendInfo friend in Model)
+        {
+            <div id="UserInfoContainer">
+                <div id="AvatarImageContainer">
+                    <img src="@Url.Content(@"..\..\..\..\Content\AvatarImages\"+friend.AvatarPath)" alt="Avatar"/>
+                </div>
+                <div id="NickContainer">
+                    <a href="@Url.Action("UserPage", "Home", new { area = "", id = friend.ID })">
+                        @friend.Surname @friend.Name
+                    </a>
+                </div>
+            </div>
+        }
+        <h2>@ViewBag.SearchResult</h2>
+    </div>
+</div>
+}

@@ -1,0 +1,117 @@
+﻿@model ImageSharing.Models.EntityInfo.UserAccountInfo
+
+@{
+    ViewBag.Title = "UserPage";
+}
+@section Body{
+    <div id="AvatarContainer">
+        <div id="AvatarImageContainer">
+            <img src="@Url.Content(@"..\..\..\..\Content\AvatarImages\" + Model.AvatarPath)" alt="Avatar" />
+        </div>
+        <div id="NickContainer">
+            @Model.Surname @Model.Name 
+        </div>
+        @{
+             if (HttpContext.Current.Request.Cookies != null &&
+                          HttpContext.Current.Request.Cookies["Role"] != null &&
+                          (HttpContext.Current.Request.Cookies["Role"].Value == "admin" ||
+                          HttpContext.Current.Request.Cookies["Role"].Value == "user"))
+               {
+                   if (ViewBag.ThereIsRequest == "false")
+                   {
+                       if (ViewBag.IsFriend == "false")
+                       {
+            <form action="@Url.Action("MakeFriend", "UserHome", new { area = "User", id = Model.ID })">
+                <input type="submit" value="MakeFriend" />
+            </form>
+                       }
+                       if (ViewBag.IsFriend == "true")
+                       {
+            <form action="@Url.Action("RemoveFriend", "UserHome", new { area = "User", id = Model.ID })">
+                <input type="submit" value="RemoveFriend" />
+            </form>
+                           if (ViewBag.IsFollow == "false")
+                           {
+                <form action="@Url.Action("Follow", "UserHome", new { area = "User", id = Model.ID })">
+                    <input type="submit" value="Follow" />
+                </form>
+                           }
+                           if (ViewBag.IsFollow == "true")
+                           {
+                <form action="@Url.Action("Unfollow", "UserHome", new { area = "User", id = Model.ID })">
+                    <input type="submit" value="Unfollow" />
+                </form>
+                           }
+                       }
+                   }
+                   else
+                   {<p>You sended a request to this user.</p>}
+
+               }
+               }
+    </div>
+    <div id="TapeContainer">
+        @foreach (ImageSharing.Models.EntityInfo.PostInfo post in Model.Tape.Posts)
+        {
+            <div id="PostContainer">
+                <div id="PostImageContainer" onclick="ShowPopup(@post.ID);">
+                    <img src="@Url.Content(@"..\..\..\..\Content\UploadedImages\" + post.ImagePath)" alt="Image"/>
+                </div>
+                <div id="PostDescriptionContainer">
+                    @post.Author.Surname @post.Author.Name @post.DateTime.ToShortDateString() at @post.DateTime.ToShortTimeString()
+                </div>
+            </div>
+            
+            <div id="PopupPostContainer_@post.ID" class="table-responsive" style="display:none;">
+                <div id="PopupPostImageContainer">
+                    <img src="@Url.Content(@"..\..\..\..\Content\UploadedImages\" + post.ImagePath)" alt="Image"/>
+                </div>
+                <div id="PopupPostUserInfoContainer">
+                    @post.Author.Surname @post.Author.Name @post.DateTime.ToShortDateString() at @post.DateTime.ToShortTimeString()<br /><br />
+                    @post.Description<br /><br />
+                </div>
+                
+                 <div id="PopupPostCommentsContainer">
+                     <div id="PopupPostAddCommentContainer">
+                        @{
+                            var options = new AjaxOptions()
+                            {
+                                UpdateTargetId = "CommentsContainer_" + post.ID,
+                                Url = Url.Action("Comments", "UserHome", new { area = "User", id = post.ID }),
+                            };
+                        }
+                        @using (Ajax.BeginForm(options))
+                        {
+                            <input type="text" name="PostID" value="@post.ID" style="display:none;" />
+                            <input type="text" name="Comment" placeholder="Enter some comments" />
+                            <input type="submit" value="Add comments" />
+                            
+                            <div id="CommentsContainer_@post.ID">
+                                @Html.Action("Comments", "UserHome", new { area = "User", id = post.ID })
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+            
+        }
+    </div>
+     @{
+             if (HttpContext.Current.Request.Cookies != null &&
+                          HttpContext.Current.Request.Cookies["Role"] != null &&
+                          (HttpContext.Current.Request.Cookies["Role"].Value == "admin" ||
+                          HttpContext.Current.Request.Cookies["Role"].Value == "user"))
+             {
+         <script type="text/javascript">
+             function ShowPopup(id) {
+                 $("#PopupPostContainer_" + id.toString()).dialog({
+                     height: window.innerHeight * 0.8,
+                     width: window.innerWidth * 0.8,
+                     modal: true,
+                 });
+             }
+         </script>
+             }
+             }
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+}

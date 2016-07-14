@@ -1,0 +1,34 @@
+﻿@model IEnumerable<ImageSharing.Models.EntityInfo.SubscriptionInfo>
+
+@{
+    ViewBag.Title = "SubscriptionsPage";
+}
+@section Body
+{
+    @using(Html.BeginForm("SearchSubscriptions","UserHome"))
+    {
+        <input type="text" name="searchString" />
+        <input type="submit" value="Search" />
+    }<br />
+    <div id="SubscriptionsContainer">
+        <table id="SubscriptionsTable">
+            <thead>
+                <tr>
+                    <td>Name</td>
+                    <td>Surame</td>
+                    <td>Posts count</td>
+                    <td>Action</td>
+                </tr>
+            </thead>
+            @foreach(ImageSharing.Models.EntityInfo.SubscriptionInfo sub in Model)
+            {
+                <tr>
+                    <td>@sub.UserName</td>
+                    <td>@sub.Surname</td>
+                    <td>@sub.PostsCount</td>
+                    <td>@Html.ActionLink("Unfollow", "Unfollow", "UserHome", new { area = "User", id = sub.friendId }, null)</td>
+                </tr>
+            }
+        </table>
+    </div>
+}

@@ -1,0 +1,11 @@
+C:\Users\Богдан\Documents\Visual Studio 2012\Projects\ImageSharing\ImageSharing.Service\bin\ImageSharing.Service.dll
+C:\Users\Богдан\Documents\Visual Studio 2012\Projects\ImageSharing\ImageSharing.Service\bin\ImageSharing.Service.pdb
+C:\Users\Богдан\Documents\Visual Studio 2012\Projects\ImageSharing\ImageSharing.Service\bin\ImageSharing.Business.dll
+C:\Users\Богдан\Documents\Visual Studio 2012\Projects\ImageSharing\ImageSharing.Service\bin\ImageSharing.DAL.dll
+C:\Users\Богдан\Documents\Visual Studio 2012\Projects\ImageSharing\ImageSharing.Service\bin\EntityFramework.dll
+C:\Users\Богдан\Documents\Visual Studio 2012\Projects\ImageSharing\ImageSharing.Service\bin\ImageSharing.Business.pdb
+C:\Users\Богдан\Documents\Visual Studio 2012\Projects\ImageSharing\ImageSharing.Service\bin\ImageSharing.DAL.pdb
+C:\Users\Богдан\Documents\Visual Studio 2012\Projects\ImageSharing\ImageSharing.Service\bin\EntityFramework.xml
+C:\Users\Богдан\Documents\Visual Studio 2012\Projects\ImageSharing\ImageSharing.Service\obj\Debug\ImageSharing.Service.csprojResolveAssemblyReference.cache
+C:\Users\Богдан\Documents\Visual Studio 2012\Projects\ImageSharing\ImageSharing.Service\obj\Debug\ImageSharing.Service.dll
+C:\Users\Богдан\Documents\Visual Studio 2012\Projects\ImageSharing\ImageSharing.Service\obj\Debug\ImageSharing.Service.pdb

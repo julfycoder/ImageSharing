@@ -1,0 +1,8 @@
+﻿@model List<ImageSharing.Models.EntityInfo.CommentInfo>
+
+@foreach (ImageSharing.Models.EntityInfo.CommentInfo comment in Model)
+{
+    <div id="PopupPostCommentContainer">
+        @comment.Text
+    </div>
+}

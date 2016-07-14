@@ -1,0 +1,285 @@
+﻿html
+{
+    
+}
+body {
+    padding-bottom:80px;
+    background-color:#f5f5f5;
+}
+#MainContainer
+{
+    background-color:#f5f5f5;
+    padding-bottom:7px;
+}
+#MiddleContainer
+{
+    margin-top:95px;
+    background-color:#f5f5f5;
+}
+/*HEADER*/
+#HeaderContainer
+{
+    position:fixed;
+    right:0px;left:0px;top:0px;
+    padding-top:5px;padding-right:5px;padding-left:5px;padding-bottom:5px;
+    background-color:#f5f5f5;
+}
+#HeaderContentContainer
+{
+    height:70px;
+    background-color:#dcdcdc;
+    display:table;
+    width:100%;
+}
+#HeaderContentContainerRow
+{
+    display:table-row;
+}
+/*FOOTER*/
+#FooterContainer
+{
+    position:fixed;
+    right:0px;left:0px;bottom:0px;
+    padding-top:5px;padding-right:5px;padding-left:5px;padding-bottom:5px;
+    background-color:#f5f5f5;
+}
+#FooterContentContainer
+{
+    display:table;
+    height:70px;
+    background-color: #dcdcdc;
+    width:100%;
+}
+#FooterContentContainerRow
+{
+    display:table-row;
+}
+/*REFERENCE_CONTAINER*/
+.ReferenceContainer
+{
+    display:table-cell;
+    padding:2px;
+}
+    .ReferenceContainer a
+    {
+        text-decoration:none;
+    }
+        .ReferenceContainer a div
+        {
+            color:black;
+            text-align:center;
+            padding-top:16%;
+            cursor:pointer;
+            height:50px;
+            width:auto;
+        }
+            .ReferenceContainer a div:hover
+            {
+                background-color:gray;
+            }
+/*NAVIGATION*/
+#NavigationContainer
+{
+    display:table;display:table-cell;
+    border-spacing:3px;
+}
+#NavigationContainerRow
+{
+    display:table-row;
+}
+/*LOCALIZATION*/
+#LocalizationContainer
+{
+    display:table;display:table-cell;
+    border-spacing:3px,1px;
+}
+#LocalizationContainerRow
+{
+    display:table-row;
+}
+/*SEARCH*/
+#SearchContainer
+{
+    display:table;display:table-cell;
+    border-spacing:3px;
+}
+#SearchContainerRow
+{
+    display:table-row;
+}
+#SearchContainerContent
+{
+}
+    #SearchContainerContent textArea
+    {
+        height:20px;
+        width:20em;
+        top:10px;
+    }
+/*REGISTER_LOGIN*/
+#RegisterLoginContainer
+{
+    display:table;display:table-cell;
+    border-spacing:3px;
+}
+#RegisterLoginContainerRow
+{
+    display:table-row;
+}
+/*POLICY_ABOUT*/
+#PolicyAboutContainer
+{
+    display:table;display:table-cell;
+    border-spacing:3px;
+}
+#PolicyAboutContainerRow
+{
+    display:table-row;
+}
+/*HOME*/
+/*AVATAR*/
+#AvatarContainer
+{
+    float:left;
+    margin-left:11%;
+    max-width:18%;
+    background-color:white;
+    text-align:center;
+    border:1px solid #efefef;
+    padding-top:20px;
+    padding-bottom:15px;
+}
+#AvatarImageContainer
+{
+    margin-left:8%;
+}
+    #AvatarImageContainer img
+    {
+        max-width: 280%;
+    }
+#NickContainer
+{
+    margin-top:8%;
+    font-family:Arial;
+}
+/*TAPE*/
+#TapeContainer
+{
+    width:40%;
+    margin-left:30%;
+    padding-left:20px;padding-right:20px;
+}
+/*POST*/
+#AddPostContainer
+{
+    height:auto;
+}
+    #AddPostContainer input[name="PostText"]
+    {
+        height:60px;
+        width:70%;
+    }
+    #AddPostContainer input[name="submitButton"]
+    {
+        width:28%;
+        height:60px;
+    }
+#PostContainer
+{
+    margin-top:30px;
+    height:300px;
+    padding-bottom:30px;padding-top:10px;padding-left:10px;padding-right:10px;
+    border:1px solid #efefef;
+    background-color:white;
+}
+#PostImageContainer
+{
+    text-align:center;
+    height:92%;
+}
+    #PostImageContainer img
+    {
+        max-width:100%;
+        max-height:100%;
+        cursor:pointer;
+    }
+#PostDescriptionContainer
+{
+    margin-top:1%;margin-bottom:1%;
+    font-weight:500;
+}
+/*USERS*/
+#UsersContainer
+{
+    padding:40px;
+    width:30%;
+    margin-left:30%;margin-top:20px;
+    text-align:center;
+}
+#UserInfoContainer
+{
+    max-width:220px;
+    margin-top:6px;
+    background-color:white;
+    text-align:center;
+    padding:5px;
+    border:1px solid #efefef;
+}
+#AvatarImageContainer
+{
+    width:30%;
+}
+/*FRIENDS*/
+#FriendsContainer form
+{
+    margin-left:40%;
+}
+#FriendsNavigationContainer
+{
+    float:left;
+    margin-left:11%;
+}
+/*SUBSCRIPTIONS*/
+#SubscriptionsTable
+{
+    width:100%;
+    border-spacing:0px;
+}
+    #SubscriptionsTable thead
+    {
+        background-color:#6495ed;
+    }
+    #SubscriptionsTable tr
+    {
+        height:55px;
+    }
+    #SubscriptionsTable tr:nth-child(even)
+    {
+        background-color:#87ceeb;
+    }
+/*ACCOUNT*/
+#AccountContainer
+{
+    text-align:center;
+}
+    #AccountContainer form
+    {
+    }
+#ChangeAvatarContainer img
+{
+    width:250px;
+}
+/*REQUESTS*/
+/*POPUP_POST*/
+.table-responsive
+{
+}
+#PopupPostAddCommentContainer
+{
+}
+#PopupPostCommentContainer
+{
+    margin-top:10px;
+    padding-top:1%;padding-bottom:1%;
+    border:1px solid gray;
+}

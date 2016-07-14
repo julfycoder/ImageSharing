@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="66d9ac6f-a77c-4cc6-8c09-c5d1b66907f7" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:6982/PostServiceNew.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="PostServiceNew.xsd" MetadataType="Schema" ID="ce2accaf-6c20-4837-8946-9306617a06c1" SourceId="1" SourceUrl="http://localhost:6982/PostServiceNew.svc?xsd=xsd1" />
+    <MetadataFile FileName="PostServiceNew1.xsd" MetadataType="Schema" ID="33293822-d0a8-4e31-8202-8d643bd48fd1" SourceId="1" SourceUrl="http://localhost:6982/PostServiceNew.svc?xsd=xsd2" />
+    <MetadataFile FileName="PostServiceNew.disco" MetadataType="Disco" ID="8c0a5385-a6a0-43a9-a4e8-482b52245eab" SourceId="1" SourceUrl="http://localhost:6982/PostServiceNew.svc?disco" />
+    <MetadataFile FileName="PostServiceNew2.xsd" MetadataType="Schema" ID="54d83d28-08fd-4431-b893-cc5d070cd172" SourceId="1" SourceUrl="http://localhost:6982/PostServiceNew.svc?xsd=xsd0" />
+    <MetadataFile FileName="PostServiceNew.wsdl" MetadataType="Wsdl" ID="f4d5def9-0922-4606-9419-32d508ed3d83" SourceId="1" SourceUrl="http://localhost:6982/PostServiceNew.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

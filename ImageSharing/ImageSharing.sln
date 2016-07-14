@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageSharing", "ImageSharing\ImageSharing.csproj", "{97B75735-EC67-4BC3-9809-560174D3A521}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageSharing.DAL", "ImageSharing.DAL\ImageSharing.DAL.csproj", "{A8608573-9670-4E8E-AE38-1E2656999330}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageSharing.Business", "ImageSharing.Business\ImageSharing.Business.csproj", "{A15AAAC7-CA3A-4765-BB30-EFE66ABC155E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageSharing.Service", "ImageSharing.Service\ImageSharing.Service.csproj", "{81C0D602-A1AA-42B8-961C-97D395CCBD10}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{97B75735-EC67-4BC3-9809-560174D3A521}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97B75735-EC67-4BC3-9809-560174D3A521}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97B75735-EC67-4BC3-9809-560174D3A521}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97B75735-EC67-4BC3-9809-560174D3A521}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8608573-9670-4E8E-AE38-1E2656999330}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8608573-9670-4E8E-AE38-1E2656999330}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8608573-9670-4E8E-AE38-1E2656999330}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8608573-9670-4E8E-AE38-1E2656999330}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A15AAAC7-CA3A-4765-BB30-EFE66ABC155E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A15AAAC7-CA3A-4765-BB30-EFE66ABC155E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A15AAAC7-CA3A-4765-BB30-EFE66ABC155E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A15AAAC7-CA3A-4765-BB30-EFE66ABC155E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81C0D602-A1AA-42B8-961C-97D395CCBD10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81C0D602-A1AA-42B8-961C-97D395CCBD10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81C0D602-A1AA-42B8-961C-97D395CCBD10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81C0D602-A1AA-42B8-961C-97D395CCBD10}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="50fded6a-f52a-4eae-94a8-bc204ce46091" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:6982/UserServiceNew.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="UserServiceNew.wsdl" MetadataType="Wsdl" ID="8e6a602e-d84f-4f3f-bb07-a89c690ce17d" SourceId="1" SourceUrl="http://localhost:6982/UserServiceNew.svc?wsdl" />
+    <MetadataFile FileName="UserServiceNew.disco" MetadataType="Disco" ID="43c13dec-658e-40b0-9239-d502937bd8b9" SourceId="1" SourceUrl="http://localhost:6982/UserServiceNew.svc?disco" />
+    <MetadataFile FileName="UserServiceNew.xsd" MetadataType="Schema" ID="95cf605f-7fff-43f7-9ea6-e02961a61faa" SourceId="1" SourceUrl="http://localhost:6982/UserServiceNew.svc?xsd=xsd0" />
+    <MetadataFile FileName="UserServiceNew1.xsd" MetadataType="Schema" ID="2c176355-43b0-4ae6-8fec-541361528d3f" SourceId="1" SourceUrl="http://localhost:6982/UserServiceNew.svc?xsd=xsd1" />
+    <MetadataFile FileName="UserServiceNew2.xsd" MetadataType="Schema" ID="074fd0d4-3f50-4e56-b045-cb9550289eb5" SourceId="1" SourceUrl="http://localhost:6982/UserServiceNew.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

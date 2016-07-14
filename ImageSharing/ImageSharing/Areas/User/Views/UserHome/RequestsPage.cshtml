@@ -1,0 +1,32 @@
+﻿@model List<ImageSharing.Models.EntityInfo.UserAccountInfo>
+@{
+    ViewBag.Title = "RequestsPage";
+}
+
+@section Body
+{
+    <div id="UsersContainer">
+        @foreach(ImageSharing.Models.EntityInfo.UserAccountInfo user in Model)
+        {
+            <div id="UserInfoContainer">
+                <div id="AvatarImageContainer">
+                    <img src="@Url.Content(@"..\..\..\..\Content\AvatarImages\"+user.AvatarPath)" alt="Avatar"/>
+                </div>
+                <div id="NickContainer">
+                    <a href="@Url.Action("UserPage", "Home", new { area = "", id = user.ID })">
+                        @user.Surname @user.Name
+                    </a>
+                </div>
+                @using (Html.BeginForm("MakeFriend", "UserHome", new { area = "User", id = user.ID }))
+                {
+                    <input type="submit" value="MakeFriend" />
+                }
+                @using (Html.BeginForm("RemoveRequest", "UserHome", new { area = "User", id = user.ID }))
+                {
+                    <input type="submit" value="RemoveRequest" />
+                }
+            </div>
+        }
+        <h2>@ViewBag.SearchResult</h2>
+    </div>
+}

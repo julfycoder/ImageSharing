@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="30775455-9876-45c4-9b8c-e66ad512d520" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:6982/SubscriptionServiceNew.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="SubscriptionServiceNew.xsd" MetadataType="Schema" ID="e1b50767-8d55-4e7c-9f2f-d3b7b7d5a655" SourceId="1" SourceUrl="http://localhost:6982/SubscriptionServiceNew.svc?xsd=xsd0" />
+    <MetadataFile FileName="SubscriptionServiceNew.disco" MetadataType="Disco" ID="0f40decd-ecfc-4c1d-881f-43e6e84359f9" SourceId="1" SourceUrl="http://localhost:6982/SubscriptionServiceNew.svc?disco" />
+    <MetadataFile FileName="SubscriptionServiceNew.wsdl" MetadataType="Wsdl" ID="4dafac0e-0b7a-4565-a15b-d479f40f12ec" SourceId="1" SourceUrl="http://localhost:6982/SubscriptionServiceNew.svc?wsdl" />
+    <MetadataFile FileName="SubscriptionServiceNew1.xsd" MetadataType="Schema" ID="3ba6c180-f8e8-48b2-8bd3-9d4c6e86a2b2" SourceId="1" SourceUrl="http://localhost:6982/SubscriptionServiceNew.svc?xsd=xsd2" />
+    <MetadataFile FileName="SubscriptionServiceNew2.xsd" MetadataType="Schema" ID="3eb62250-b557-47fb-bbd4-b1e9e6450fe6" SourceId="1" SourceUrl="http://localhost:6982/SubscriptionServiceNew.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

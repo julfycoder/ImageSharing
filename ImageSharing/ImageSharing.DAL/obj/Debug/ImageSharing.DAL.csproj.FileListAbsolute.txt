@@ -1,0 +1,10 @@
+c:\users\богдан\documents\visual studio 2012\Projects\ImageSharing\ImageSharing.DAL\bin\Debug\ImageSharing.DAL.dll.config
+c:\users\богдан\documents\visual studio 2012\Projects\ImageSharing\ImageSharing.DAL\bin\Debug\ImageSharing.DAL.dll
+c:\users\богдан\documents\visual studio 2012\Projects\ImageSharing\ImageSharing.DAL\bin\Debug\ImageSharing.DAL.pdb
+c:\users\богдан\documents\visual studio 2012\Projects\ImageSharing\ImageSharing.DAL\bin\Debug\EntityFramework.dll
+c:\users\богдан\documents\visual studio 2012\Projects\ImageSharing\ImageSharing.DAL\bin\Debug\EntityFramework.SqlServer.dll
+c:\users\богдан\documents\visual studio 2012\Projects\ImageSharing\ImageSharing.DAL\bin\Debug\EntityFramework.xml
+c:\users\богдан\documents\visual studio 2012\Projects\ImageSharing\ImageSharing.DAL\bin\Debug\EntityFramework.SqlServer.xml
+c:\users\богдан\documents\visual studio 2012\Projects\ImageSharing\ImageSharing.DAL\obj\Debug\ImageSharing.DAL.csprojResolveAssemblyReference.cache
+c:\users\богдан\documents\visual studio 2012\Projects\ImageSharing\ImageSharing.DAL\obj\Debug\ImageSharing.DAL.dll
+c:\users\богдан\documents\visual studio 2012\Projects\ImageSharing\ImageSharing.DAL\obj\Debug\ImageSharing.DAL.pdb
