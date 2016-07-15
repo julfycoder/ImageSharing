@@ -4,17 +4,17 @@
 }
 body {
     padding-bottom:80px;
-    background-color:#f5f5f5;
+    background-color:#eeeeee;
 }
 #MainContainer
 {
-    background-color:#f5f5f5;
+    background-color:#eeeeee;
     padding-bottom:7px;
 }
 #MiddleContainer
 {
     margin-top:95px;
-    background-color:#f5f5f5;
+    background-color:#eeeeee;
 }
 /*HEADER*/
 #HeaderContainer
@@ -22,7 +22,7 @@ body {
     position:fixed;
     right:0px;left:0px;top:0px;
     padding-top:5px;padding-right:5px;padding-left:5px;padding-bottom:5px;
-    background-color:#f5f5f5;
+    background-color:#eeeeee;
 }
 #HeaderContentContainer
 {
@@ -41,7 +41,7 @@ body {
     position:fixed;
     right:0px;left:0px;bottom:0px;
     padding-top:5px;padding-right:5px;padding-left:5px;padding-bottom:5px;
-    background-color:#f5f5f5;
+    background-color:#eeeeee;
 }
 #FooterContentContainer
 {
@@ -145,9 +145,10 @@ body {
     max-width:18%;
     background-color:white;
     text-align:center;
-    border:1px solid #efefef;
+    border:1px solid #e1e1e1;
     padding-top:20px;
     padding-bottom:15px;
+    border-radius:4px;
 }
 #AvatarImageContainer
 {
@@ -189,8 +190,9 @@ body {
     margin-top:30px;
     height:300px;
     padding-bottom:30px;padding-top:10px;padding-left:10px;padding-right:10px;
-    border:1px solid #efefef;
+    border:1px solid #e1e1e1;
     background-color:white;
+    border-radius:4px;
 }
 #PostImageContainer
 {
@@ -223,7 +225,7 @@ body {
     background-color:white;
     text-align:center;
     padding:5px;
-    border:1px solid #efefef;
+    border:1px solid #e1e1e1;
 }
 #AvatarImageContainer
 {
@@ -240,6 +242,18 @@ body {
     margin-left:11%;
 }
 /*SUBSCRIPTIONS*/
+#SubscriptionsContainer
+{
+
+}
+    #SubscriptionsContainer form
+    {
+        margin-left:33%;
+    }
+        #SubscriptionsContainer form input[name='searchString']
+        {
+            width:25em;
+        }
 #SubscriptionsTable
 {
     width:100%;
@@ -282,4 +296,70 @@ body {
     margin-top:10px;
     padding-top:1%;padding-bottom:1%;
     border:1px solid gray;
+}
+/*ADMINISTRATION_CONSOLE*/
+#AdministrationNavigationContainer
+{
+    display:table;
+    border-spacing:100px 30px;
+    padding-left:30%;
+}
+#AdministrationNavigationRow
+{
+    display:table-row;
+}
+.AdministrationNavigationButtonContainer
+{
+    display:table-cell;
+}
+#CommentsConsoleContainer form table
+{
+    border-spacing:30px 15px;
+}
+#UsersConsoleContainer form table
+{
+    border-spacing:30px 15px;
+}
+#PostsConsoleContainer form table
+{
+    border-spacing:30px 15px;
+}
+/*ABOUT*/
+#AboutContainer
+{
+    padding-top:8%;padding-bottom:8%;padding-left:21%;padding-right:21%;
+    /*background-color:orange;*/
+}
+#AboutInfoContainer
+{
+    /*background-color:green;*/
+    background-color:white;
+    padding:4%;
+    border-radius:20px;
+    border:1px solid #e1e1e1;
+}
+#AboutInfoTextContainer
+{
+    /*background-color:brown;*/
+    padding:1px;
+    text-align:center;
+}
+#PrivatePolicyContainer
+{
+    padding-top:8%;padding-bottom:8%;padding-left:21%;padding-right:21%;
+    /*background-color:orange;*/
+}
+#PrivatePolicyInfoContainer
+{
+     /*background-color:green;*/
+    background-color:white;
+    padding:4%;
+    border-radius:20px;
+    border:1px solid #e1e1e1;
+}
+#PrivatePolicyInfoTextContainer
+{
+    /*background-color:brown;*/
+    padding:1px;
+    text-align:center;
 }

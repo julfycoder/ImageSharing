@@ -1,0 +1,77 @@
+﻿@model List<ImageSharing.Models.EntityInfo.PostInfo>
+
+<div id="CommentsConsoleContainer">
+      @using(Html.BeginForm("ChangeComments","AdminHome"))
+      {
+          <table>
+              <thead>
+                  <tr>
+                      <td>Post ID</td>
+                      <td>ID</td>
+                      <td>Text</td>
+                      <td>Action</td>
+                  </tr>
+              </thead>
+              @{var count = 0;}
+              @foreach (ImageSharing.Models.EntityInfo.PostInfo post in Model)
+              {
+                  for (int c = 0; c < post.Comments.Count(); c++)
+                  {
+                  <tr>
+                      <td>
+                          <input type="text" readonly="true" value="@post.ID" /></td>
+                      <td>
+                          <input type="text" value="@post.Comments.ToList()[c].ID" name="comments[@count].ID" readonly="true" /></td>
+                      <td>
+                          <input type="text" value="@post.Comments.ToList()[c].Text" name="comments[@count].Text" /></td>
+                      <td>
+                          @Html.ActionLink("Delete", "DeleteComment", "AdminHome", new { area = "Admin", id = post.Comments.ToList()[c].ID }, null)
+                      </td>
+                  </tr> 
+                      count++;
+                  }
+              }
+          </table>
+            
+     <input type="submit" value="Save" />
+    }
+    <div id="AdministrationConsoleAddCommentContainer">
+        @using (Html.BeginForm("AddComment", "AdminHome", new { area = "Admin" }))
+        {
+            @Html.AntiForgeryToken()
+            <table>
+                <thead>
+                    <tr>
+                        <td>Post ID</td>
+                        <td>Text</td>
+                        <td>Action</td>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>
+                        <input data-val="true" data-val-required="The PostID	 field is required." id="PostID" name="PostID" type="text" value="" class="input-validation-error" /></td>
+                    <td>
+                        <input data-val="true" data-val-required="The Text	 field is required." id="Text" name="Text" type="text" value="" class="input-validation-error" /></td>
+                    <td>
+                        <input type="submit" value="Add" />
+                    </td>
+                </tr>
+            </table>
+            <span class="field-validation-valid" data-valmsg-for="PostID" data-valmsg-replace="true"></span>
+            <br />
+            <span class="field-validation-valid" data-valmsg-for="Text" data-valmsg-replace="true"></span>
+            <br />
+              }
+        <script type="text/javascript">
+            function ValidateIntValue(event) {
+                if (event.keyCode <= 48 || event.keyCode >= 57)
+                {
+                    $("#PostID").val("");
+                }
+            }
+            $(PostID).keyup(ValidateIntValue);
+        </script>
+    </div>
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/jquery-ui-1.8.24.min.js"></script>
+</div>

@@ -67,6 +67,12 @@
   <wsdl:message name="IUserService_ActivateAccount_OutputMessage">
     <wsdl:part name="parameters" element="tns:ActivateAccountResponse" />
   </wsdl:message>
+  <wsdl:message name="IUserService_ChangeRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeRole" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_ChangeRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeRoleResponse" />
+  </wsdl:message>
   <wsdl:portType name="IUserService">
     <wsdl:operation name="AddUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IUserService/AddUser" message="tns:IUserService_AddUser_InputMessage" />
@@ -107,6 +113,10 @@
     <wsdl:operation name="ActivateAccount">
       <wsdl:input wsaw:Action="http://tempuri.org/IUserService/ActivateAccount" message="tns:IUserService_ActivateAccount_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IUserService/ActivateAccountResponse" message="tns:IUserService_ActivateAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeRole">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/ChangeRole" message="tns:IUserService_ChangeRole_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/ChangeRoleResponse" message="tns:IUserService_ChangeRole_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IUserService" type="tns:IUserService">
@@ -194,6 +204,15 @@
     </wsdl:operation>
     <wsdl:operation name="ActivateAccount">
       <soap:operation soapAction="http://tempuri.org/IUserService/ActivateAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeRole">
+      <soap:operation soapAction="http://tempuri.org/IUserService/ChangeRole" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

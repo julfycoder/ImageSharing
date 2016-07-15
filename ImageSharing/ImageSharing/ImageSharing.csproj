@@ -129,8 +129,12 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminHomeController.cs" />
+    <Compile Include="Areas\Admin\Models\CommentModel.cs" />
+    <Compile Include="Areas\Admin\Models\PostModel.cs" />
     <Compile Include="Areas\User\Controllers\UserHomeController.cs" />
     <Compile Include="IAccessible.cs" />
+    <Compile Include="Models\ChangeAccountModel.cs" />
     <Compile Include="Models\InfoCreator\CommentInfoCreator.cs" />
     <Compile Include="Models\InfoCreator\EntityInfoCreator.cs" />
     <Compile Include="Models\InfoCreator\FriendInfoCreator.cs" />
@@ -290,6 +294,11 @@
     <Content Include="Properties\DataSources\ImageSharing.DAL.EntityNew.FriendshipRequest.datasource" />
     <Content Include="Properties\DataSources\ImageSharing.DAL.EntityNew.Comment.datasource" />
     <Content Include="Properties\DataSources\ImageSharing.DAL.Entity.Friendship.datasource" />
+    <Content Include="Areas\Admin\Views\AdminHome\AdministrationPage.cshtml" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminHome\UsersConsolePage.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminHome\PostsConsolePage.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminHome\CommentsConsolePage.cshtml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
@@ -447,8 +456,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Controllers\" />
-    <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Areas\User\Models\" />
     <Folder Include="Areas\User\Views\Shared\" />

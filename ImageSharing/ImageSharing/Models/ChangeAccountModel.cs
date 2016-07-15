@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ImageSharing.Models
 {
-    public class RegisterModel
+    public class ChangeAccountModel
     {
         [Required]
         [Display(Name = "Name\t")]
@@ -29,17 +29,6 @@ namespace ImageSharing.Models
         [Display(Name = "Password\t")]
         public string Password { get; set; }
 
-        [Required]
-        [DataType(DataType.Password)]
-        [Display(Name = "Confirm password\t")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match")]
-        public string ConfirmPassword { get; set; }
-
-        [Display(Name = "Avatar\t")]
         public string AvatarPath { get; set; }
-
-        [Required]
-        [Display(Name = "Role\t")]
-        public string Role { get; set; }
     }
 }

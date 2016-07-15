@@ -1,4 +1,4 @@
-﻿@model ImageSharing.Models.EntityInfo.UserAccountInfo
+﻿@model ImageSharing.Models.ChangeAccountModel
 
 @{
     ViewBag.Title = "AccountPage";
@@ -15,19 +15,24 @@
             </div><br />
             <br />
     
-            @Html.Label("Name: ");
-            @Html.TextBox("Name", Model.Name);
+            @Html.LabelFor(m => m.Name)
+            @Html.TextBoxFor(m => m.Name)
+            @Html.ValidationMessageFor(m => m.Name)
             <br /><br />
-            @Html.Label("Surname: ");
-            @Html.TextBox("Surname", Model.Surname);
+            @Html.LabelFor(m => m.Surname)
+            @Html.TextBoxFor(m => m.Surname)
+            @Html.ValidationMessageFor(m => m.Surname)
             <br /><br />
-            @Html.Label("Email: ");
-            @Html.TextBox("Email", Model.Email);
+            @Html.LabelFor(m => m.Email)
+            @Html.TextBoxFor(m => m.Email)
+            @Html.ValidationMessageFor(m => m.Email)
             <br /><br />
-            @Html.Label("Password: ");
-            @Html.TextBox("Password", Model.Password);
+            @Html.LabelFor(m => m.Password)
+            @Html.TextBoxFor(m => m.Password)
+            @Html.ValidationMessageFor(m => m.Password)
             <br /><br />
             <input type="submit" value="Save changes" />
         }
     </div>
+    @Scripts.Render("~/bundles/jqueryval")
 }

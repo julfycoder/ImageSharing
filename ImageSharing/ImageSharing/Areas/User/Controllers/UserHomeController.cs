@@ -84,11 +84,18 @@ namespace ImageSharing.Areas.User.Controllers
         public ActionResult AccountPage()
         {
             UserAccountInfo userInfo = (UserAccountInfo)new UserAccountInfoCreator().Create(userClient.GetUser(int.Parse(HttpContext.Request.Cookies["ID"].Value)), userClient, postClient, tapeClient, friendshipClient, commentClient, subClient);
-            userInfo.Password = "";
-            return View(userInfo);
+            ChangeAccountModel accountModel = new ChangeAccountModel 
+            {
+                Name=userInfo.Name,
+                Surname=userInfo.Surname,
+                Email=userInfo.Email,
+                AvatarPath=userInfo.AvatarPath
+            };
+            accountModel.Password = "";
+            return View(accountModel);
         }
         [HttpPost]
-        public ActionResult ChangeAccountInfo(UserAccountInfo accountInfo, HttpPostedFileBase Avatar)
+        public ActionResult ChangeAccountInfo(ChangeAccountModel accountInfo, HttpPostedFileBase Avatar)
         {
             UserAccountInfo userInfo = (UserAccountInfo)new UserAccountInfoCreator().Create(userClient.GetUser(int.Parse(HttpContext.Request.Cookies["ID"].Value)), userClient, postClient, tapeClient, friendshipClient, commentClient, subClient);
             if (userInfo.Name != accountInfo.Name) userClient.ChangeName(userInfo.ID, accountInfo.Name);

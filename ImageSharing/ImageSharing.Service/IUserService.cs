@@ -42,5 +42,7 @@ namespace ImageSharing.Service
         [OperationContract]
         void ActivateAccount(int id);
 
+        [OperationContract]
+        void ChangeRole(int id, string role);
     }
 }

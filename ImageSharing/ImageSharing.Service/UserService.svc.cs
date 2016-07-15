@@ -64,5 +64,10 @@ namespace ImageSharing.Service
         {
             helper.ActivateAccount(id);
         }
+
+        public void ChangeRole(int id, string role)
+        {
+            helper.ChangeRole(id, role);
+        }
     }
 }

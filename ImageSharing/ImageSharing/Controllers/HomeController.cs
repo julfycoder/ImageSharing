@@ -35,7 +35,7 @@ namespace ImageSharing.Controllers
         public ActionResult Index()
         {
             if (HttpContext.Request.Cookies == null) HttpContext.Response.Cookies["ID"].Value = "";
-            if (HttpContext.Request.Cookies != null && HttpContext.Request.Cookies["Role"] != null && HttpContext.Request.Cookies["Role"].Value == "user")
+            if (HttpContext.Request.Cookies != null && HttpContext.Request.Cookies["Role"] != null && (HttpContext.Request.Cookies["Role"].Value == "user" || HttpContext.Request.Cookies["Role"].Value == "admin"))
             {
                 return RedirectToAction("Home", "UserHome", new { area = "User" });
             }
@@ -47,17 +47,18 @@ namespace ImageSharing.Controllers
         }
         public ActionResult Login(LoginModel model)
         {
-            string hash = Scrambler.GetMD5Hash(model.Password);
+            
             UserAccount user = new UserAccount();
-            if (model.Password!=null&&model.Password!=""&&model.Email!=null&&!userClient.GetUsers().Any(u => u.Email == model.Email && u.Password == Scrambler.GetMD5Hash(model.Password)))
+            if (!userClient.GetUsers().Any(u => u.Email == model.Email && u.Password == Scrambler.GetMD5Hash(model.Password)))
             {
                 ViewBag.Message = "Password or email is incorrect!";
                 return View("LoginPage");
             }
+
             user = userClient.GetUsers().First(u => u.Email == model.Email && u.Password == Scrambler.GetMD5Hash(model.Password));
             if (user.IsActivated)
             {
-                HttpContext.Response.Cookies["Role"].Value = "user";
+                HttpContext.Response.Cookies["Role"].Value = user.Role;
                 HttpContext.Response.Cookies["ID"].Value = user.ID.ToString();
                 return RedirectToAction("Home", "UserHome", new { area = "User" });
             }
@@ -70,21 +71,20 @@ namespace ImageSharing.Controllers
         }
         public ActionResult Register(RegisterModel model)
         {
-            UserAccount user = new UserAccount()
-            {
-                Email = model.Email,
-                Name = model.Name,
-                Surname = model.Surname,
-                Password = Scrambler.GetMD5Hash(model.Password),
-                IsActivated = false,
-                Role = "user"
-            };
-            userClient.AddUser(user);
+                UserAccount user = new UserAccount()
+                {
+                    Email = model.Email,
+                    Name = model.Name,
+                    Surname = model.Surname,
+                    Password = Scrambler.GetMD5Hash(model.Password),
+                    IsActivated = false,
+                    Role = "user"
+                };
+                userClient.AddUser(user);
 
-            ImageSharingMailMessanger msg = new ImageSharingMailMessanger();
-            msg.Send("image.sharing@mail.ru", "314159265IS", model.Email, "Apply registration", HttpContext.Request.Url.Scheme + "://" + HttpContext.Request.Url.Authority + "/Home/ApplyRegisterPage");
-
-            return View("LoginPage");
+                ImageSharingMailMessanger msg = new ImageSharingMailMessanger();
+                msg.Send("image.sharing@mail.ru", "314159265IS", model.Email, "Apply registration", HttpContext.Request.Url.Scheme + "://" + HttpContext.Request.Url.Authority + "/Home/ApplyRegisterPage");
+                return View("LoginPage");
         }
         public ActionResult AboutPage()
         {

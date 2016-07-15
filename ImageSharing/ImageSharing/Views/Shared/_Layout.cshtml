@@ -55,6 +55,16 @@
                                     </div>
                                 </a>
                             </div>
+                            @if(HttpContext.Current.Request.Cookies["Role"].Value == "admin")
+                            {
+                            <div class="ReferenceContainer">
+                                <a href="@Url.Action("AdministrationPage","AdminHome",new {area="admin"})">
+                                    <div>
+                                        <p>Administration </p>
+                                    </div>
+                                </a>
+                            </div>
+                            }
                         </div>
                     </div>
                     }

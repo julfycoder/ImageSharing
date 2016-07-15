@@ -5,12 +5,13 @@
 }
 @section Body
 {
-    @using(Html.BeginForm("SearchSubscriptions","UserHome"))
-    {
-        <input type="text" name="searchString" />
-        <input type="submit" value="Search" />
-    }<br />
+   
     <div id="SubscriptionsContainer">
+        @using (Html.BeginForm("SearchSubscriptions", "UserHome"))
+        {
+            <input type="text" name="searchString" />
+            <input type="submit" value="Search" />
+        }<br />
         <table id="SubscriptionsTable">
             <thead>
                 <tr>
@@ -20,7 +21,7 @@
                     <td>Action</td>
                 </tr>
             </thead>
-            @foreach(ImageSharing.Models.EntityInfo.SubscriptionInfo sub in Model)
+            @foreach (ImageSharing.Models.EntityInfo.SubscriptionInfo sub in Model)
             {
                 <tr>
                     <td>@sub.UserName</td>

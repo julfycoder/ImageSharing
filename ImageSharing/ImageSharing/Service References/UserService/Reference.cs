@@ -74,6 +74,12 @@ namespace ImageSharing.UserService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/ActivateAccount", ReplyAction="http://tempuri.org/IUserService/ActivateAccountResponse")]
         System.Threading.Tasks.Task ActivateAccountAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/ChangeRole", ReplyAction="http://tempuri.org/IUserService/ChangeRoleResponse")]
+        void ChangeRole(int id, string role);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/ChangeRole", ReplyAction="http://tempuri.org/IUserService/ChangeRoleResponse")]
+        System.Threading.Tasks.Task ChangeRoleAsync(int id, string role);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -181,6 +187,14 @@ namespace ImageSharing.UserService {
         
         public System.Threading.Tasks.Task ActivateAccountAsync(int id) {
             return base.Channel.ActivateAccountAsync(id);
+        }
+        
+        public void ChangeRole(int id, string role) {
+            base.Channel.ChangeRole(id, role);
+        }
+        
+        public System.Threading.Tasks.Task ChangeRoleAsync(int id, string role) {
+            return base.Channel.ChangeRoleAsync(id, role);
         }
     }
 }

@@ -75,5 +75,11 @@ namespace ImageSharing.Business.Helper
             user.IsActivated = true;
             repository.SaveChanges();
         }
+        public void ChangeRole(int id, string role)
+        {
+            UserAccount user = GetUser(id);
+            user.Role = role;
+            repository.SaveChanges();
+        }
     }
 }

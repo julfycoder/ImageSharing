@@ -1,0 +1,55 @@
+﻿@{
+    ViewBag.Title = "AdministrationPage";
+}
+
+@section Body{
+    <div id="AdministrationContainer">
+        <div id="AdministrationNavigationContainer">
+            <div id="AdministrationNavigationRow">
+                <div class="AdministrationNavigationButtonContainer">
+                    @{
+                        var usersOptions = new AjaxOptions()
+                            {
+                                UpdateTargetId = "AdministrationConsoleContainer",
+                                Url = Url.Action("UsersConsolePage", "AdminHome", new { area = "Admin" }),
+                            };
+                        using (Ajax.BeginForm(usersOptions))
+                        {
+                        <input type="submit" value="Users" />
+                }
+                    }
+                </div>
+                <div class="AdministrationNavigationButtonContainer">
+                    @{
+                        var postsOptions = new AjaxOptions()
+                            {
+                                UpdateTargetId = "AdministrationConsoleContainer",
+                                Url = Url.Action("PostsConsolePage", "AdminHome", new { area = "Admin" }),
+                            };
+                        using (Ajax.BeginForm(postsOptions))
+                        {
+                        <input type="submit" value="Posts" />
+                }
+                    }
+                </div>
+                <div class="AdministrationNavigationButtonContainer">
+                    @{
+                        var commentsOptions = new AjaxOptions()
+                            {
+                                UpdateTargetId = "AdministrationConsoleContainer",
+                                Url = Url.Action("CommentsConsolePage", "AdminHome", new { area = "Admin" }),
+                            };
+                        using (Ajax.BeginForm(commentsOptions))
+                        {
+                        <input type="submit" value="Comments" />
+                }
+                    }
+                </div>
+            </div>
+        </div>
+        <div id="AdministrationConsoleContainer">
+            @Html.Action("UsersConsolePage", "AdminHome", new { area = "Admin" })
+        </div>
+    </div>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+}
