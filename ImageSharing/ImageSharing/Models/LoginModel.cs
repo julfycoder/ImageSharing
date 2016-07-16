@@ -19,8 +19,8 @@ namespace ImageSharing.Models
         [Display(Name = "Password", ResourceType = typeof(Resource))]
         public string Password { get; set; }
 
-        [Display(Name = "Forgot_your_password", ResourceType = typeof(Resource))]
-        public string Forgot_your_password { get; set; }
+        [Display(Name = "ForgotYourPassword", ResourceType = typeof(Resource))]
+        public string ForgotYourPassword { get; set; }
 
         public bool RememberMe { get; set; }
     }

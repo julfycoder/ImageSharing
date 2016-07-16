@@ -45,7 +45,7 @@ namespace ImageSharing.Models.InfoCreator
                 ID = post.ID,
                 DateTime = post.DateTime,
                 Author = (PostAuthorInfo)new PostAuthorInfoCreator().Create(userClient.GetUser(post.AuthorID), userClient, postClient, tapeClient,friendshipClient,commentClient,subClient),
-                ImagePath = post.ImagePath,
+                ImageName = post.ImagePath,
                 Comments = comments,
                 Description = post.Description
             };

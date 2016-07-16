@@ -14,7 +14,11 @@
     @Html.LabelFor(m => m.Password)
     @Html.PasswordFor(m => m.Password)
     <br />
-    @Html.ActionLink("Forgot your password?", "RecoveryPage")
+    <a href="@Url.Action("RecoveryPage", "Home")">
+                <div>
+                    @Html.LabelFor(m => m.Forgot_your_password)
+                </div>
+            </a>
     <br />
     <input type="submit" value="submit" />
 }

@@ -73,7 +73,7 @@ namespace ImageSharing.Areas.Admin.Controllers
                 if (userInfo.Name != user.Name) userClient.ChangeName(userInfo.ID, userInfo.Name);
                 if (userInfo.Email != user.Email) userClient.ChangeEmail(userInfo.ID, userInfo.Email);
                 if (userInfo.Role != user.Role) userClient.ChangeRole(userInfo.ID, userInfo.Role);
-                if (avatars[userCount] != null && avatars[userCount].FileName != "" && userInfo.AvatarPath != Path.GetFileName(avatars[userCount].FileName))
+                if (avatars[userCount] != null && avatars[userCount].FileName != "" && userInfo.AvatarName != Path.GetFileName(avatars[userCount].FileName))
                 {
                     string path = AppDomain.CurrentDomain.BaseDirectory + @"Content\AvatarImages\";
                     string fileName = Path.GetFileName(avatars[userCount].FileName);
@@ -86,6 +86,7 @@ namespace ImageSharing.Areas.Admin.Controllers
             }
             return Redirect(HttpContext.Request.UrlReferrer.AbsoluteUri);
         }
+        [HttpPost]
         public ActionResult ChangePosts(List<PostInfo> posts, List<HttpPostedFileBase> images)
         {
             int postCount = 0;
@@ -94,7 +95,7 @@ namespace ImageSharing.Areas.Admin.Controllers
                 Post post = postClient.GetPost(postInfo.ID);
                 if (post.DateTime != postInfo.DateTime) postClient.ChangeDataTime(postInfo.ID, postInfo.DateTime);
                 if (post.Description != postInfo.Description) postClient.ChangeDescription(postInfo.ID, postInfo.Description);
-                if (images[postCount] != null && images[postCount].FileName != "" && postInfo.ImagePath != Path.GetFileName(images[postCount].FileName))
+                if (images[postCount] != null && images[postCount].FileName != "" && postInfo.ImageName != Path.GetFileName(images[postCount].FileName))
                 {
                     string path = AppDomain.CurrentDomain.BaseDirectory + @"Content\UploadedImages\";
                     string fileName = Path.GetFileName(images[postCount].FileName);

@@ -1,6 +1,7 @@
 ﻿@using ImageSharing.Models;
 @{
     LayoutModel layoutModel = new LayoutModel();
+    ActionModel action = new ActionModel();
 }
 <!DOCTYPE html>
 <html>
@@ -96,9 +97,15 @@
                     <div id="SearchContainer">
                         <div id="SearchContainerRow">
                             <div id="SearchContainerContent">
-                                <form action="@Url.Action("UsersPage", "Home", new {area="" })">
-                                    <input name="searchString" placeholder="search" />
-                                    <input type="submit" value="Search" />
+                                <form action="@Url.Action("UsersPage", "Home", new { area = "" })">
+                                    
+                                    <div class="ReferenceContainer"><input name="searchString" placeholder="search" />
+                                        <a href="javascript:{}" onclick="$('#SearchContainerContent>form').submit(); return false;">
+                                            <div>
+                                                @Html.LabelFor(m => action.Search)
+                                            </div>
+                                        </a>
+                                    </div>
                                 </form>
                             </div>
                         </div>

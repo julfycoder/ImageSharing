@@ -3,14 +3,17 @@
 @{
     ViewBag.Title = "AccountPage";
 }
-
+@using ImageSharing.Models;
+@{
+    ActionModel action = new ActionModel();
+}
 @section Body
 {
     <div id="AccountContainer">
         @using (Html.BeginForm("ChangeAccountInfo", "UserHome", FormMethod.Post, new { area = "User", enctype = "multipart/form-data" }))
         {
             <div id="ChangeAvatarContainer">
-                <img src="@Url.Content(@"..\..\..\..\Content\AvatarImages\" + Model.AvatarPath)" alt="Avatar" /><br />
+                <img src="@Url.Content(@"..\..\..\..\Content\AvatarImages\" + Model.Avatar)" alt="Avatar" /><br />
                 <input type="file" name="Avatar" /><br />
             </div><br />
             <br />
@@ -31,7 +34,13 @@
             @Html.TextBoxFor(m => m.Password)
             @Html.ValidationMessageFor(m => m.Password)
             <br /><br />
-            <input type="submit" value="Save changes" />
+            <div class="ReferenceContainer">
+            <a href="javascript:{}" onclick="$('#AccountContainer>form').submit(); return false;">
+                <div>
+                    @Html.LabelFor(m => action.Save)
+                </div>
+            </a>
+        </div>
         }
     </div>
     @Scripts.Render("~/bundles/jqueryval")

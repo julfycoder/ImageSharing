@@ -1,5 +1,8 @@
 ﻿@model List<ImageSharing.Models.EntityInfo.UserAccountInfo>
-
+@using ImageSharing.Models;
+@{
+    ActionModel action = new ActionModel();
+}
 <div id="UsersConsoleContainer">
     @using (Html.BeginForm("ChangeUsers", "AdminHome", FormMethod.Post, new { area = "Admin", enctype = "multipart/form-data" }))
     {
@@ -7,12 +10,11 @@
         <thead>
             <tr>
                 <td>ID</td>
-                <td>Surname</td>
-                <td>Name</td>
-                <td>Email</td>
-                <td>Avatar</td>
-                <td>Role</td>
-                <td>Action</td>
+                <td>@Html.LabelFor(m=>Model[0].Surname)</td>
+                <td>@Html.LabelFor(m=>Model[0].Name)</td>
+                <td>@Html.LabelFor(m=>Model[0].Email)</td>
+                <td>@Html.LabelFor(m=>Model[0].AvatarName)</td>
+                <td>@Html.LabelFor(m=>Model[0].Role)</td>
             </tr>
         </thead>
         @for (int i = 0; i < Model.Count(); i++)
@@ -22,46 +24,80 @@
                 <td><input type="text" value="@Model[i].Surname" name="users[@i].Surname" /></td>
                 <td><input type="text" value="@Model[i].Name" name="users[@i].Name" /></td>
                 <td><input type="text" value="@Model[i].Email" name="users[@i].Email" /></td>
-                <td><input type="text" value="@Model[i].AvatarPath" readonly="true"/><input type="file" name="avatars[@i]" /></td>
+                <td><input type="text" value="@Model[i].AvatarName" readonly="true"/><input type="file" name="avatars[@i]" /></td>
                 <td><input type="text" value="@Model[i].Role" name="users[@i].Role" /></td>
-                <td>@Html.ActionLink("Delete", "DeleteUser", "AdminHome", new { area = "Admin", id = Model[i].ID }, null)</td>
+                <td>
+                    <div class="ReferenceContainer">
+                            <a href="@Url.Action("DeleteUser", "AdminHome", new { area = "Admin", id = Model[i].ID })">
+                                <div>
+                                    @Html.LabelFor(m => action.Delete)
+                                </div>
+                            </a>
+                        </div>
+                </td>
             </tr>
         }
     </table><br /><br /><br />
-    <input type="submit" value="Save" />
+    <div class="ReferenceContainer">
+            <a href="javascript:{}" onclick="$('#UsersConsoleContainer>form').submit(); return false;">
+                <div>
+                    @Html.LabelFor(m => action.Save)
+                </div>
+            </a>
+        </div>
     }
-    @using (Html.BeginForm("AddUser", "AdminHome", FormMethod.Post, new { area = "Admin", enctype = "multipart/form-data" }))
-    {
-        @Html.AntiForgeryToken()
-    <table>
-        <thead>
-            <tr>
+    <div id="AdministrationConsoleAddUserContainer">
+        @using (Html.BeginForm("AddUser", "AdminHome", FormMethod.Post, new { area = "Admin", enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            <table>
+                <thead>
+                    <tr>
 
-                <td>Surname</td>
-                <td>Name</td>
-                <td>Email</td>
-                <td>Password</td>
-                <td>Role</td>
-                <td>Avatar</td>
-                <td>Action</td>
-            </tr>
-        </thead>
-            <tr>
-                <td><input data-val="true" data-val-length="The Surname	 must be at least 3 characters long." data-val-length-max="100" data-val-length-min="3" data-val-required="The Surname	 field is required." id="Surname" name="Surname" type="text" value="" class="input-validation-error" /></td>
-                <td><input data-val="true" data-val-length="The Name	 must be at least 3 characters long." data-val-length-max="100" data-val-length-min="3" data-val-required="The Name	 field is required." id="Name" name="Name" type="text" value="" class="input-validation-error" /></td>
-                <td><input data-val="true" data-val-length="The Email	 must be at least 4 characters long." data-val-length-max="100" data-val-length-min="4" data-val-required="The Email	 field is required." id="Email" name="Email" type="text" value="" class="input-validation-error" /></td>
-                <td><input data-val="true" data-val-length="The Password	 must be at least 6 characters long." data-val-length-max="100" data-val-length-min="6" data-val-required="The Password	 field is required." id="Password" name="Password" type="text" value="" class="input-validation-error" /></td>
-                <td><input data-val="true" data-val-length="The Role	 must be at least 4 characters long. It`s value should be 'user' or 'admin'." data-val-length-max="100" data-val-length-min="4" data-val-required="The Role	 field is required. It`s value should be 'user' or 'admin'." id="Role" name="Role" type="text" value="" class="input-validation-error" /></td>
-                <td><input type="file" name="Avatar" /></td>
-                <td><input type="submit" value="Add" /></td>
-            </tr>
+                        <td>@Html.LabelFor(m => Model[0].Surname)</td>
+                        <td>@Html.LabelFor(m => Model[0].Name)</td>
+                        <td>@Html.LabelFor(m => Model[0].Email)</td>
+                        <td>@Html.LabelFor(m => Model[0].Password)</td>
+                        <td>@Html.LabelFor(m => Model[0].Role)</td>
+                        <td>@Html.LabelFor(m => Model[0].AvatarName)</td>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>
+                        <input data-val="true" data-val-length="The Surname	 must be at least 3 characters long." data-val-length-max="100" data-val-length-min="3" data-val-required="The Surname	 field is required." id="Surname" name="Surname" type="text" value="" class="input-validation-error" /></td>
+                    <td>
+                        <input data-val="true" data-val-length="The Name	 must be at least 3 characters long." data-val-length-max="100" data-val-length-min="3" data-val-required="The Name	 field is required." id="Name" name="Name" type="text" value="" class="input-validation-error" /></td>
+                    <td>
+                        <input data-val="true" data-val-length="The Email	 must be at least 4 characters long." data-val-length-max="100" data-val-length-min="4" data-val-required="The Email	 field is required." id="Email" name="Email" type="text" value="" class="input-validation-error" /></td>
+                    <td>
+                        <input data-val="true" data-val-length="The Password	 must be at least 6 characters long." data-val-length-max="100" data-val-length-min="6" data-val-required="The Password	 field is required." id="Password" name="Password" type="text" value="" class="input-validation-error" /></td>
+                    <td>
+                        <input data-val="true" data-val-length="The Role	 must be at least 4 characters long. It`s value should be 'user' or 'admin'." data-val-length-max="100" data-val-length-min="4" data-val-required="The Role	 field is required. It`s value should be 'user' or 'admin'." id="Role" name="Role" type="text" value="" class="input-validation-error" /></td>
+                    <td>
+                        <input type="file" name="Avatar" /></td>
+                    <td>
+                        <div class="ReferenceContainer">
+                            <a href="javascript:{}" onclick="$('#AdministrationConsoleAddUserContainer>form').submit(); return false;">
+                                <div>
+                                    @Html.LabelFor(m => action.Add)
+                                </div>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
 
-    </table>
-        <span class="field-validation-valid" data-valmsg-for="Surname" data-valmsg-replace="true"></span><br />
-        <span class="field-validation-valid" data-valmsg-for="Name" data-valmsg-replace="true"></span><br />
-        <span class="field-validation-valid" data-valmsg-for="Email" data-valmsg-replace="true"></span><br />
-        <span class="field-validation-valid" data-valmsg-for="Password" data-valmsg-replace="true"></span><br />
-        <span class="field-validation-valid" data-valmsg-for="Role" data-valmsg-replace="true"></span><br />
+            </table>
+            <span class="field-validation-valid" data-valmsg-for="Surname" data-valmsg-replace="true"></span>
+            <br />
+            <span class="field-validation-valid" data-valmsg-for="Name" data-valmsg-replace="true"></span>
+            <br />
+            <span class="field-validation-valid" data-valmsg-for="Email" data-valmsg-replace="true"></span>
+            <br />
+            <span class="field-validation-valid" data-valmsg-for="Password" data-valmsg-replace="true"></span>
+            <br />
+            <span class="field-validation-valid" data-valmsg-for="Role" data-valmsg-replace="true"></span>
+            <br />
     }
+    </div>
     @Scripts.Render("~/bundles/jqueryval")
 </div>

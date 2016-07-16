@@ -81,9 +81,45 @@ namespace ImageSharing.LocalResource {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string AddAction {
+            get {
+                return ResourceManager.GetString("AddAction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string Administration {
             get {
                 return ResourceManager.GetString("Administration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string Author {
+            get {
+                return ResourceManager.GetString("Author", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string AvatarName {
+            get {
+                return ResourceManager.GetString("AvatarName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string CommentsAction {
+            get {
+                return ResourceManager.GetString("CommentsAction", resourceCulture);
             }
         }
         
@@ -99,6 +135,33 @@ namespace ImageSharing.LocalResource {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string DateTime {
+            get {
+                return ResourceManager.GetString("DateTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string DeleteAction {
+            get {
+                return ResourceManager.GetString("DeleteAction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string Description {
+            get {
+                return ResourceManager.GetString("Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string Email {
             get {
                 return ResourceManager.GetString("Email", resourceCulture);
@@ -108,9 +171,9 @@ namespace ImageSharing.LocalResource {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
-        public static string Forgot_your_password {
+        public static string ForgotYourPassword {
             get {
-                return ResourceManager.GetString("Forgot_your_password", resourceCulture);
+                return ResourceManager.GetString("ForgotYourPassword", resourceCulture);
             }
         }
         
@@ -135,9 +198,27 @@ namespace ImageSharing.LocalResource {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string ImageName {
+            get {
+                return ResourceManager.GetString("ImageName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string Login {
             get {
                 return ResourceManager.GetString("Login", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string LoginAction {
+            get {
+                return ResourceManager.GetString("LoginAction", resourceCulture);
             }
         }
         
@@ -180,6 +261,24 @@ namespace ImageSharing.LocalResource {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string PostID {
+            get {
+                return ResourceManager.GetString("PostID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string PostsAction {
+            get {
+                return ResourceManager.GetString("PostsAction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string Register {
             get {
                 return ResourceManager.GetString("Register", resourceCulture);
@@ -189,9 +288,45 @@ namespace ImageSharing.LocalResource {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string RegisterAction {
+            get {
+                return ResourceManager.GetString("RegisterAction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string RequestsAction {
+            get {
+                return ResourceManager.GetString("RequestsAction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string Role {
             get {
                 return ResourceManager.GetString("Role", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string SaveAction {
+            get {
+                return ResourceManager.GetString("SaveAction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string SearchAction {
+            get {
+                return ResourceManager.GetString("SearchAction", resourceCulture);
             }
         }
         
@@ -210,6 +345,33 @@ namespace ImageSharing.LocalResource {
         public static string Surname {
             get {
                 return ResourceManager.GetString("Surname", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string Text {
+            get {
+                return ResourceManager.GetString("Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string UploadAction {
+            get {
+                return ResourceManager.GetString("UploadAction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string UsersAction {
+            get {
+                return ResourceManager.GetString("UsersAction", resourceCulture);
             }
         }
     }

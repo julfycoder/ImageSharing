@@ -83,7 +83,7 @@ namespace ImageSharing.Models.InfoCreator
                 ID = user.ID,
                 Name = user.Name,
                 Surname = user.Surname,
-                AvatarPath = user.AvatarPath,
+                AvatarName = user.AvatarPath,
                 Email = user.Email,
                 Password = user.Password,
                 Role = user.Role,

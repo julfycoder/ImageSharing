@@ -150,6 +150,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resource.ru-RU.resx</DependentUpon>
     </Compile>
+    <Compile Include="Models\ActionModel.cs" />
     <Compile Include="Models\ChangeAccountModel.cs" />
     <Compile Include="Models\InfoCreator\CommentInfoCreator.cs" />
     <Compile Include="Models\InfoCreator\EntityInfoCreator.cs" />
@@ -177,7 +178,6 @@
     </Compile>
     <Compile Include="Mail\ImageSharingMailMessanger.cs" />
     <Compile Include="Models\LayoutModel.cs" />
-    <Compile Include="Models\LocalPasswordModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\RecoveryModel.cs" />
     <Compile Include="Models\RegisterModel.cs" />

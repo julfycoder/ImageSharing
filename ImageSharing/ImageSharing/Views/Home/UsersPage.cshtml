@@ -10,7 +10,7 @@
         {
             <div id="UserInfoContainer">
                 <div id="AvatarImageContainer">
-                    <img src="@Url.Content(@"..\..\..\..\Content\AvatarImages\"+user.AvatarPath)" alt="Avatar"/>
+                    <img src="@Url.Content(@"..\..\..\..\Content\AvatarImages\"+user.AvatarName)" alt="Avatar"/>
                 </div>
                 <div id="NickContainer">
                     <a href="@Url.Action("UserPage", "Home", new { area = "", id = user.ID })">

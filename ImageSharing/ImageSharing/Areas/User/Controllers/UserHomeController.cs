@@ -92,7 +92,7 @@ namespace ImageSharing.Areas.User.Controllers
                 Name=userInfo.Name,
                 Surname=userInfo.Surname,
                 Email=userInfo.Email,
-                AvatarPath=userInfo.AvatarPath
+                Avatar=userInfo.AvatarName
             };
             accountModel.Password = "";
             return View(accountModel);
@@ -105,7 +105,7 @@ namespace ImageSharing.Areas.User.Controllers
             if (userInfo.Surname != accountInfo.Surname) userClient.ChangeSurname(userInfo.ID, accountInfo.Surname);
             if (userInfo.Email != accountInfo.Email) userClient.ChangeEmail(userInfo.ID, accountInfo.Email);
             if (userInfo.Password != accountInfo.Password && accountInfo.Password != "" && accountInfo.Password != null) userClient.ChangePassword(userInfo.ID, Scrambler.GetMD5Hash(accountInfo.Password));
-            if (Avatar != null && userInfo.AvatarPath != Avatar.FileName)
+            if (Avatar != null && userInfo.AvatarName != Avatar.FileName)
             {
                 string path = AppDomain.CurrentDomain.BaseDirectory + @"Content\AvatarImages\";
                 string fileName = Path.GetFileName(Avatar.FileName);

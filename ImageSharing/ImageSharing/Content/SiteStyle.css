@@ -81,10 +81,16 @@ a div label
             cursor:pointer;
             /*background-color:orange;*/
             height:48px;
+            background-color:#dcdcdc;
         }
             .ReferenceContainer a div:hover
             {
+                background-color:#9d9d9d;
+            }
+            .ReferenceContainer a div:active
+            {
                 background-color:gray;
+                color:white;
             }
             .ReferenceContainer a div label
             {
@@ -119,6 +125,8 @@ a div label
     display:table;display:table-cell;
     border-spacing:3px;
     vertical-align:middle;
+    /*background-color:green;*/
+   /*width:10em;*/
 }
 #SearchContainerRow
 {
@@ -126,11 +134,12 @@ a div label
 }
 #SearchContainerContent
 {
+   
 }
-    #SearchContainerContent textArea
+    #SearchContainerContent form div input[name='searchString']
     {
-        height:20px;
-        width:20em;
+        /*height:20px;*/
+        width:25em;
         top:10px;
     }
 /*REGISTER_LOGIN*/
@@ -299,6 +308,10 @@ a div label
     {
         margin-left:7px;
     }
+    #AccountContainer form .ReferenceContainer
+    {
+        margin-left:46%;
+    }
 #ChangeAvatarContainer img
 {
     width:250px;
@@ -321,8 +334,8 @@ a div label
 #AdministrationNavigationContainer
 {
     display:table;
-    border-spacing:100px 30px;
-    padding-left:30%;
+    border-spacing:60px 30px;
+    padding-left:23%;
 }
 #AdministrationNavigationRow
 {
@@ -404,4 +417,12 @@ a div label
     #LoginContainer form input[type='password']
     {
         margin-left: 7px;
+    }
+/*RECOVERY*/
+#RecoveryContainer
+{
+}
+    #RecoveryContainer form input[type='text']
+    {
+        margin-left:7px;
     }

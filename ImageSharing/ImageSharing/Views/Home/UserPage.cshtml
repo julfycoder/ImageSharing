@@ -6,7 +6,7 @@
 @section Body{
     <div id="AvatarContainer">
         <div id="AvatarImageContainer">
-            <img src="@Url.Content(@"..\..\..\..\Content\AvatarImages\" + Model.AvatarPath)" alt="Avatar" />
+            <img src="@Url.Content(@"..\..\..\..\Content\AvatarImages\" + Model.AvatarName)" alt="Avatar" />
         </div>
         <div id="NickContainer">
             @Model.Surname @Model.Name 
@@ -55,7 +55,7 @@
         {
             <div id="PostContainer">
                 <div id="PostImageContainer" onclick="ShowPopup(@post.ID);">
-                    <img src="@Url.Content(@"..\..\..\..\Content\UploadedImages\" + post.ImagePath)" alt="Image"/>
+                    <img src="@Url.Content(@"..\..\..\..\Content\UploadedImages\" + post.ImageName)" alt="Image"/>
                 </div>
                 <div id="PostDescriptionContainer">
                     @post.Author.Surname @post.Author.Name @post.DateTime.ToShortDateString() at @post.DateTime.ToShortTimeString()
@@ -64,7 +64,7 @@
             
             <div id="PopupPostContainer_@post.ID" class="table-responsive" style="display:none;">
                 <div id="PopupPostImageContainer">
-                    <img src="@Url.Content(@"..\..\..\..\Content\UploadedImages\" + post.ImagePath)" alt="Image"/>
+                    <img src="@Url.Content(@"..\..\..\..\Content\UploadedImages\" + post.ImageName)" alt="Image"/>
                 </div>
                 <div id="PopupPostUserInfoContainer">
                     @post.Author.Surname @post.Author.Name @post.DateTime.ToShortDateString() at @post.DateTime.ToShortTimeString()<br /><br />

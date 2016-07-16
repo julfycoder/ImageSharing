@@ -123,17 +123,38 @@
   <data name="Account" xml:space="preserve">
     <value>Аккаунт</value>
   </data>
+  <data name="AddAction" xml:space="preserve">
+    <value>Добавить</value>
+  </data>
   <data name="Administration" xml:space="preserve">
     <value>Администрирование</value>
+  </data>
+  <data name="Author" xml:space="preserve">
+    <value>Автор</value>
+  </data>
+  <data name="AvatarName" xml:space="preserve">
+    <value>Аватар</value>
+  </data>
+  <data name="CommentsAction" xml:space="preserve">
+    <value>Комментарии</value>
   </data>
   <data name="Confirm" xml:space="preserve">
     <value>Подтверждение</value>
   </data>
+  <data name="Date_and_time" xml:space="preserve">
+    <value>Время_и_дата</value>
+  </data>
+  <data name="DeleteAction" xml:space="preserve">
+    <value>Удалить</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Описание</value>
+  </data>
   <data name="Email" xml:space="preserve">
     <value>Почтовый адрес</value>
   </data>
-  <data name="Forgot_your_password" xml:space="preserve">
-    <value>Забыли свой пароль</value>
+  <data name="ForgotYourPassword" xml:space="preserve">
+    <value>Забыли свой пароль?</value>
   </data>
   <data name="Friends" xml:space="preserve">
     <value>Друзья</value>
@@ -141,7 +162,13 @@
   <data name="Home" xml:space="preserve">
     <value>Домой</value>
   </data>
+  <data name="ImageName" xml:space="preserve">
+    <value>Изображение</value>
+  </data>
   <data name="Login" xml:space="preserve">
+    <value>Войти</value>
+  </data>
+  <data name="LoginAction" xml:space="preserve">
     <value>Войти</value>
   </data>
   <data name="Logout" xml:space="preserve">
@@ -156,16 +183,43 @@
   <data name="Policy" xml:space="preserve">
     <value>Политика конфиденциальности</value>
   </data>
+  <data name="PostID" xml:space="preserve">
+    <value>ID поста</value>
+  </data>
+  <data name="PostsAction" xml:space="preserve">
+    <value>Посты</value>
+  </data>
   <data name="Register" xml:space="preserve">
     <value>Зарегистрироваться</value>
   </data>
+  <data name="RegisterAction" xml:space="preserve">
+    <value>Зарегистрироваться</value>
+  </data>
+  <data name="RequestsAction" xml:space="preserve">
+    <value>Запросы</value>
+  </data>
   <data name="Role" xml:space="preserve">
     <value>Роль</value>
+  </data>
+  <data name="SaveAction" xml:space="preserve">
+    <value>Сохранить</value>
+  </data>
+  <data name="SearchAction" xml:space="preserve">
+    <value>Поиск</value>
   </data>
   <data name="Subscriptions" xml:space="preserve">
     <value>Подписки</value>
   </data>
   <data name="Surname" xml:space="preserve">
     <value>Фамилия</value>
+  </data>
+  <data name="Text" xml:space="preserve">
+    <value>Текст</value>
+  </data>
+  <data name="UploadAction" xml:space="preserve">
+    <value>Загрузить</value>
+  </data>
+  <data name="UsersAction" xml:space="preserve">
+    <value>Пользователи</value>
   </data>
 </root>

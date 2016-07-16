@@ -1,7 +1,10 @@
 ﻿@{
     ViewBag.Title = "AdministrationPage";
 }
-
+@using ImageSharing.Models;
+@{
+    ActionModel action = new ActionModel();
+}
 @section Body{
     <div id="AdministrationContainer">
         <div id="AdministrationNavigationContainer">
@@ -13,10 +16,18 @@
                                 UpdateTargetId = "AdministrationConsoleContainer",
                                 Url = Url.Action("UsersConsolePage", "AdminHome", new { area = "Admin" }),
                             };
-                        using (Ajax.BeginForm(usersOptions))
-                        {
-                        <input type="submit" value="Users" />
-                }
+                        <div id="UsersButton">
+                            @using (Ajax.BeginForm(usersOptions))
+                            {
+                                <div class="ReferenceContainer">
+                                    <a href="javascript:{}" onclick="$('#UsersButton>form').submit(); return false;">
+                                        <div>
+                                            @Html.LabelFor(m => action.Users)
+                                        </div>
+                                    </a>
+                                </div>
+                            }
+                        </div>
                     }
                 </div>
                 <div class="AdministrationNavigationButtonContainer">
@@ -26,10 +37,18 @@
                                 UpdateTargetId = "AdministrationConsoleContainer",
                                 Url = Url.Action("PostsConsolePage", "AdminHome", new { area = "Admin" }),
                             };
-                        using (Ajax.BeginForm(postsOptions))
-                        {
-                        <input type="submit" value="Posts" />
-                }
+                        <div id="PostsButton">
+                            @using (Ajax.BeginForm(postsOptions))
+                            {
+                                <div class="ReferenceContainer">
+                                    <a href="javascript:{}" onclick="$('#PostsButton>form').submit(); return false;">
+                                        <div>
+                                            @Html.LabelFor(m => action.Posts)
+                                        </div>
+                                    </a>
+                                </div>
+                            }
+                        </div>
                     }
                 </div>
                 <div class="AdministrationNavigationButtonContainer">
@@ -39,10 +58,18 @@
                                 UpdateTargetId = "AdministrationConsoleContainer",
                                 Url = Url.Action("CommentsConsolePage", "AdminHome", new { area = "Admin" }),
                             };
-                        using (Ajax.BeginForm(commentsOptions))
-                        {
-                        <input type="submit" value="Comments" />
-                }
+                        <div id="CommentsButton">
+                            @using (Ajax.BeginForm(commentsOptions))
+                            {
+                                <div class="ReferenceContainer">
+                                    <a href="javascript:{}" onclick="$('#CommentsButton>form').submit(); return false;">
+                                        <div>
+                                            @Html.LabelFor(m => action.Comments)
+                                        </div>
+                                    </a>
+                                </div>
+                        }
+                        </div>
                     }
                 </div>
             </div>
@@ -52,4 +79,5 @@
         </div>
     </div>
     <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Scripts/jquery-ui-1.8.24.min.js"></script>
 }
