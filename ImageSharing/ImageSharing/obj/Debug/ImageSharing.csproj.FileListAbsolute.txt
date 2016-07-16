@@ -29,3 +29,11 @@ C:\Users\Богдан\Documents\Visual Studio 2012\Projects\ImageSharing\ImageSh
 C:\Users\Богдан\Documents\Visual Studio 2012\Projects\ImageSharing\ImageSharing\bin\ImageSharing.DAL.pdb
 C:\Users\Богдан\Documents\Visual Studio 2012\Projects\ImageSharing\ImageSharing\bin\ImageSharing.Service.pdb
 C:\Users\Богдан\Documents\Visual Studio 2012\Projects\ImageSharing\ImageSharing\bin\ImageSharing.Business.pdb
+C:\Users\Богдан\Documents\Visual Studio 2012\Projects\ImageSharing\ImageSharing\obj\Debug\ImageSharing.LocalResource.Resource.resources
+C:\Users\Богдан\Documents\Visual Studio 2012\Projects\ImageSharing\ImageSharing\obj\Debug\ImageSharing.LocalResource.Resource.en-US.resources
+C:\Users\Богдан\Documents\Visual Studio 2012\Projects\ImageSharing\ImageSharing\obj\Debug\ImageSharing.LocalResource.Resource.ru-RU.resources
+C:\Users\Богдан\Documents\Visual Studio 2012\Projects\ImageSharing\ImageSharing\obj\Debug\ImageSharing.csproj.GenerateResource.Cache
+C:\Users\Богдан\Documents\Visual Studio 2012\Projects\ImageSharing\ImageSharing\bin\en-US\ImageSharing.resources.dll
+C:\Users\Богдан\Documents\Visual Studio 2012\Projects\ImageSharing\ImageSharing\bin\ru-RU\ImageSharing.resources.dll
+C:\Users\Богдан\Documents\Visual Studio 2012\Projects\ImageSharing\ImageSharing\obj\Debug\en-US\ImageSharing.resources.dll
+C:\Users\Богдан\Documents\Visual Studio 2012\Projects\ImageSharing\ImageSharing\obj\Debug\ru-RU\ImageSharing.resources.dll

@@ -17,6 +17,7 @@ using ImageSharing.FriendshipService;
 using ImageSharing.Mail;
 using ImageSharing.Models.InfoCreator;
 using ImageSharing.Security;
+using ImageSharing.Culture;
 
 namespace ImageSharing.Controllers
 {
@@ -32,6 +33,7 @@ namespace ImageSharing.Controllers
         FriendshipServiceClient friendshipClient = new FriendshipServiceClient();
         FriendshipRequestServiceClient requestClient = new FriendshipRequestServiceClient();
 
+        #region Actions
         public ActionResult Index()
         {
             if (HttpContext.Request.Cookies == null) HttpContext.Response.Cookies["ID"].Value = "";
@@ -222,5 +224,35 @@ namespace ImageSharing.Controllers
             else ViewBag.ThereIsRequest = "false";
             return View(userInfo);
         }
+
+        public ActionResult ChangeCurrentCulture(int id)
+        {
+            CultureHelper.CurrentCulture = id;
+
+            HttpContext.Response.Cookies["CurrentCulture"].Value = id.ToString();
+
+            return Redirect(Request.UrlReferrer.ToString());
+        }
+
+        #endregion
+        #region Base
+        protected override void ExecuteCore()
+        {
+            int culture = 0;
+            if (HttpContext.Request.Cookies == null || HttpContext.Request.Cookies["CurrentCulture"] == null)
+            {
+                int.TryParse(System.Configuration.ConfigurationManager.AppSettings["Culture"], out culture);
+                HttpContext.Response.Cookies["CurrentCulture"].Value = culture.ToString();
+            }
+            else culture = int.Parse(HttpContext.Request.Cookies["CurrentCulture"].Value);
+
+            CultureHelper.CurrentCulture = culture;
+            base.ExecuteCore();
+        }
+        protected override bool DisableAsyncSupport
+        {
+            get { return true; }
+        }
+        #endregion
     }
 }

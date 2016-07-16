@@ -18,6 +18,7 @@ using ImageSharing.Models.InfoCreator;
 using ImageSharing.Security;
 using ImageSharing.Areas.Admin.Models;
 using System.IO;
+using ImageSharing.Culture;
 
 namespace ImageSharing.Areas.Admin.Controllers
 {
@@ -245,5 +246,25 @@ namespace ImageSharing.Areas.Admin.Controllers
             commentClient.AddComment(comment);
             return Redirect(HttpContext.Request.UrlReferrer.AbsoluteUri);
         }
+
+        #region Base
+        protected override void ExecuteCore()
+        {
+            int culture = 0;
+            if (HttpContext.Request.Cookies == null || HttpContext.Request.Cookies["CurrentCulture"] == null)
+            {
+                int.TryParse(System.Configuration.ConfigurationManager.AppSettings["Culture"], out culture);
+                HttpContext.Response.Cookies["CurrentCulture"].Value = culture.ToString();
+            }
+            else culture = int.Parse(HttpContext.Request.Cookies["CurrentCulture"].Value);
+
+            CultureHelper.CurrentCulture = culture;
+            base.ExecuteCore();
+        }
+        protected override bool DisableAsyncSupport
+        {
+            get { return true; }
+        }
+        #endregion
     }
 }

@@ -133,7 +133,23 @@
     <Compile Include="Areas\Admin\Models\CommentModel.cs" />
     <Compile Include="Areas\Admin\Models\PostModel.cs" />
     <Compile Include="Areas\User\Controllers\UserHomeController.cs" />
+    <Compile Include="Culture\CultureHelper.cs" />
     <Compile Include="IAccessible.cs" />
+    <Compile Include="LocalResource\Resource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="LocalResource\Resource.en-US.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.en-US.resx</DependentUpon>
+    </Compile>
+    <Compile Include="LocalResource\Resource.ru-RU.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.ru-RU.resx</DependentUpon>
+    </Compile>
     <Compile Include="Models\ChangeAccountModel.cs" />
     <Compile Include="Models\InfoCreator\CommentInfoCreator.cs" />
     <Compile Include="Models\InfoCreator\EntityInfoCreator.cs" />
@@ -160,6 +176,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Mail\ImageSharingMailMessanger.cs" />
+    <Compile Include="Models\LayoutModel.cs" />
     <Compile Include="Models\LocalPasswordModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\RecoveryModel.cs" />
@@ -491,6 +508,20 @@
     <WCFMetadataStorage Include="Service References\TapeService\" />
     <WCFMetadataStorage Include="Service References\UserService\" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="LocalResource\Resource.en-US.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.en-US.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LocalResource\Resource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LocalResource\Resource.ru-RU.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.ru-RU.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -507,7 +538,7 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerPort>50742</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:4397/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

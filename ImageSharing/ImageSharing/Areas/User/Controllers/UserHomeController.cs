@@ -16,6 +16,9 @@ using ImageSharing.FriendshipRequestService;
 using ImageSharing.FriendshipService;
 using ImageSharing.Models.InfoCreator;
 using ImageSharing.Security;
+using System.Threading;
+using System.Globalization;
+using ImageSharing.Culture;
 
 namespace ImageSharing.Areas.User.Controllers
 {
@@ -302,6 +305,26 @@ namespace ImageSharing.Areas.User.Controllers
         {
             if (Description != null) postClient.ChangeDescription(id, Description);
             return PartialView((object)postClient.GetPost(id).Description);
+        }
+        #endregion
+
+        #region Base
+        protected override void ExecuteCore()
+        {
+            int culture = 0;
+            if (HttpContext.Request.Cookies == null || HttpContext.Request.Cookies["CurrentCulture"] == null)
+            {
+                int.TryParse(System.Configuration.ConfigurationManager.AppSettings["Culture"], out culture);
+                HttpContext.Response.Cookies["CurrentCulture"].Value = culture.ToString();
+            }
+            else culture = int.Parse(HttpContext.Request.Cookies["CurrentCulture"].Value);
+
+            CultureHelper.CurrentCulture = culture;
+            base.ExecuteCore();
+        }
+        protected override bool DisableAsyncSupport
+        {
+            get { return true; }
         }
         #endregion
     }

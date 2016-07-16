@@ -4,22 +4,29 @@
 }
 
 @section Body{
-<h2>Login</h2>
+    <div id="LoginContainer">
+        <h2>Login</h2>
 
-@using (Html.BeginForm("Login", "Home"))
-{
-    @Html.LabelFor(m => m.Email)
-    @Html.TextBoxFor(m => m.Email)
-    @Html.ValidationMessageFor(m => m.Email)
-    <br />
-    @Html.LabelFor(m => m.Password)
-    @Html.PasswordFor(m => m.Password)
-    @Html.ValidationMessageFor(m => m.Password)
-    <br />
-    @Html.ActionLink("Forgot your password?", "RecoveryPage")
-    <br />
-    <input type="submit" value="submit" />
-    <h2>@ViewBag.Message</h2>
-}
+        @using (Html.BeginForm("Login", "Home"))
+        {
+            @Html.LabelFor(m => m.Email)
+            @Html.TextBoxFor(m => m.Email)
+            @Html.ValidationMessageFor(m => m.Email)
+            <br />
+            @Html.LabelFor(m => m.Password)
+            @Html.PasswordFor(m => m.Password)
+            @Html.ValidationMessageFor(m => m.Password)
+            <br />
+            
+            <a href="@Url.Action("RecoveryPage", "Home")">
+                <div>
+                    @Html.LabelFor(m => m.Forgot_your_password)?
+                </div>
+            </a>
+            <br />
+            <input type="submit" value="submit" />
+            <h2>@ViewBag.Message</h2>
+        }
+    </div>
     @Scripts.Render("~/bundles/jqueryval")
 }

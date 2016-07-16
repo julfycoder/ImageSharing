@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@using ImageSharing.Models;
+@{
+    LayoutModel layoutModel = new LayoutModel();
+}
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -16,18 +20,18 @@
         <div id="HeaderContainer">
             <div id="HeaderContentContainer">
                 <div id="HeaderContentContainerRow">
+
                     @{if(HttpContext.Current.Request.Cookies != null && 
                           HttpContext.Current.Request.Cookies["Role"] != null && 
                           (HttpContext.Current.Request.Cookies["Role"].Value == "admin"||
                           HttpContext.Current.Request.Cookies["Role"].Value=="user"))
-                          
                       {
                     <div id="NavigationContainer">
                         <div id="NavigationContainerRow">
                             <div class="ReferenceContainer">
                                 <a href="@Url.Action("Home","UserHome",new {area="User"})">
                                     <div>
-                                        <p>Home </p>
+                                        @Html.LabelFor(m=>layoutModel.Home)
                                     </div>
                                 </a>
                             </div>
@@ -35,7 +39,7 @@
                             <div class="ReferenceContainer">
                                 <a href="@Url.Action("FriendsPage","UserHome",new {area="User"})">
                                     <div>
-                                        <p>Friends </p>
+                                        @Html.LabelFor(m=>layoutModel.Friends)
                                     </div>
                                 </a>
                             </div>
@@ -43,7 +47,7 @@
                             <div class="ReferenceContainer">
                                 <a href="@Url.Action("AccountPage","UserHome",new {area="User"})">
                                     <div>
-                                        <p>Account </p>
+                                        @Html.LabelFor(m=>layoutModel.Account)
                                     </div>
                                 </a>
                             </div>
@@ -51,44 +55,44 @@
                             <div class="ReferenceContainer">
                                 <a href="@Url.Action("SubscriptionsPage","UserHome",new {area="User"})">
                                     <div>
-                                        <p>Subscriptions </p>
+                                        @Html.LabelFor(m=>layoutModel.Subscriptions)
                                     </div>
                                 </a>
                             </div>
                             @if(HttpContext.Current.Request.Cookies["Role"].Value == "admin")
                             {
                             <div class="ReferenceContainer">
-                                <a href="@Url.Action("AdministrationPage","AdminHome",new {area="admin"})">
+                                <a href="@Url.Action("AdministrationPage","AdminHome",new {area="Admin"})">
                                     <div>
-                                        <p>Administration </p>
+                                        @Html.LabelFor(m=>layoutModel.Administration)
                                     </div>
                                 </a>
                             </div>
                             }
                         </div>
                     </div>
+                       
                     }
-                    }
+                    } 
                     <div id="LocalizationContainer">
                         <div id="LocalizationContainerRow">
                             <div class="ReferenceContainer">
-                                <a href="HomeController/OtherPage">
+                                <a href="/Home/ChangeCurrentCulture/0">
                                     <div>
-                                        <p>EN</p>
+                                        @Html.Label("EN")
                                     </div>
                                 </a>
                             </div>
 
                             <div class="ReferenceContainer">
-                                <a href="HomeController/OtherPage">
+                                <a href="/Home/ChangeCurrentCulture/1">
                                     <div>
-                                        <p>RU</p>
+                                        @Html.Label("RU")
                                     </div>
                                 </a>
                             </div>
                         </div>
                     </div>
-
                     <div id="SearchContainer">
                         <div id="SearchContainerRow">
                             <div id="SearchContainerContent">
@@ -110,7 +114,7 @@
                             <div class="ReferenceContainer">
                                 <a href="/Home/RegisterPage">
                                     <div>
-                                        <p>Register </p>
+                                        @Html.LabelFor(m=>layoutModel.Register)
                                     </div>
                                 </a>
                             </div>
@@ -118,7 +122,7 @@
                             <div class="ReferenceContainer">
                                 <a href="/Home/LoginPage">
                                     <div>
-                                        <p>Login </p>
+                                        @Html.LabelFor(m=>layoutModel.Login)
                                     </div>
                                 </a>
                             </div>
@@ -132,7 +136,7 @@
                             <div class="ReferenceContainer">
                                 <a href="@Url.Action("Logout","UserHome",new {area="User"})">
                                     <div>
-                                        <p>Logout </p>
+                                        @Html.LabelFor(m=>layoutModel.Logout)
                                     </div>
                                 </a>
                             </div>
@@ -156,7 +160,7 @@
                             <div class="ReferenceContainer">
                                 <a href="/Home/AboutPage">
                                     <div>
-                                        <p>About System</p>
+                                        @Html.LabelFor(m=>layoutModel.About)
                                     </div>
                                 </a>
                             </div>
@@ -164,7 +168,7 @@
                             <div class="ReferenceContainer">
                                 <a href="/Home/PrivatePolicyPage">
                                     <div>
-                                        <p>Private Policy</p>
+                                        @Html.LabelFor(m=>layoutModel.Policy)
                                     </div>
                                 </a>
                             </div>

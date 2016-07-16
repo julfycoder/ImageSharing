@@ -4,33 +4,35 @@
 }
 
 @section Body{
-<h2>Register</h2>
-    <q>The link to applying registration page will be sent to your email after you submit</q>
-@using (Html.BeginForm("Register", "Home"))
-{
-        @Html.AntiForgeryToken()
+    <div id="RegisterContainer">
+        <h2>Register</h2>
+        <q>The link to applying registration page will be sent to your email after you submit</q>
+        @using (Html.BeginForm("Register", "Home"))
+        {
+            @Html.AntiForgeryToken()
     
-    @Html.LabelFor(m => m.Name)
-    @Html.TextBoxFor(m => m.Name)
-    @Html.ValidationMessageFor(m => m.Name)
-    <br />
-    @Html.LabelFor(m => m.Surname)
-    @Html.TextBoxFor(m => m.Surname)
-    @Html.ValidationMessageFor(m => m.Surname)
-    <br />
-    @Html.LabelFor(m => m.Email)
-    @Html.TextBoxFor(m => m.Email)
-    @Html.ValidationMessageFor(m => m.Email)
-    <br />
-    @Html.LabelFor(m => m.Password)
-    @Html.PasswordFor(m => m.Password)
-    @Html.ValidationMessageFor(m => m.Password)
-    <br />
-    @Html.LabelFor(m => m.ConfirmPassword)
-    @Html.PasswordFor(m => m.ConfirmPassword)
-    @Html.ValidationMessageFor(m => m.ConfirmPassword)
-    <br />
-    <input type="submit" value="submit" />
-}
+            @Html.LabelFor(m => m.Name)
+            @Html.TextBoxFor(m => m.Name)
+            @Html.ValidationMessageFor(m => m.Name)
+            <br />
+            @Html.LabelFor(m => m.Surname)
+            @Html.TextBoxFor(m => m.Surname)
+            @Html.ValidationMessageFor(m => m.Surname)
+            <br />
+            @Html.LabelFor(m => m.Email)
+            @Html.TextBoxFor(m => m.Email)
+            @Html.ValidationMessageFor(m => m.Email)
+            <br />
+            @Html.LabelFor(m => m.Password)
+            @Html.PasswordFor(m => m.Password)
+            @Html.ValidationMessageFor(m => m.Password)
+            <br />
+            @Html.LabelFor(m => m.ConfirmPassword)
+            @Html.PasswordFor(m => m.ConfirmPassword)
+            @Html.ValidationMessageFor(m => m.ConfirmPassword)
+            <br />
+            <input type="submit" value="submit" />
+        }
+    </div>
     @Scripts.Render("~/bundles/jqueryval")
 }
