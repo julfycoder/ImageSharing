@@ -32,5 +32,7 @@ namespace ImageSharing.Models
 
         [Display(Name = "PasswordConfirmMessage", ResourceType = typeof(Resource))]
         public string PasswordConfirmMessage { get; set; }
+
+
     }
 }

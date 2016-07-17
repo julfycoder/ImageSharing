@@ -177,6 +177,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Mail\ImageSharingMailMessanger.cs" />
+    <Compile Include="Models\InformationModel.cs" />
     <Compile Include="Models\LayoutModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\MessagesModel.cs" />

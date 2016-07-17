@@ -20,19 +20,19 @@
             <br />
     
             @Html.LabelFor(m => m.Name)
-            <input data-val="true" data-val-length="@Html.LabelFor(m => messages.MinLengthMessage).ToString() 3" data-val-length-max="100" data-val-length-min="3" data-val-required="@Html.LabelFor(m => messages.FieldRequiredMessage).ToString()" id="Name" name="Name" type="text" value="@Model.Name" class="input-validation-error" />
+            <input data-val="true" data-val-length="@Html.LabelFor(m => messages.MinLengthMessage).ToString() 3" data-val-length-max="100" data-val-length-min="3" id="Name" name="Name" type="text" value="@Model.Name" class="input-validation-error" />
             <span class="field-validation-valid" data-valmsg-for="Name" data-valmsg-replace="true"></span>
             <br /><br />
             @Html.LabelFor(m => m.Surname)
-           <input data-val="true" data-val-length="@Html.LabelFor(m => messages.MinLengthMessage).ToString() 3" data-val-length-max="100" data-val-length-min="3" data-val-required="@Html.LabelFor(m => messages.FieldRequiredMessage).ToString()" id="Surname" name="Surname" type="text" value="@Model.Surname" class="input-validation-error" />
+           <input data-val="true" data-val-length="@Html.LabelFor(m => messages.MinLengthMessage).ToString() 3" data-val-length-max="100" data-val-length-min="3" id="Surname" name="Surname" type="text" value="@Model.Surname" class="input-validation-error" />
             <span class="field-validation-valid" data-valmsg-for="Surname" data-valmsg-replace="true"></span>
             <br /><br />
             @Html.LabelFor(m => m.Email)
-            <input data-val="true" data-val-length="@Html.LabelFor(m => messages.MinLengthMessage).ToString() 3" data-val-length-max="100" data-val-length-min="3" data-val-required="@Html.LabelFor(m => messages.FieldRequiredMessage).ToString()" id="Email" name="Email" type="text" value="" class="input-validation-error" />
+            <input data-val="true" data-val-length="@Html.LabelFor(m => messages.MinLengthMessage).ToString() 3" data-val-length-max="100" data-val-length-min="3" id="Email" name="Email" type="text" value="@Model.Email" class="input-validation-error" />
             <span class="field-validation-valid" data-valmsg-for="Email" data-valmsg-replace="true"></span>
             <br /><br />
             @Html.LabelFor(m => m.Password)
-            <input data-val="true" data-val-length="@Html.LabelFor(m => messages.MinLengthMessage).ToString() 6" data-val-length-max="100" data-val-length-min="6" data-val-required="@Html.LabelFor(m => messages.FieldRequiredMessage).ToString()" id="Password" name="Password" type="password" value="" class="input-validation-error" />
+            <input data-val="true" data-val-length="@Html.LabelFor(m => messages.MinLengthMessage).ToString() 6" data-val-length-max="100" data-val-length-min="6" id="Password" name="Password" type="password" value="" class="input-validation-error" />
             <span class="field-validation-valid" data-valmsg-for="Password" data-valmsg-replace="true"></span>
             <br /><br />
             <div class="ReferenceContainer">

@@ -1,12 +1,18 @@
 ﻿@{
     ViewBag.Title = "AboutPage";
 }
+
+@using ImageSharing.Models;
+@{
+    InformationModel inform = new InformationModel();
+}
+
 @section Body{
 
     <div id="AboutContainer">
         <div id="AboutInfoContainer">
             <div id="AboutInfoTextContainer">
-                ImageSharing<br />
+                @Html.LabelFor(m=>inform.AboutInformation)<br />
 
             </div>
         </div>

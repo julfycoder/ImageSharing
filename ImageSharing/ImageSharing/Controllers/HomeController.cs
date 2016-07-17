@@ -156,7 +156,7 @@ namespace ImageSharing.Controllers
                 {
                     if (user.IsActivated)
                     {
-                        if (HttpContext.Request.Cookies["ID"].Value == "" || user.ID != int.Parse(HttpContext.Request.Cookies["ID"].Value))
+                        if (HttpContext.Request.Cookies["ID"]==null||HttpContext.Request.Cookies["ID"].Value == "" || user.ID != int.Parse(HttpContext.Request.Cookies["ID"].Value))
                             if (user.Name.ToLower().Contains(searchString.ToLower()) || user.Surname.ToLower().Contains(searchString.ToLower()))
                                 userInfos.Add((UserAccountInfo)userCreator.Create(user, userClient, postClient, tapeClient, friendshipClient, commentClient, subClient));
                     }
@@ -169,7 +169,7 @@ namespace ImageSharing.Controllers
         public ActionResult UserPage(int id)
         {
             int ID=0;
-            if (HttpContext.Request.Cookies != null && HttpContext.Request.Cookies["ID"].Value != "") ID = int.Parse(HttpContext.Request.Cookies["ID"].Value);
+            if (HttpContext.Request.Cookies != null && HttpContext.Request.Cookies["ID"]!=null&&HttpContext.Request.Cookies["ID"].Value != "") ID = int.Parse(HttpContext.Request.Cookies["ID"].Value);
             UserAccountInfo userInfo = (UserAccountInfo)new UserAccountInfoCreator().Create(userClient.GetUser(id), userClient, postClient, tapeClient,friendshipClient,commentClient,subClient);
             for (int i = 0; i < userInfo.Tape.Posts.Count(); i++)//Sort
             {

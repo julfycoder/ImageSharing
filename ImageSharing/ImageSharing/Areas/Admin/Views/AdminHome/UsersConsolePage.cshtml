@@ -7,39 +7,48 @@
 <div id="UsersConsoleContainer">
     @using (Html.BeginForm("ChangeUsers", "AdminHome", FormMethod.Post, new { area = "Admin", enctype = "multipart/form-data" }))
     {
-    <table>
-        <thead>
-            <tr>
-                <td>ID</td>
-                <td>@Html.LabelFor(m=>Model[0].Surname)</td>
-                <td>@Html.LabelFor(m=>Model[0].Name)</td>
-                <td>@Html.LabelFor(m=>Model[0].Email)</td>
-                <td>@Html.LabelFor(m=>Model[0].AvatarName)</td>
-                <td>@Html.LabelFor(m=>Model[0].Role)</td>
-            </tr>
-        </thead>
-        @for (int i = 0; i < Model.Count(); i++)
-        {
-            <tr>
-                <td><input type="text" value="@Model[i].ID" name="users[@i].ID" readonly="true" /></td>
-                <td><input type="text" value="@Model[i].Surname" name="users[@i].Surname" /></td>
-                <td><input type="text" value="@Model[i].Name" name="users[@i].Name" /></td>
-                <td><input type="text" value="@Model[i].Email" name="users[@i].Email" /></td>
-                <td><input type="text" value="@Model[i].AvatarName" readonly="true"/><input type="file" name="avatars[@i]" /></td>
-                <td><input type="text" value="@Model[i].Role" name="users[@i].Role" /></td>
-                <td>
-                    <div class="ReferenceContainer">
+        <table>
+            <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>@Html.LabelFor(m => Model[0].Surname)</td>
+                    <td>@Html.LabelFor(m => Model[0].Name)</td>
+                    <td>@Html.LabelFor(m => Model[0].Email)</td>
+                    <td>@Html.LabelFor(m => Model[0].AvatarName)</td>
+                    <td>@Html.LabelFor(m => Model[0].Role)</td>
+                </tr>
+            </thead>
+            @for (int i = 0; i < Model.Count(); i++)
+            {
+                <tr>
+                    <td>
+                        <input type="text" value="@Model[i].ID" name="users[@i].ID" readonly="true" /></td>
+                    <td>
+                        <input type="text" value="@Model[i].Surname" name="users[@i].Surname" /></td>
+                    <td>
+                        <input type="text" value="@Model[i].Name" name="users[@i].Name" /></td>
+                    <td>
+                        <input type="text" value="@Model[i].Email" name="users[@i].Email" /></td>
+                    <td>
+                        <input type="text" value="@Model[i].AvatarName" readonly="true"/><input type="file" name="avatars[@i]" /></td>
+                    <td>
+                        <input type="text" value="@Model[i].Role" name="users[@i].Role" /></td>
+                    <td>
+                        <div class="ReferenceContainer">
                             <a href="@Url.Action("DeleteUser", "AdminHome", new { area = "Admin", id = Model[i].ID })">
                                 <div>
                                     @Html.LabelFor(m => action.Delete)
                                 </div>
                             </a>
                         </div>
-                </td>
-            </tr>
+                    </td>
+                </tr>
         }
-    </table><br /><br /><br />
-    <div class="ReferenceContainer">
+        </table>
+        <br />
+        <br />
+        <br />
+        <div class="ReferenceContainer">
             <a href="javascript:{}" onclick="$('#UsersConsoleContainer>form').submit(); return false;">
                 <div>
                     @Html.LabelFor(m => action.Save)
@@ -65,23 +74,23 @@
                 </thead>
                 <tr>
                     <td>
-                        <input data-val="true" data-val-length="@Html.LabelFor(m=>messages.MinLengthMessage).ToString() 3" data-val-length-max="100" data-val-length-min="3" data-val-required="@Html.LabelFor(m=>messages.FieldRequiredMessage).ToString()" id="Surname" name="Surname" type="text" value="" class="input-validation-error" /><br />
+                        <input data-val="true" data-val-length="@Html.LabelFor(m => messages.MinLengthMessage).ToString() 3" data-val-length-max="100" data-val-length-min="3" data-val-required="@Html.LabelFor(m => messages.FieldRequiredMessage).ToString()" id="Surname" name="Surname" type="text" value="" class="input-validation-error" /><br />
                         <span class="field-validation-valid" data-valmsg-for="Surname" data-valmsg-replace="true"></span>
                     </td>
                     <td>
-                        <input data-val="true" data-val-length="@Html.LabelFor(m=>messages.MinLengthMessage).ToString() 3" data-val-length-max="100" data-val-length-min="3" data-val-required="@Html.LabelFor(m=>messages.FieldRequiredMessage).ToString()" id="Name" name="Name" type="text" value="" class="input-validation-error" /><br />
+                        <input data-val="true" data-val-length="@Html.LabelFor(m => messages.MinLengthMessage).ToString() 3" data-val-length-max="100" data-val-length-min="3" data-val-required="@Html.LabelFor(m => messages.FieldRequiredMessage).ToString()" id="Name" name="Name" type="text" value="" class="input-validation-error" /><br />
                         <span class="field-validation-valid" data-valmsg-for="Name" data-valmsg-replace="true"></span>
                     </td>
                     <td>
-                        <input data-val="true" data-val-length="@Html.LabelFor(m=>messages.MinLengthMessage).ToString() 4" data-val-length-max="100" data-val-length-min="4" data-val-required="@Html.LabelFor(m=>messages.FieldRequiredMessage).ToString()" id="Email" name="Email" type="text" value="" class="input-validation-error" /><br />
+                        <input data-val="true" data-val-length="@Html.LabelFor(m => messages.MinLengthMessage).ToString() 4" data-val-length-max="100" data-val-length-min="4" data-val-required="@Html.LabelFor(m => messages.FieldRequiredMessage).ToString()" id="Email" name="Email" type="text" value="" class="input-validation-error" /><br />
                         <span class="field-validation-valid" data-valmsg-for="Email" data-valmsg-replace="true"></span>
                     </td>
                     <td>
-                        <input data-val="true" data-val-length="@Html.LabelFor(m=>messages.MinLengthMessage).ToString() 6" data-val-length-max="100" data-val-length-min="6" data-val-required="@Html.LabelFor(m=>messages.FieldRequiredMessage).ToString()" id="Password" name="Password" type="text" value="" class="input-validation-error" /><br />
+                        <input data-val="true" data-val-length="@Html.LabelFor(m => messages.MinLengthMessage).ToString() 6" data-val-length-max="100" data-val-length-min="6" data-val-required="@Html.LabelFor(m => messages.FieldRequiredMessage).ToString()" id="Password" name="Password" type="text" value="" class="input-validation-error" /><br />
                         <span class="field-validation-valid" data-valmsg-for="Password" data-valmsg-replace="true"></span>
                     </td>
                     <td>
-                        <input data-val="true" data-val-length="@Html.LabelFor(m=>messages.MinLengthMessage).ToString() 4" data-val-length-max="100" data-val-length-min="4" data-val-required="@Html.LabelFor(m=>messages.FieldRequiredMessage).ToString()" id="Role" name="Role" type="text" value="" class="input-validation-error" /><br />
+                        <input data-val="true" data-val-length="@Html.LabelFor(m => messages.MinLengthMessage).ToString() 4" data-val-length-max="100" data-val-length-min="4" data-val-required="@Html.LabelFor(m => messages.FieldRequiredMessage).ToString()" id="Role" name="Role" type="text" value="" class="input-validation-error" /><br />
                         <span class="field-validation-valid" data-valmsg-for="Role" data-valmsg-replace="true"></span>
                     </td>
                     <td>
@@ -98,7 +107,7 @@
                 </tr>
 
             </table>
-    }
+        }
     </div>
     @Scripts.Render("~/bundles/jqueryval")
 </div>

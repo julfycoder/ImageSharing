@@ -120,6 +120,9 @@
   <data name="About" xml:space="preserve">
     <value>О нас</value>
   </data>
+  <data name="AboutInformation" xml:space="preserve">
+    <value>Некоторая информация о программе</value>
+  </data>
   <data name="Account" xml:space="preserve">
     <value>Аккаунт</value>
   </data>
@@ -150,8 +153,8 @@
   <data name="Confirm" xml:space="preserve">
     <value>Подтверждение</value>
   </data>
-  <data name="Date_and_time" xml:space="preserve">
-    <value>Время_и_дата</value>
+  <data name="DateTime" xml:space="preserve">
+    <value> Дата и время</value>
   </data>
   <data name="DeleteAction" xml:space="preserve">
     <value>Удалить</value>
@@ -214,6 +217,9 @@
     <value>Пароль должен совпадать с подтверждением</value>
   </data>
   <data name="Policy" xml:space="preserve">
+    <value>Политика конфиденциальности</value>
+  </data>
+  <data name="PolicyInformation" xml:space="preserve">
     <value>Политика конфиденциальности</value>
   </data>
   <data name="PostID" xml:space="preserve">

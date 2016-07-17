@@ -72,6 +72,15 @@ namespace ImageSharing.LocalResource {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string AboutInformation {
+            get {
+                return ResourceManager.GetString("AboutInformation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string Account {
             get {
                 return ResourceManager.GetString("Account", resourceCulture);
@@ -354,6 +363,15 @@ namespace ImageSharing.LocalResource {
         public static string Policy {
             get {
                 return ResourceManager.GetString("Policy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string PolicyInformation {
+            get {
+                return ResourceManager.GetString("PolicyInformation", resourceCulture);
             }
         }
         

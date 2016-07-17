@@ -101,11 +101,11 @@ namespace ImageSharing.Areas.User.Controllers
         public ActionResult ChangeAccountInfo(ChangeAccountModel accountInfo, HttpPostedFileBase Avatar)
         {
             UserAccountInfo userInfo = (UserAccountInfo)new UserAccountInfoCreator().Create(userClient.GetUser(int.Parse(HttpContext.Request.Cookies["ID"].Value)), userClient, postClient, tapeClient, friendshipClient, commentClient, subClient);
-            if (userInfo.Name != accountInfo.Name) userClient.ChangeName(userInfo.ID, accountInfo.Name);
-            if (userInfo.Surname != accountInfo.Surname) userClient.ChangeSurname(userInfo.ID, accountInfo.Surname);
-            if (userInfo.Email != accountInfo.Email) userClient.ChangeEmail(userInfo.ID, accountInfo.Email);
+            if (userInfo.Name != accountInfo.Name && accountInfo.Name != "" && accountInfo.Name != null) userClient.ChangeName(userInfo.ID, accountInfo.Name);
+            if (userInfo.Surname != accountInfo.Surname && accountInfo.Surname != "" && accountInfo.Surname != null) userClient.ChangeSurname(userInfo.ID, accountInfo.Surname);
+            if (userInfo.Email != accountInfo.Email && accountInfo.Email != "" && accountInfo.Email != null) userClient.ChangeEmail(userInfo.ID, accountInfo.Email);
             if (userInfo.Password != accountInfo.Password && accountInfo.Password != "" && accountInfo.Password != null) userClient.ChangePassword(userInfo.ID, Scrambler.GetMD5Hash(accountInfo.Password));
-            if (Avatar != null && userInfo.AvatarName != Avatar.FileName)
+            if (Avatar != null && userInfo.AvatarName != Avatar.FileName && Avatar.ContentType.ToLower().Split('/')[0] == "image")
             {
                 string path = AppDomain.CurrentDomain.BaseDirectory + @"Content\AvatarImages\";
                 string fileName = Path.GetFileName(Avatar.FileName);
@@ -283,7 +283,7 @@ namespace ImageSharing.Areas.User.Controllers
         public ActionResult Comments(CommentationModel commentation, int id)
         {
             int ID = 0;
-            if (HttpContext.Request.Cookies != null && HttpContext.Request.Cookies["ID"].Value != "") ID = int.Parse(HttpContext.Request.Cookies["ID"].Value);
+            if (HttpContext.Request.Cookies != null && HttpContext.Request.Cookies["ID"]!=null&&HttpContext.Request.Cookies["ID"].Value != "") ID = int.Parse(HttpContext.Request.Cookies["ID"].Value);
 
             if (commentation.Comment != null && commentation.Comment.Count() > 0 && commentation.Comment.Split(' ').Count() > 0)
             {
@@ -292,7 +292,7 @@ namespace ImageSharing.Areas.User.Controllers
                 UserAccount currentUser = userClient.GetUser(ID);
                 commentClient.AddComment(new Comment
                 {
-                    Text = "'" + commentation.Comment + "' - " + currentUser.Name + " " + currentUser.Surname + DateTime.Now,
+                    Text = "'" + commentation.Comment + "' - " + currentUser.Name + " " + currentUser.Surname + " " + DateTime.Now,
                     PostID = id
                 });
             }

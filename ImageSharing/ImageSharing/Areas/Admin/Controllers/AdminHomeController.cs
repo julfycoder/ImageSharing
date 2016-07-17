@@ -70,55 +70,59 @@ namespace ImageSharing.Areas.Admin.Controllers
         public ActionResult ChangeUsers(List<UserAccountInfo> users, List<HttpPostedFileBase> avatars)
         {
             int userCount = 0;
-            foreach (UserAccountInfo userInfo in users)
-            {
-                UserAccount user = userClient.GetUser(userInfo.ID);
-                if (userInfo.Surname != user.Surname) userClient.ChangeSurname(userInfo.ID, userInfo.Surname);
-                if (userInfo.Name != user.Name) userClient.ChangeName(userInfo.ID, userInfo.Name);
-                if (userInfo.Email != user.Email) userClient.ChangeEmail(userInfo.ID, userInfo.Email);
-                if (userInfo.Role != user.Role) userClient.ChangeRole(userInfo.ID, userInfo.Role);
-                if (avatars[userCount] != null && avatars[userCount].FileName != "" && userInfo.AvatarName != Path.GetFileName(avatars[userCount].FileName))
+            if (users != null)
+                foreach (UserAccountInfo userInfo in users)
                 {
-                    string path = AppDomain.CurrentDomain.BaseDirectory + @"Content\AvatarImages\";
-                    string fileName = Path.GetFileName(avatars[userCount].FileName);
-                    string rootPath = Path.Combine(path, fileName);
-                    if (fileName != null) avatars[userCount].SaveAs(rootPath);
+                    UserAccount user = userClient.GetUser(userInfo.ID);
+                    if (userInfo.Surname != user.Surname) userClient.ChangeSurname(userInfo.ID, userInfo.Surname);
+                    if (userInfo.Name != user.Name) userClient.ChangeName(userInfo.ID, userInfo.Name);
+                    if (userInfo.Email != user.Email) userClient.ChangeEmail(userInfo.ID, userInfo.Email);
+                    if (userInfo.Role != user.Role) userClient.ChangeRole(userInfo.ID, userInfo.Role);
+                    if (avatars[userCount] != null && avatars[userCount].FileName != "" && userInfo.AvatarName != Path.GetFileName(avatars[userCount].FileName) && avatars[userCount].ContentType.ToLower().Split('/')[0] == "image")
+                    {
+                        string path = AppDomain.CurrentDomain.BaseDirectory + @"Content\AvatarImages\";
+                        string fileName = Path.GetFileName(avatars[userCount].FileName);
+                        string rootPath = Path.Combine(path, fileName);
+                        if (fileName != null) avatars[userCount].SaveAs(rootPath);
 
-                    userClient.ChangeAvatarPath(userInfo.ID, avatars[userCount].FileName);
+                        userClient.ChangeAvatarPath(userInfo.ID, avatars[userCount].FileName);
+                    }
+                    userCount++;
                 }
-                userCount++;
-            }
             return Redirect(HttpContext.Request.UrlReferrer.AbsoluteUri);
         }
         [HttpPost]
         public ActionResult ChangePosts(List<PostInfo> posts, List<HttpPostedFileBase> images)
         {
             int postCount = 0;
-            foreach (PostInfo postInfo in posts)
-            {
-                Post post = postClient.GetPost(postInfo.ID);
-                if (post.DateTime != postInfo.DateTime) postClient.ChangeDataTime(postInfo.ID, postInfo.DateTime);
-                if (post.Description != postInfo.Description) postClient.ChangeDescription(postInfo.ID, postInfo.Description);
-                if (images[postCount] != null && images[postCount].FileName != "" && postInfo.ImageName != Path.GetFileName(images[postCount].FileName))
+            if (posts != null)
+                foreach (PostInfo postInfo in posts)
                 {
-                    string path = AppDomain.CurrentDomain.BaseDirectory + @"Content\UploadedImages\";
-                    string fileName = Path.GetFileName(images[postCount].FileName);
-                    string rootPath = Path.Combine(path, fileName);
-                    if (fileName != null) images[postCount].SaveAs(rootPath);
 
-                    postClient.ChangeImagePath(postInfo.ID, images[postCount].FileName);
+                    Post post = postClient.GetPost(postInfo.ID);
+                    if (postInfo.DateTime != null && post.DateTime != postInfo.DateTime) postClient.ChangeDataTime(postInfo.ID, postInfo.DateTime);
+                    if (postInfo.Description != null && post.Description != postInfo.Description) postClient.ChangeDescription(postInfo.ID, postInfo.Description);
+                    if (images[postCount] != null && images[postCount].FileName != "" && postInfo.ImageName != Path.GetFileName(images[postCount].FileName) && images[postCount].ContentType.ToLower().Split('/')[0] == "image")
+                    {
+                        string path = AppDomain.CurrentDomain.BaseDirectory + @"Content\UploadedImages\";
+                        string fileName = Path.GetFileName(images[postCount].FileName);
+                        string rootPath = Path.Combine(path, fileName);
+                        if (fileName != null) images[postCount].SaveAs(rootPath);
+
+                        postClient.ChangeImagePath(postInfo.ID, images[postCount].FileName);
+                    }
+                    postCount++;
                 }
-                postCount++;
-            }
             return Redirect(HttpContext.Request.UrlReferrer.AbsoluteUri);
         }
         public ActionResult ChangeComments(List<CommentInfo> comments)
         {
-            foreach (CommentInfo commentInfo in comments)
-            {
-                Comment comment = commentClient.GetComment(commentInfo.ID);
-                if (comment.Text != commentInfo.Text) commentClient.ChangeText(commentInfo.ID, commentInfo.Text);
-            }
+            if (comments != null)
+                foreach (CommentInfo commentInfo in comments)
+                {
+                    Comment comment = commentClient.GetComment(commentInfo.ID);
+                    if (comment.Text != commentInfo.Text) commentClient.ChangeText(commentInfo.ID, commentInfo.Text);
+                }
             return Redirect(HttpContext.Request.UrlReferrer.AbsoluteUri);
         }
 
@@ -154,15 +158,15 @@ namespace ImageSharing.Areas.Admin.Controllers
             }
 
             IEnumerable<Comment> deletedComments = null;
-            if(deletedPosts!=null)
-            foreach (Post post in deletedPosts)
-            {
-                if (commentClient.GetComments().Any(c => c.PostID == post.ID)) deletedComments = commentClient.GetComments().Where(c => c.PostID == post.ID);//Deleting comments
-            }
+            if (deletedPosts != null)
+                foreach (Post post in deletedPosts)
+                {
+                    if (commentClient.GetComments().Any(c => c.PostID == post.ID)) deletedComments = commentClient.GetComments().Where(c => c.PostID == post.ID);//Deleting comments
+                }
             if (deletedComments != null) foreach (Comment comment in deletedComments) commentClient.RemoveComment(comment.ID);
 
-            if(deletedPosts!=null)
-            foreach (Post post in deletedPosts) postClient.RemovePost(post.ID);                                         //deleting posts
+            if (deletedPosts != null)
+                foreach (Post post in deletedPosts) postClient.RemovePost(post.ID);                                         //deleting posts
             tapeClient.RemoveTape(deletedTape.ID);                                                                      //deleting tape
 
 
@@ -221,7 +225,7 @@ namespace ImageSharing.Areas.Admin.Controllers
             tapeClient.AddTape(tape);
             return Redirect(HttpContext.Request.UrlReferrer.AbsoluteUri);
         }
-        public ActionResult AddPost(PostModel model,HttpPostedFileBase Image)
+        public ActionResult AddPost(PostModel model, HttpPostedFileBase Image)
         {
             if (Image != null)
             {
@@ -236,17 +240,17 @@ namespace ImageSharing.Areas.Admin.Controllers
                 DateTime = DateTime.Now,
                 ImagePath = Path.GetFileName(Image.FileName),
                 Description = model.Description,
-                TapeID = tapeClient.GetTapes().First(t=>t.UserID==model.AuthorID).ID
+                TapeID = tapeClient.GetTapes().First(t => t.UserID == model.AuthorID).ID
             };
             postClient.AddPost(post);
             return Redirect(HttpContext.Request.UrlReferrer.AbsoluteUri);
         }
         public ActionResult AddComment(CommentModel model)
         {
-            Comment comment = new Comment 
+            Comment comment = new Comment
             {
-                Text=model.Text,
-                PostID=model.PostID
+                Text = model.Text,
+                PostID = model.PostID
             };
             commentClient.AddComment(comment);
             return Redirect(HttpContext.Request.UrlReferrer.AbsoluteUri);

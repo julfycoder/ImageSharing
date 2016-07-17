@@ -40,7 +40,7 @@
                     <img src="@Url.Content(@"..\..\..\..\Content\UploadedImages\" + post.ImageName)" alt="Image"/>
                 </div>
                 <div id="PostDescriptionContainer">
-                    @post.Author.Surname @post.Author.Name @post.DateTime.ToShortDateString() at @post.DateTime.ToShortTimeString()
+                    @post.Author.Surname @post.Author.Name @post.DateTime.ToShortDateString() @post.DateTime.ToShortTimeString()
                 </div>
                 <div id="DeleteButton_@post.ID">
                     @using (Html.BeginForm("RemovePost", "UserHome", new { area = "User", id = post.ID }))
@@ -60,7 +60,7 @@
                     <img src="@Url.Content(@"..\..\..\..\Content\UploadedImages\" + post.ImageName)" alt="Image"/>
                 </div>
                 <div id="PopupPostUserInfoContainer">
-                    @post.Author.Surname @post.Author.Name @post.DateTime.ToShortDateString() at @post.DateTime.ToShortTimeString()<br />
+                    @post.Author.Surname @post.Author.Name @post.DateTime.ToShortDateString() @post.DateTime.ToShortTimeString()<br />
                     <br />
                     @if (post.Author.ID == int.Parse(HttpContext.Current.Request.Cookies["ID"].Value))
                     {
@@ -83,7 +83,7 @@
                 </div>
 
                 <div id="PopupPostCommentsContainer">
-                    <div id="PopupPostAddCommentContainer">
+                    <div id="PopupPostAddCommentContainer_@post.ID">
                         @{
                             var commentsOptions = new AjaxOptions()
                             {
@@ -96,7 +96,7 @@
                             <input type="text" name="PostID" value="@post.ID" style="display:none;" />
                             <input type="text" name="Comment" placeholder="" />
                             <div class="ReferenceContainer">
-                                <a href="javascript:{}" onclick="$('#PopupPostAddCommentContainer>form').submit(); return false;">
+                                <a href="javascript:{}" onclick="$('#PopupPostAddCommentContainer_@post.ID>form').submit(); return false;">
                                     <div>
                                         @Html.LabelFor(m => action.Send)
                                     </div>

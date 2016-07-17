@@ -120,6 +120,9 @@
   <data name="About" xml:space="preserve">
     <value>About</value>
   </data>
+  <data name="AboutInformation" xml:space="preserve">
+    <value>About information</value>
+  </data>
   <data name="Account" xml:space="preserve">
     <value>Account</value>
   </data>
@@ -171,7 +174,7 @@
   <data name="Follow" xml:space="preserve">
     <value>Follow</value>
   </data>
-  <data name="ForgotYour_Password" xml:space="preserve">
+  <data name="ForgotYourPassword" xml:space="preserve">
     <value>Forgot your password?</value>
   </data>
   <data name="Friends" xml:space="preserve">
@@ -215,6 +218,9 @@
   </data>
   <data name="Policy" xml:space="preserve">
     <value>Policy</value>
+  </data>
+  <data name="PolicyInformation" xml:space="preserve">
+    <value>Policy information</value>
   </data>
   <data name="PostID" xml:space="preserve">
     <value>Post ID</value>

@@ -43,14 +43,13 @@
                 </tr> 
             }
         </table>
-        @*<div class="ReferenceContainer">
+        <div class="ReferenceContainer">
             <a href="javascript:{}" onclick="$('#PostsConsoleContainer>form').submit(); return false;">
                 <div>
                     @Html.LabelFor(m => action.Save)
                 </div>
             </a>
-        </div>*@
-        <input type="submit" value="Save" />
+        </div>
     }
     <div id="AdministrationConsoleAddPostContainer">
         @using (Html.BeginForm("AddPost", "AdminHome", FormMethod.Post, new { area = "Admin", enctype = "multipart/form-data" }))
