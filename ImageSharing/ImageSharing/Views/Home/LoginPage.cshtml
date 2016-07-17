@@ -6,20 +6,21 @@
 @{
     ActionModel action = new ActionModel();
     TitleModel title = new TitleModel();
+    MessagesModel messages = new MessagesModel();
 }
 @section Body{
     <div id="LoginContainer">
-        <h2>@Html.LabelFor(m=>title.Login)</h2>
+        <h2>@Html.LabelFor(m => title.Login)</h2>
 
         @using (Html.BeginForm("Login", "Home"))
         {
             @Html.LabelFor(m => m.Email)
-            @Html.TextBoxFor(m => m.Email)
-            @Html.ValidationMessageFor(m => m.Email)
+            <input data-val="true" data-val-length="@Html.LabelFor(m => messages.MinLengthMessage).ToString() 3" data-val-length-max="100" data-val-length-min="3" data-val-required="@Html.LabelFor(m => messages.FieldRequiredMessage).ToString()" id="Email" name="Email" type="text" value="" class="input-validation-error" />
+            <span class="field-validation-valid" data-valmsg-for="Email" data-valmsg-replace="true"></span>
             <br />
             @Html.LabelFor(m => m.Password)
-            @Html.PasswordFor(m => m.Password)
-            @Html.ValidationMessageFor(m => m.Password)
+            <input data-val="true" data-val-length="@Html.LabelFor(m => messages.MinLengthMessage).ToString() 6" data-val-length-max="100" data-val-length-min="6" data-val-required="@Html.LabelFor(m => messages.FieldRequiredMessage).ToString()" id="Password" name="Password" type="password" value="" class="input-validation-error" />
+            <span class="field-validation-valid" data-valmsg-for="Password" data-valmsg-replace="true"></span>
             <br />
             
             <a href="@Url.Action("RecoveryPage", "Home")">
@@ -35,7 +36,7 @@
                     </div>
                 </a>
             </div>
-            <h2>@ViewBag.Message</h2>
+            <h2>@if (ViewBag.Message != null) { Html.LabelFor(m => messages.AuthenticationIncorrectMessage); }</h2>
         }
     </div>
     @Scripts.Render("~/bundles/jqueryval")

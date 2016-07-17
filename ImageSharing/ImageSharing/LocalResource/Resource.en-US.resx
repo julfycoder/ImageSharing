@@ -132,6 +132,9 @@
   <data name="Administration" xml:space="preserve">
     <value>Administration</value>
   </data>
+  <data name="AuthenticationIncorrectMessage" xml:space="preserve">
+    <value>Password or login is incorrect</value>
+  </data>
   <data name="Author" xml:space="preserve">
     <value>Author</value>
   </data>
@@ -162,6 +165,9 @@
   <data name="EmailMessage" xml:space="preserve">
     <value>The link to applying registration page will be sent to your email after you submit</value>
   </data>
+  <data name="FieldRequiredMessage" xml:space="preserve">
+    <value>This field required</value>
+  </data>
   <data name="Follow" xml:space="preserve">
     <value>Follow</value>
   </data>
@@ -173,6 +179,9 @@
   </data>
   <data name="Home" xml:space="preserve">
     <value>Home</value>
+  </data>
+  <data name="IdentifierMessage" xml:space="preserve">
+    <value>You</value>
   </data>
   <data name="ImageName" xml:space="preserve">
     <value>Image</value>
@@ -189,11 +198,20 @@
   <data name="MakeFriend" xml:space="preserve">
     <value>Make friend</value>
   </data>
+  <data name="MinLengthMessage" xml:space="preserve">
+    <value>Min number of symbols must be: </value>
+  </data>
   <data name="Name" xml:space="preserve">
     <value>Name</value>
   </data>
+  <data name="NothingFound" xml:space="preserve">
+    <value>Nothing found</value>
+  </data>
   <data name="Password" xml:space="preserve">
     <value>Password</value>
+  </data>
+  <data name="PasswordConfirmMessage" xml:space="preserve">
+    <value>Password must match confirmation</value>
   </data>
   <data name="Policy" xml:space="preserve">
     <value>Policy</value>

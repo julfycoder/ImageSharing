@@ -6,6 +6,7 @@
 @using ImageSharing.Models;
 @{
     ActionModel action = new ActionModel();
+    MessagesModel messages = new MessagesModel();
 }
 @section Body{
     
@@ -14,7 +15,7 @@
             <img src="@Url.Content(@"..\..\..\..\Content\AvatarImages\"+Model.AvatarName)" alt="Avatar" />
         </div>
         <div id="NickContainer">
-            @Model.Surname @Model.Name (You)
+            @Model.Surname @Model.Name (@Html.LabelFor(m=>messages.IdentifierMessage))
         </div>
     </div>
     <div id="TapeContainer">
@@ -22,7 +23,7 @@
             @using (Html.BeginForm("UploadPost", "UserHome", FormMethod.Post, new { enctype = "multipart/form-data" }))
             {
                 <input type="file" name="upload" multiple />
-                <input type="text" name="Description" placeholder="Description" />
+                @Html.LabelFor(m=>messages.Description) <input type="text" name="Description" />
                 <div class="ReferenceContainer">
                     <a href="javascript:{}" onclick="$('#AddPostContainer>form').submit(); return false;">
                         <div>
@@ -93,7 +94,7 @@
                         @using (Ajax.BeginForm(commentsOptions))
                         {
                             <input type="text" name="PostID" value="@post.ID" style="display:none;" />
-                            <input type="text" name="Comment" placeholder="Enter some comments" />
+                            <input type="text" name="Comment" placeholder="" />
                             <div class="ReferenceContainer">
                                 <a href="javascript:{}" onclick="$('#PopupPostAddCommentContainer>form').submit(); return false;">
                                     <div>

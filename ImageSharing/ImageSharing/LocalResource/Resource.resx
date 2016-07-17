@@ -132,6 +132,9 @@
   <data name="Administration" xml:space="preserve">
     <value />
   </data>
+  <data name="AuthenticationIncorrectMessage" xml:space="preserve">
+    <value />
+  </data>
   <data name="Author" xml:space="preserve">
     <value />
   </data>
@@ -162,6 +165,9 @@
   <data name="EmailMessage" xml:space="preserve">
     <value />
   </data>
+  <data name="FieldRequiredMessage" xml:space="preserve">
+    <value />
+  </data>
   <data name="Follow" xml:space="preserve">
     <value />
   </data>
@@ -172,6 +178,9 @@
     <value />
   </data>
   <data name="Home" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IdentifierMessage" xml:space="preserve">
     <value />
   </data>
   <data name="ImageName" xml:space="preserve">
@@ -189,10 +198,19 @@
   <data name="MakeFriend" xml:space="preserve">
     <value />
   </data>
+  <data name="MinLengthMessage" xml:space="preserve">
+    <value />
+  </data>
   <data name="Name" xml:space="preserve">
     <value />
   </data>
+  <data name="NothingFound" xml:space="preserve">
+    <value />
+  </data>
   <data name="Password" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PasswordConfirmMessage" xml:space="preserve">
     <value />
   </data>
   <data name="Policy" xml:space="preserve">

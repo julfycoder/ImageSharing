@@ -2,6 +2,7 @@
 @using ImageSharing.Models;
 @{
     ActionModel action = new ActionModel();
+    MessagesModel messages = new MessagesModel();
 }
 <div id="PostsConsoleContainer">
     @using (Html.BeginForm("ChangePosts", "AdminHome", FormMethod.Post, new { area = "Admin", enctype = "multipart/form-data" }))
@@ -64,11 +65,14 @@
                 </thead>
                 <tr>
                     <td>
-                        <input data-val="true" data-val-required="The AuthorID	 field is required." id="AuthorID" name="AuthorID" type="text" value="" class="input-validation-error" /></td>
+                        <input data-val="true" data-val-required="@Html.LabelFor(m=>messages.FieldRequiredMessage).ToString()" id="AuthorID" name="AuthorID" type="text" value="" class="input-validation-error" /><br />
+                        <span class="field-validation-valid" data-valmsg-for="AuthorID" data-valmsg-replace="true"></span>
+                    </td>
                     <td>
                         <input type="text" name="Description" /></td>
                     <td>
-                        <input data-val="true" data-val-required="The Image	 field is required." type="file" name="Image" id="Image" class="input-validation-error" /></td>
+                        <input data-val="true" data-val-required="@Html.LabelFor(m=>messages.FieldRequiredMessage).ToString()" type="file" name="Image" id="Image" class="input-validation-error" /><br />
+                        <span class="field-validation-valid" data-valmsg-for="Image" data-valmsg-replace="true"></span></td>
                     <td>
                         <div class="ReferenceContainer">
                             <a href="javascript:{}" onclick="$('#AdministrationConsoleAddPostContainer>form').submit(); return false;">
@@ -79,10 +83,6 @@
                         </div>
                 </tr>
             </table>
-            <span class="field-validation-valid" data-valmsg-for="AuthorID" data-valmsg-replace="true"></span>
-            <br />
-            <span class="field-validation-valid" data-valmsg-for="Image" data-valmsg-replace="true"></span>
-            <br />
         }
         <script type="text/javascript">
             function ValidateIntValue(event) {

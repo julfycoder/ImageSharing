@@ -2,6 +2,7 @@
 @using ImageSharing.Models;
 @{
     ActionModel action = new ActionModel();
+    MessagesModel messages = new MessagesModel();
 }
 <div id="CommentsConsoleContainer">
     @using (Html.BeginForm("ChangeComments", "AdminHome"))
@@ -63,9 +64,13 @@
                 </thead>
                 <tr>
                     <td>
-                        <input data-val="true" data-val-required="The PostID	 field is required." id="PostID" name="PostID" type="text" value="" class="input-validation-error" /></td>
+                        <input data-val="true" data-val-required="@Html.LabelFor(m=>messages.FieldRequiredMessage).ToString()" id="PostID" name="PostID" type="text" value="" class="input-validation-error" /><br />
+                        <span class="field-validation-valid" data-valmsg-for="PostID" data-valmsg-replace="true"></span>
+                    </td>
                     <td>
-                        <input data-val="true" data-val-required="The Text	 field is required." id="Text" name="Text" type="text" value="" class="input-validation-error" /></td>
+                        <input data-val="true" data-val-required="@Html.LabelFor(m=>messages.FieldRequiredMessage).ToString()" id="Text" name="Text" type="text" value="" class="input-validation-error" /><br />
+                        <span class="field-validation-valid" data-valmsg-for="Text" data-valmsg-replace="true"></span>
+                    </td>
                     <td>
                         <div class="ReferenceContainer">
                             <a href="javascript:{}" onclick="$('#AdministrationConsoleAddCommentContainer>form').submit(); return false;">
@@ -77,10 +82,6 @@
                     </td>
                 </tr>
             </table>
-            <span class="field-validation-valid" data-valmsg-for="PostID" data-valmsg-replace="true"></span>
-            <br />
-            <span class="field-validation-valid" data-valmsg-for="Text" data-valmsg-replace="true"></span>
-            <br />
         }
         <script type="text/javascript">
             function ValidateIntValue(event) {

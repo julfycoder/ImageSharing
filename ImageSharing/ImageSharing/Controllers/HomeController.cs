@@ -154,9 +154,12 @@ namespace ImageSharing.Controllers
             {
                 foreach (UserAccount user in users)
                 {
-                    if (HttpContext.Request.Cookies["ID"].Value == "" || user.ID != int.Parse(HttpContext.Request.Cookies["ID"].Value))
-                        if (user.Name.ToLower().Contains(searchString.ToLower()) || user.Surname.ToLower().Contains(searchString.ToLower()))
-                            userInfos.Add((UserAccountInfo)userCreator.Create(user, userClient, postClient, tapeClient,friendshipClient,commentClient,subClient));
+                    if (user.IsActivated)
+                    {
+                        if (HttpContext.Request.Cookies["ID"].Value == "" || user.ID != int.Parse(HttpContext.Request.Cookies["ID"].Value))
+                            if (user.Name.ToLower().Contains(searchString.ToLower()) || user.Surname.ToLower().Contains(searchString.ToLower()))
+                                userInfos.Add((UserAccountInfo)userCreator.Create(user, userClient, postClient, tapeClient, friendshipClient, commentClient, subClient));
+                    }
                 }
             }
             if (userInfos.Count() < 1) ViewBag.SearchResult = "Nothing found";

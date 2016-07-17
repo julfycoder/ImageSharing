@@ -43,7 +43,11 @@ namespace ImageSharing.Areas.Admin.Controllers
             IEnumerable<UserAccount> users = userClient.GetUsers();
             UserAccountInfoCreator userCreator = new UserAccountInfoCreator();
             List<UserAccountInfo> userInfos = new List<UserAccountInfo>();
-            foreach (UserAccount user in users) userInfos.Add((UserAccountInfo)userCreator.Create(user, userClient, postClient, tapeClient, friendshipClient, commentClient, subClient));
+            foreach (UserAccount user in users)
+                if (user.IsActivated)
+                {
+                    userInfos.Add((UserAccountInfo)userCreator.Create(user, userClient, postClient, tapeClient, friendshipClient, commentClient, subClient));
+                }
             return PartialView(userInfos);
         }
         public ActionResult PostsConsolePage()

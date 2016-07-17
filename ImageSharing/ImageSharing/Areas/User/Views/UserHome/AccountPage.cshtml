@@ -6,6 +6,7 @@
 @using ImageSharing.Models;
 @{
     ActionModel action = new ActionModel();
+    MessagesModel messages = new MessagesModel();
 }
 @section Body
 {
@@ -19,20 +20,20 @@
             <br />
     
             @Html.LabelFor(m => m.Name)
-            @Html.TextBoxFor(m => m.Name)
-            @Html.ValidationMessageFor(m => m.Name)
+            <input data-val="true" data-val-length="@Html.LabelFor(m => messages.MinLengthMessage).ToString() 3" data-val-length-max="100" data-val-length-min="3" data-val-required="@Html.LabelFor(m => messages.FieldRequiredMessage).ToString()" id="Name" name="Name" type="text" value="@Model.Name" class="input-validation-error" />
+            <span class="field-validation-valid" data-valmsg-for="Name" data-valmsg-replace="true"></span>
             <br /><br />
             @Html.LabelFor(m => m.Surname)
-            @Html.TextBoxFor(m => m.Surname)
-            @Html.ValidationMessageFor(m => m.Surname)
+           <input data-val="true" data-val-length="@Html.LabelFor(m => messages.MinLengthMessage).ToString() 3" data-val-length-max="100" data-val-length-min="3" data-val-required="@Html.LabelFor(m => messages.FieldRequiredMessage).ToString()" id="Surname" name="Surname" type="text" value="@Model.Surname" class="input-validation-error" />
+            <span class="field-validation-valid" data-valmsg-for="Surname" data-valmsg-replace="true"></span>
             <br /><br />
             @Html.LabelFor(m => m.Email)
-            @Html.TextBoxFor(m => m.Email)
-            @Html.ValidationMessageFor(m => m.Email)
+            <input data-val="true" data-val-length="@Html.LabelFor(m => messages.MinLengthMessage).ToString() 3" data-val-length-max="100" data-val-length-min="3" data-val-required="@Html.LabelFor(m => messages.FieldRequiredMessage).ToString()" id="Email" name="Email" type="text" value="" class="input-validation-error" />
+            <span class="field-validation-valid" data-valmsg-for="Email" data-valmsg-replace="true"></span>
             <br /><br />
             @Html.LabelFor(m => m.Password)
-            @Html.TextBoxFor(m => m.Password)
-            @Html.ValidationMessageFor(m => m.Password)
+            <input data-val="true" data-val-length="@Html.LabelFor(m => messages.MinLengthMessage).ToString() 6" data-val-length-max="100" data-val-length-min="6" data-val-required="@Html.LabelFor(m => messages.FieldRequiredMessage).ToString()" id="Password" name="Password" type="password" value="" class="input-validation-error" />
+            <span class="field-validation-valid" data-valmsg-for="Password" data-valmsg-replace="true"></span>
             <br /><br />
             <div class="ReferenceContainer">
             <a href="javascript:{}" onclick="$('#AccountContainer>form').submit(); return false;">

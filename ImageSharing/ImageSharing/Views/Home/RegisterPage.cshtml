@@ -10,32 +10,34 @@
 }
 @section Body{
     <div id="RegisterContainer">
-        <h2>@Html.LabelFor(m=>title.Register)</h2>
-        <q>@Html.LabelFor(m=>messages.EmailMessage)</q><br /><br />
+        <h2>@Html.LabelFor(m => title.Register)</h2>
+        <q>@Html.LabelFor(m => messages.EmailMessage)</q><br />
+        <br />
         @using (Html.BeginForm("Register", "Home"))
         {
             @Html.AntiForgeryToken()
     
             @Html.LabelFor(m => m.Name)
-            @Html.TextBoxFor(m => m.Name)
-            @Html.ValidationMessageFor(m => m.Name)
+            <input data-val="true" data-val-length="@Html.LabelFor(m => messages.MinLengthMessage).ToString() 3" data-val-length-max="100" data-val-length-min="3" data-val-required="@Html.LabelFor(m => messages.FieldRequiredMessage).ToString()" id="Name" name="Name" type="text" value="" class="input-validation-error" />
+            <span class="field-validation-valid" data-valmsg-for="Name" data-valmsg-replace="true"></span>
             <br />
             @Html.LabelFor(m => m.Surname)
-            @Html.TextBoxFor(m => m.Surname)
-            @Html.ValidationMessageFor(m => m.Surname)
+            <input data-val="true" data-val-length="@Html.LabelFor(m => messages.MinLengthMessage).ToString() 3" data-val-length-max="100" data-val-length-min="3" data-val-required="@Html.LabelFor(m => messages.FieldRequiredMessage).ToString()" id="Surname" name="Surname" type="text" value="" class="input-validation-error" />
+            <span class="field-validation-valid" data-valmsg-for="Surname" data-valmsg-replace="true"></span>
             <br />
             @Html.LabelFor(m => m.Email)
-            @Html.TextBoxFor(m => m.Email)
-            @Html.ValidationMessageFor(m => m.Email)
+            <input data-val="true" data-val-length="@Html.LabelFor(m => messages.MinLengthMessage).ToString() 3" data-val-length-max="100" data-val-length-min="3" data-val-required="@Html.LabelFor(m => messages.FieldRequiredMessage).ToString()" id="Email" name="Email" type="text" value="" class="input-validation-error" />
+            <span class="field-validation-valid" data-valmsg-for="Email" data-valmsg-replace="true"></span>
             <br />
             @Html.LabelFor(m => m.Password)
-            @Html.PasswordFor(m => m.Password)
-            @Html.ValidationMessageFor(m => m.Password)
+            <input data-val="true" data-val-length="@Html.LabelFor(m => messages.MinLengthMessage).ToString() 6" data-val-length-max="100" data-val-length-min="6" data-val-required="@Html.LabelFor(m => messages.FieldRequiredMessage).ToString()" id="Password" name="Password" type="password" value="" class="input-validation-error" />
+            <span class="field-validation-valid" data-valmsg-for="Password" data-valmsg-replace="true"></span>
             <br />
             @Html.LabelFor(m => m.ConfirmPassword)
-            @Html.PasswordFor(m => m.ConfirmPassword)
-            @Html.ValidationMessageFor(m => m.ConfirmPassword)
-            <br /><br />
+            <input data-val="true" data-val-equalto="@Html.LabelFor(m => messages.PasswordConfirmMessage).ToString()" data-val-equalto-other="*.Password" data-val-length="@Html.LabelFor(m => messages.MinLengthMessage).ToString() 6" data-val-length-max="100" data-val-length-min="6" data-val-required="@Html.LabelFor(m => messages.FieldRequiredMessage).ToString()" id="ConfirmPassword" name="ConfirmPassword" type="password" value="" class="input-validation-error" />
+            <span class="field-validation-valid" data-valmsg-for="ConfirmPassword" data-valmsg-replace="true"></span>
+            <br />
+            <br />
             <div class="ReferenceContainer">
                 <a href="javascript:{}" onclick="$('#RegisterContainer>form').submit(); return false;">
                     <div>

@@ -120,26 +120,28 @@ namespace ImageSharing.Areas.User.Controllers
         [HttpPost]
         public ActionResult UploadPost(HttpPostedFileBase upload, string Description)
         {
-            int ID = int.Parse(HttpContext.Request.Cookies["ID"].Value);
-
-            if (upload == null) return RedirectToAction("Home");
-            string path = AppDomain.CurrentDomain.BaseDirectory + @"Content\UploadedImages\";
-            string fileName = Path.GetFileName(upload.FileName);
-            string rootPath = Path.Combine(path, fileName);
-            if (fileName != null) upload.SaveAs(rootPath);
-
-            IEnumerable<Post> posts = postClient.GetPosts();
-
-            Post post = new Post
+            if (upload.ContentType.ToLower().Split('/')[0] == "image")
             {
-                AuthorID = int.Parse(HttpContext.Request.Cookies["ID"].Value),
-                DateTime = DateTime.Now,
-                ImagePath = fileName,
-                Description = Description,
-                TapeID = tapeClient.GetTapes().First(t => t.UserID == ID).ID
-            };
-            postClient.AddPost(post);
+                int ID = int.Parse(HttpContext.Request.Cookies["ID"].Value);
 
+                if (upload == null) return RedirectToAction("Home");
+                string path = AppDomain.CurrentDomain.BaseDirectory + @"Content\UploadedImages\";
+                string fileName = Path.GetFileName(upload.FileName);
+                string rootPath = Path.Combine(path, fileName);
+                if (fileName != null) upload.SaveAs(rootPath);
+
+                IEnumerable<Post> posts = postClient.GetPosts();
+
+                Post post = new Post
+                {
+                    AuthorID = int.Parse(HttpContext.Request.Cookies["ID"].Value),
+                    DateTime = DateTime.Now,
+                    ImagePath = fileName,
+                    Description = Description,
+                    TapeID = tapeClient.GetTapes().First(t => t.UserID == ID).ID
+                };
+                postClient.AddPost(post);
+            }
             return RedirectToAction("Home");
         }
         public ActionResult Logout()
@@ -290,8 +292,8 @@ namespace ImageSharing.Areas.User.Controllers
                 UserAccount currentUser = userClient.GetUser(ID);
                 commentClient.AddComment(new Comment
                 {
-                    Text = "'" + commentation.Comment + "' - " + currentUser.Name + " " + currentUser.Surname + " at " + DateTime.Now,
-                    PostID=id
+                    Text = "'" + commentation.Comment + "' - " + currentUser.Name + " " + currentUser.Surname + DateTime.Now,
+                    PostID = id
                 });
             }
 

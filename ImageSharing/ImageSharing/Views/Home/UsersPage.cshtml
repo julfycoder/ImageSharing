@@ -3,6 +3,10 @@
 @{
     ViewBag.Title = "UsersPage";
 }
+@using ImageSharing.Models;
+@{
+    MessagesModel messages=new MessagesModel();
+}
 @section Body
 {
     <div id="UsersContainer">
@@ -19,6 +23,6 @@
                 </div>
             </div>
         }
-        <h2>@ViewBag.SearchResult</h2>
+        <h2>@if (ViewBag.SearchResult != null) { Html.LabelFor(m => messages.NothingFoundMessage); }</h2>
     </div>
 }
