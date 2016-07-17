@@ -1,2 +1,12 @@
-﻿<input type="text" name="Description" value ="@Model" />
-<input type="submit" value="Change" />
+﻿@using ImageSharing.Models;
+@{
+    ActionModel action = new ActionModel();
+}
+<input type="text" name="Description" value ="@Model" />
+<div class="ReferenceContainer">
+    <a href="javascript:{}" onclick="$('#PopupPostUserInfoContainer>form').submit(); return false;">
+        <div>
+            @Html.LabelFor(m => action.Change)
+        </div>
+    </a>
+</div>

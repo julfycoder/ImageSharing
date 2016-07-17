@@ -2,17 +2,26 @@
 @{
     ViewBag.Title = "RecoveryPage";
 }
-
+@using ImageSharing.Models;
+@{
+    ActionModel action = new ActionModel();
+    TitleModel title = new TitleModel();
+}
 @section Body{
     <div id="RecoveryContainer">
-
-        <h2>Recover</h2>
+        <h2>@Html.LabelFor(m=>title.Recover)</h2>
         @using (Html.BeginForm("Recovery", "Home"))
         {
             @Html.LabelFor(m => m.Email)
             @Html.TextBoxFor(m => m.Email)
             <br />
-            <input type="submit" value="submit" />
+            <div class="ReferenceContainer">
+                <a href="javascript:{}" onclick="$('#RecoveryContainer>form').submit(); return false;">
+                    <div>
+                        @Html.LabelFor(m => action.Send)
+                    </div>
+                </a>
+            </div>
         }
         <h2>@ViewBag.Message</h2>
     </div>

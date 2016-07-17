@@ -2,11 +2,16 @@
 @{
     ViewBag.Title = "RegisterPage";
 }
-
+@using ImageSharing.Models;
+@{
+    ActionModel action = new ActionModel();
+    TitleModel title = new TitleModel();
+    MessagesModel messages = new MessagesModel();
+}
 @section Body{
     <div id="RegisterContainer">
-        <h2>Register</h2>
-        <q>The link to applying registration page will be sent to your email after you submit</q>
+        <h2>@Html.LabelFor(m=>title.Register)</h2>
+        <q>@Html.LabelFor(m=>messages.EmailMessage)</q><br /><br />
         @using (Html.BeginForm("Register", "Home"))
         {
             @Html.AntiForgeryToken()
@@ -30,8 +35,14 @@
             @Html.LabelFor(m => m.ConfirmPassword)
             @Html.PasswordFor(m => m.ConfirmPassword)
             @Html.ValidationMessageFor(m => m.ConfirmPassword)
-            <br />
-            <input type="submit" value="submit" />
+            <br /><br />
+            <div class="ReferenceContainer">
+                <a href="javascript:{}" onclick="$('#RegisterContainer>form').submit(); return false;">
+                    <div>
+                        @Html.LabelFor(m => action.Register)
+                    </div>
+                </a>
+            </div>
         }
     </div>
     @Scripts.Render("~/bundles/jqueryval")

@@ -2,8 +2,10 @@
 
 @{
     ViewBag.Title = "Home";
-
-    
+}
+@using ImageSharing.Models;
+@{
+    ActionModel action = new ActionModel();
 }
 @section Body{
     
@@ -19,9 +21,15 @@
         <div id="AddPostContainer">
             @using (Html.BeginForm("UploadPost", "UserHome", FormMethod.Post, new { enctype = "multipart/form-data" }))
             {
-                <input type="file" name ="upload" multiple />
-                <input type="text" name="Description" placeholder="Description"/>
-                <input type="submit" value="Upload"/>
+                <input type="file" name="upload" multiple />
+                <input type="text" name="Description" placeholder="Description" />
+                <div class="ReferenceContainer">
+                    <a href="javascript:{}" onclick="$('#AddPostContainer>form').submit(); return false;">
+                        <div>
+                            @Html.LabelFor(m => action.Upload)
+                        </div>
+                    </a>
+                </div>
             }
         </div>
         @foreach (ImageSharing.Models.EntityInfo.PostInfo post in Model.Tape.Posts)
@@ -33,10 +41,18 @@
                 <div id="PostDescriptionContainer">
                     @post.Author.Surname @post.Author.Name @post.DateTime.ToShortDateString() at @post.DateTime.ToShortTimeString()
                 </div>
-                @using (Html.BeginForm("RemovePost", "UserHome", new { area = "User", id = post.ID }))
-                {
-                    <input type="submit" value="Delete post" />
-                }
+                <div id="DeleteButton_@post.ID">
+                    @using (Html.BeginForm("RemovePost", "UserHome", new { area = "User", id = post.ID }))
+                    {
+                        <div class="ReferenceContainer">
+                            <a href="javascript:{}" onclick="$('#DeleteButton_@post.ID>form').submit(); return false;">
+                                <div>
+                                    @Html.LabelFor(m => action.Delete)
+                                </div>
+                            </a>
+                        </div>
+                    }
+                </div>
             </div>
             <div id="PopupPostContainer_@post.ID" class="table-responsive" style="display:none;">
                 <div id="PopupPostImageContainer">
@@ -45,21 +61,22 @@
                 <div id="PopupPostUserInfoContainer">
                     @post.Author.Surname @post.Author.Name @post.DateTime.ToShortDateString() at @post.DateTime.ToShortTimeString()<br />
                     <br />
-                        @if(post.Author.ID==int.Parse(HttpContext.Current.Request.Cookies["ID"].Value))
+                    @if (post.Author.ID == int.Parse(HttpContext.Current.Request.Cookies["ID"].Value))
+                    {
+                        var descriptionsOptions = new AjaxOptions()
                         {
-                            var descriptionsOptions = new AjaxOptions()
-                            {
-                                UpdateTargetId = "PopupPostDescriptionContainer_" + post.ID,
-                                Url = Url.Action("Descriptions", "UserHome", new { area = "User" , id=post.ID}),
-                            };
+                            UpdateTargetId = "PopupPostDescriptionContainer_" + post.ID,
+                            Url = Url.Action("Descriptions", "UserHome", new { area = "User", id = post.ID }),
+                        };
                         using (Ajax.BeginForm(descriptionsOptions))
                         {
-                            <div id="PopupPostDescriptionContainer_@post.ID">
-                                @Html.Action("Descriptions", "UserHome", new { area = "User", id = post.ID })
-                            </div>
+                        <div id="PopupPostDescriptionContainer_@post.ID">
+                            @Html.Action("Descriptions", "UserHome", new { area = "User", id = post.ID })
+                        </div>
                         }
-                        }
-                    else {@post.Description<br />}
+                    }
+                    else
+                    {@post.Description<br />}
                     <br />
                     <br />
                 </div>
@@ -69,26 +86,32 @@
                         @{
                             var commentsOptions = new AjaxOptions()
                             {
-                                UpdateTargetId = "CommentsContainer_"+post.ID,
-                                Url = Url.Action("Comments", "UserHome", new { area = "User" , id=post.ID}),
+                                UpdateTargetId = "CommentsContainer_" + post.ID,
+                                Url = Url.Action("Comments", "UserHome", new { area = "User", id = post.ID }),
                             };
                         }
                         @using (Ajax.BeginForm(commentsOptions))
                         {
                             <input type="text" name="PostID" value="@post.ID" style="display:none;" />
                             <input type="text" name="Comment" placeholder="Enter some comments" />
-                            <input type="submit" value="Add comments" />
+                            <div class="ReferenceContainer">
+                                <a href="javascript:{}" onclick="$('#PopupPostAddCommentContainer>form').submit(); return false;">
+                                    <div>
+                                        @Html.LabelFor(m => action.Send)
+                                    </div>
+                                </a>
+                            </div>
                             
                             <div id="CommentsContainer_@post.ID">
                                 @Html.Action("Comments", "UserHome", new { area = "User", id = post.ID })
                             </div>
                         }
                     </div>
-                    
+
                 </div>
             </div>
         }
-        </div>
+    </div>
     
     <script type="text/javascript">
         function ShowPopup(id) {

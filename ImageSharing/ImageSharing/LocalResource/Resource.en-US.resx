@@ -123,6 +123,9 @@
   <data name="Account" xml:space="preserve">
     <value>Account</value>
   </data>
+  <data name="Action" xml:space="preserve">
+    <value>Action</value>
+  </data>
   <data name="AddAction" xml:space="preserve">
     <value>Add</value>
   </data>
@@ -134,6 +137,9 @@
   </data>
   <data name="AvatarName" xml:space="preserve">
     <value>Avatar</value>
+  </data>
+  <data name="ChangeAction" xml:space="preserve">
+    <value>Change</value>
   </data>
   <data name="CommentsAction" xml:space="preserve">
     <value>Comments</value>
@@ -152,6 +158,12 @@
   </data>
   <data name="Email" xml:space="preserve">
     <value>Email</value>
+  </data>
+  <data name="EmailMessage" xml:space="preserve">
+    <value>The link to applying registration page will be sent to your email after you submit</value>
+  </data>
+  <data name="Follow" xml:space="preserve">
+    <value>Follow</value>
   </data>
   <data name="ForgotYour_Password" xml:space="preserve">
     <value>Forgot your password?</value>
@@ -174,6 +186,9 @@
   <data name="Logout" xml:space="preserve">
     <value>Logout</value>
   </data>
+  <data name="MakeFriend" xml:space="preserve">
+    <value>Make friend</value>
+  </data>
   <data name="Name" xml:space="preserve">
     <value>Name</value>
   </data>
@@ -189,11 +204,20 @@
   <data name="PostsAction" xml:space="preserve">
     <value>Posts</value>
   </data>
+  <data name="PostsCount" xml:space="preserve">
+    <value>Posts count</value>
+  </data>
+  <data name="Recover" xml:space="preserve">
+    <value>Recover</value>
+  </data>
   <data name="Register" xml:space="preserve">
     <value>Register</value>
   </data>
   <data name="RegisterAction" xml:space="preserve">
     <value>Register</value>
+  </data>
+  <data name="RemoveFriend" xml:space="preserve">
+    <value> Remove friend</value>
   </data>
   <data name="RequestsAction" xml:space="preserve">
     <value>Requests</value>
@@ -207,6 +231,9 @@
   <data name="SearchAction" xml:space="preserve">
     <value>Search</value>
   </data>
+  <data name="SendAction" xml:space="preserve">
+    <value>Send</value>
+  </data>
   <data name="Subscriptions" xml:space="preserve">
     <value>Subscriptions</value>
   </data>
@@ -215,6 +242,9 @@
   </data>
   <data name="Text" xml:space="preserve">
     <value>Text</value>
+  </data>
+  <data name="Unfollow" xml:space="preserve">
+    <value>Unfollow</value>
   </data>
   <data name="UploadAction" xml:space="preserve">
     <value>Upload</value>

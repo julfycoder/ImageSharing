@@ -2,7 +2,10 @@
 @{
     ViewBag.Title = "Friends";
 }
-
+@using ImageSharing.Models;
+@{
+    ActionModel action = new ActionModel();
+}
 @section Body
 {
 <div id="FriendsContainer">
@@ -10,7 +13,7 @@
         <div class="ReferenceContainer">
             <a href="@Url.Action("RequestsPage","UserHome",new {area="User"})">
                <div>
-                   <p>@Html.Label("Requests")</p>
+                   @Html.LabelFor(m => action.Requests)
                </div>
             </a>
         </div>
@@ -18,7 +21,13 @@
     @using(Html.BeginForm("SearchFriends","UserHome"))
     {
         <input type="text" name="searchString" />
-        <input type="submit" value="Search" />
+        <div class="ReferenceContainer">
+                <a href="javascript:{}" onclick="$('#FriendsContainer>form').submit(); return false;">
+                    <div>
+                        @Html.LabelFor(m => action.Search)
+                    </div>
+                </a>
+            </div>
     }
     <div id="UsersContainer">
         @foreach(ImageSharing.Models.EntityInfo.FriendInfo friend in Model)

@@ -3,52 +3,90 @@
 @{
     ViewBag.Title = "UserPage";
 }
+@using ImageSharing.Models;
+@{
+    ActionModel action = new ActionModel();
+}
 @section Body{
     <div id="AvatarContainer">
         <div id="AvatarImageContainer">
             <img src="@Url.Content(@"..\..\..\..\Content\AvatarImages\" + Model.AvatarName)" alt="Avatar" />
         </div>
         <div id="NickContainer">
-            @Model.Surname @Model.Name 
+            @Model.Surname @Model.Name
         </div>
-        @{
-             if (HttpContext.Current.Request.Cookies != null &&
-                          HttpContext.Current.Request.Cookies["Role"] != null &&
-                          (HttpContext.Current.Request.Cookies["Role"].Value == "admin" ||
-                          HttpContext.Current.Request.Cookies["Role"].Value == "user"))
-               {
-                   if (ViewBag.ThereIsRequest == "false")
-                   {
-                       if (ViewBag.IsFriend == "false")
-                       {
-            <form action="@Url.Action("MakeFriend", "UserHome", new { area = "User", id = Model.ID })">
-                <input type="submit" value="MakeFriend" />
-            </form>
-                       }
-                       if (ViewBag.IsFriend == "true")
-                       {
-            <form action="@Url.Action("RemoveFriend", "UserHome", new { area = "User", id = Model.ID })">
-                <input type="submit" value="RemoveFriend" />
-            </form>
-                           if (ViewBag.IsFollow == "false")
-                           {
-                <form action="@Url.Action("Follow", "UserHome", new { area = "User", id = Model.ID })">
-                    <input type="submit" value="Follow" />
-                </form>
+        <div id="RelationshipButtonsContainer">
+            @{
+                if (HttpContext.Current.Request.Cookies != null &&
+                             HttpContext.Current.Request.Cookies["Role"] != null &&
+                             (HttpContext.Current.Request.Cookies["Role"].Value == "admin" ||
+                             HttpContext.Current.Request.Cookies["Role"].Value == "user"))
+                {
+                    if (ViewBag.ThereIsRequest == "false")
+                    {
+                        if (ViewBag.IsFriend == "false")
+                        {
+                <div id="MakeFriendButton">
+                    <form action="@Url.Action("MakeFriend", "UserHome", new { area = "User", id = Model.ID })">
+                        <div class="ReferenceContainer">
+                            <a href="javascript:{}" onclick="$('#MakeFriendButton>form').submit(); return false;">
+                                <div>
+                                    @Html.LabelFor(m => action.MakeFriend)
+                                </div>
+                            </a>
+                        </div>
+                    </form>
+                </div>
+                    }
+                    if (ViewBag.IsFriend == "true")
+                    {
+                <div id="RemoveFriendButton">
+                    <form action="@Url.Action("RemoveFriend", "UserHome", new { area = "User", id = Model.ID })">
+                        <div class="ReferenceContainer">
+                            <a href="javascript:{}" onclick="$('#RemoveFriendButton>form').submit(); return false;">
+                                <div>
+                                    @Html.LabelFor(m => action.RemoveFriend)
+                                </div>
+                            </a>
+                        </div>
+                    </form>
+                </div>
+                        if (ViewBag.IsFollow == "false")
+                        {
+                <div id="FollowButton">
+                    <form action="@Url.Action("Follow", "UserHome", new { area = "User", id = Model.ID })">
+                        <div class="ReferenceContainer">
+                            <a href="javascript:{}" onclick="$('#FollowButton>form').submit(); return false;">
+                                <div>
+                                    @Html.LabelFor(m => action.Follow)
+                                </div>
+                            </a>
+                        </div>
+                    </form>
+                </div>
                            }
                            if (ViewBag.IsFollow == "true")
                            {
-                <form action="@Url.Action("Unfollow", "UserHome", new { area = "User", id = Model.ID })">
-                    <input type="submit" value="Unfollow" />
-                </form>
+                <div id="UnfollowButton">
+                    <form action="@Url.Action("Unfollow", "UserHome", new { area = "User", id = Model.ID })">
+                        <div class="ReferenceContainer">
+                            <a href="javascript:{}" onclick="$('#UnfollowButton>form').submit(); return false;">
+                                <div>
+                                    @Html.LabelFor(m => action.Unfollow)
+                                </div>
+                            </a>
+                        </div>
+                    </form>
+                </div>
                            }
-                       }
-                   }
-                   else
-                   {<p>You sended a request to this user.</p>}
+                    }
+                }
+                else
+                {<p>You sended a request to this user.</p>}
 
-               }
-               }
+            }
+            }
+        </div>
     </div>
     <div id="TapeContainer">
         @foreach (ImageSharing.Models.EntityInfo.PostInfo post in Model.Tape.Posts)
@@ -67,12 +105,14 @@
                     <img src="@Url.Content(@"..\..\..\..\Content\UploadedImages\" + post.ImageName)" alt="Image"/>
                 </div>
                 <div id="PopupPostUserInfoContainer">
-                    @post.Author.Surname @post.Author.Name @post.DateTime.ToShortDateString() at @post.DateTime.ToShortTimeString()<br /><br />
-                    @post.Description<br /><br />
+                    @post.Author.Surname @post.Author.Name @post.DateTime.ToShortDateString() at @post.DateTime.ToShortTimeString()<br />
+                    <br />
+                    @post.Description<br />
+                    <br />
                 </div>
-                
-                 <div id="PopupPostCommentsContainer">
-                     <div id="PopupPostAddCommentContainer">
+
+                <div id="PopupPostCommentsContainer">
+                    <div id="PopupPostAddCommentContainer">
                         @{
                             var options = new AjaxOptions()
                             {
@@ -84,7 +124,13 @@
                         {
                             <input type="text" name="PostID" value="@post.ID" style="display:none;" />
                             <input type="text" name="Comment" placeholder="Enter some comments" />
-                            <input type="submit" value="Add comments" />
+                            <div class="ReferenceContainer">
+                                <a href="javascript:{}" onclick="$('#PopupPostAddCommentContainer>form').submit(); return false;">
+                                    <div>
+                                        @Html.LabelFor(m => action.Send)
+                                    </div>
+                                </a>
+                            </div>
                             
                             <div id="CommentsContainer_@post.ID">
                                 @Html.Action("Comments", "UserHome", new { area = "User", id = post.ID })

@@ -2,7 +2,10 @@
 @{
     ViewBag.Title = "RequestsPage";
 }
-
+@using ImageSharing.Models;
+@{
+    ActionModel action = new ActionModel();
+}
 @section Body
 {
     <div id="UsersContainer">
@@ -17,14 +20,30 @@
                         @user.Surname @user.Name
                     </a>
                 </div>
+                <div id="MakeFriendButton">
                 @using (Html.BeginForm("MakeFriend", "UserHome", new { area = "User", id = user.ID }))
                 {
-                    <input type="submit" value="MakeFriend" />
+                    <div class="ReferenceContainer">
+                        <a href="javascript:{}" onclick="$('#MakeFriendButton>form').submit(); return false;">
+                            <div>
+                                @Html.LabelFor(m => action.MakeFriend)
+                            </div>
+                        </a>
+                    </div>
                 }
+                    </div>
+                <div id="RemoveFriendButton">
                 @using (Html.BeginForm("RemoveRequest", "UserHome", new { area = "User", id = user.ID }))
                 {
-                    <input type="submit" value="RemoveRequest" />
+                    <div class="ReferenceContainer">
+                        <a href="javascript:{}" onclick="$('#RemoveFriendButton>form').submit(); return false;">
+                            <div>
+                                @Html.LabelFor(m => action.RemoveFriend)
+                            </div>
+                        </a>
+                    </div>
                 }
+                    </div>
             </div>
         }
         <h2>@ViewBag.SearchResult</h2>

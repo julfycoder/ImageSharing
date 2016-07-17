@@ -2,10 +2,14 @@
 @{
     ViewBag.Title = "LoginPage";
 }
-
+@using ImageSharing.Models;
+@{
+    ActionModel action = new ActionModel();
+    TitleModel title = new TitleModel();
+}
 @section Body{
     <div id="LoginContainer">
-        <h2>Login</h2>
+        <h2>@Html.LabelFor(m=>title.Login)</h2>
 
         @using (Html.BeginForm("Login", "Home"))
         {
@@ -20,11 +24,17 @@
             
             <a href="@Url.Action("RecoveryPage", "Home")">
                 <div>
-                    @Html.LabelFor(m => m.Forgot_your_password)
+                    @Html.LabelFor(m => m.ForgotYourPassword)
                 </div>
             </a>
             <br />
-            <input type="submit" value="submit" />
+            <div class="ReferenceContainer">
+                <a href="javascript:{}" onclick="$('#LoginContainer>form').submit(); return false;">
+                    <div>
+                        @Html.LabelFor(m => action.Login)
+                    </div>
+                </a>
+            </div>
             <h2>@ViewBag.Message</h2>
         }
     </div>

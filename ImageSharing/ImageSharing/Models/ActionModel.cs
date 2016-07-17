@@ -9,6 +9,9 @@ namespace ImageSharing.Models
 {
     public class ActionModel
     {
+        [Display(Name = "Action", ResourceType = typeof(Resource))]
+        public string Action { get; set; }
+
         [Display(Name="AddAction",ResourceType=typeof(Resource))]
         public string Add { get; set; }
 
@@ -33,6 +36,9 @@ namespace ImageSharing.Models
         [Display(Name = "UsersAction", ResourceType = typeof(Resource))]
         public string Users { get; set; }
 
+        [Display(Name = "ChangeAction", ResourceType = typeof(Resource))]
+        public string Change { get; set; }
+
         [Display(Name = "CommentsAction", ResourceType = typeof(Resource))]
         public string Comments { get; set; }
 
@@ -41,5 +47,20 @@ namespace ImageSharing.Models
 
         [Display(Name = "RequestsAction", ResourceType = typeof(Resource))]
         public string Requests { get; set; }
+
+        [Display(Name = "Follow", ResourceType = typeof(Resource))]
+        public string Follow { get; set; }
+
+        [Display(Name = "Unfollow", ResourceType = typeof(Resource))]
+        public string Unfollow { get; set; }
+
+        [Display(Name = "MakeFriend", ResourceType = typeof(Resource))]
+        public string MakeFriend { get; set; }
+
+        [Display(Name = "RemoveFriend", ResourceType = typeof(Resource))]
+        public string RemoveFriend { get; set; }
+
+        [Display(Name = "SendAction", ResourceType = typeof(Resource))]
+        public string Send { get; set; }
     }
 }

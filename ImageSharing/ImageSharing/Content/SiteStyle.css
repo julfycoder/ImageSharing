@@ -65,7 +65,6 @@ a div label
 {
     display:table-cell;
     padding:2px;
-    /*background-color:green;*/
     height:50px;
     vertical-align:middle;
     
@@ -79,7 +78,6 @@ a div label
             color:black;
             text-align:center;
             cursor:pointer;
-            /*background-color:orange;*/
             height:48px;
             background-color:#dcdcdc;
         }
@@ -94,7 +92,6 @@ a div label
             }
             .ReferenceContainer a div label
             {
-                /*background-color:red;*/
                 line-height:3;
             }
 /*NAVIGATION*/
@@ -125,8 +122,6 @@ a div label
     display:table;display:table-cell;
     border-spacing:3px;
     vertical-align:middle;
-    /*background-color:green;*/
-   /*width:10em;*/
 }
 #SearchContainerRow
 {
@@ -138,7 +133,6 @@ a div label
 }
     #SearchContainerContent form div input[name='searchString']
     {
-        /*height:20px;*/
         width:25em;
         top:10px;
     }
@@ -162,7 +156,6 @@ a div label
 #PolicyAboutContainerRow
 {
     display:table-row;
-    
 }
 /*HOME*/
 /*AVATAR*/
@@ -174,8 +167,7 @@ a div label
     background-color:white;
     text-align:center;
     border:1px solid #e1e1e1;
-    padding-top:20px;
-    padding-bottom:15px;
+    padding-top:20px;    padding-bottom:15px;
     border-radius:4px;
 }
 #AvatarImageContainer
@@ -190,6 +182,10 @@ a div label
 {
     margin-top:8%;
     font-family:Arial;
+}
+#RelationshipButtonsContainer
+{
+    margin-left:30%;
 }
 /*TAPE*/
 #TapeContainer
@@ -216,7 +212,7 @@ a div label
 #PostContainer
 {
     margin-top:30px;
-    height:300px;
+    height:330px;
     padding-bottom:30px;padding-top:10px;padding-left:10px;padding-right:10px;
     border:1px solid #e1e1e1;
     background-color:white;
@@ -225,7 +221,7 @@ a div label
 #PostImageContainer
 {
     text-align:center;
-    height:92%;
+    height:82%;
 }
     #PostImageContainer img
     {
@@ -351,7 +347,7 @@ a div label
 }
 #UsersConsoleContainer form table
 {
-    border-spacing:30px 15px;
+    border-spacing:5px 15px;
 }
 #PostsConsoleContainer form table
 {
@@ -361,11 +357,9 @@ a div label
 #AboutContainer
 {
     padding-top:8%;padding-bottom:8%;padding-left:21%;padding-right:21%;
-    /*background-color:orange;*/
 }
 #AboutInfoContainer
 {
-    /*background-color:green;*/
     background-color:white;
     padding:4%;
     border-radius:20px;
@@ -373,18 +367,15 @@ a div label
 }
 #AboutInfoTextContainer
 {
-    /*background-color:brown;*/
     padding:1px;
     text-align:center;
 }
 #PrivatePolicyContainer
 {
     padding-top:8%;padding-bottom:8%;padding-left:21%;padding-right:21%;
-    /*background-color:orange;*/
 }
 #PrivatePolicyInfoContainer
 {
-     /*background-color:green;*/
     background-color:white;
     padding:4%;
     border-radius:20px;
@@ -392,24 +383,41 @@ a div label
 }
 #PrivatePolicyInfoTextContainer
 {
-    /*background-color:brown;*/
     padding:1px;
     text-align:center;
 }
 /*REGISTER*/
 #RegisterContainer
 {
-    text-align:center;
 }
+    #RegisterContainer h2
+    {
+        text-align:center;
+    }
+    #RegisterContainer q
+    {
+        margin-left:33%;
+    }
     #RegisterContainer form input[type='text']
     {
         margin-left:7px;
     }
+    #RegisterContainer form input[type='password']
+    {
+        margin-left:7px;
+    }
+    #RegisterContainer form
+    {
+        padding-left:40%;
+    }
 /*LOGIN*/
 #LoginContainer
 {
-    text-align:center;
 }
+    #LoginContainer h2
+    {
+        text-align:center;
+    }
     #LoginContainer form input[type='text']
     {
         margin-left: 7px;
@@ -418,11 +426,23 @@ a div label
     {
         margin-left: 7px;
     }
+    #LoginContainer form
+    {
+        padding-left:40%;
+    }
 /*RECOVERY*/
 #RecoveryContainer
 {
 }
+    #RecoveryContainer h2
+    {
+        text-align:center;
+    }
     #RecoveryContainer form input[type='text']
     {
         margin-left:7px;
+    }
+    #RecoveryContainer form
+    {
+        padding-left:40%;
     }

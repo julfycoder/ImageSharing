@@ -3,6 +3,12 @@
 @{
     ViewBag.Title = "SubscriptionsPage";
 }
+@using ImageSharing.Models;
+@using ImageSharing.Models.EntityInfo;
+@{
+    ActionModel action = new ActionModel();
+    SubscriptionInfo subInfo = new SubscriptionInfo();
+}
 @section Body
 {
    
@@ -10,15 +16,21 @@
         @using (Html.BeginForm("SearchSubscriptions", "UserHome"))
         {
             <input type="text" name="searchString" />
-            <input type="submit" value="Search" />
+            <div class="ReferenceContainer">
+                <a href="javascript:{}" onclick="$('#SubscriptionsContainer>form').submit(); return false;">
+                    <div>
+                        @Html.LabelFor(m => action.Search)
+                    </div>
+                </a>
+            </div>
         }<br />
         <table id="SubscriptionsTable">
             <thead>
                 <tr>
-                    <td>Name</td>
-                    <td>Surame</td>
-                    <td>Posts count</td>
-                    <td>Action</td>
+                    <td>@Html.LabelFor(m=>subInfo.UserName)</td>
+                    <td>@Html.LabelFor(m=>subInfo.Surname)</td>
+                    <td>@Html.LabelFor(m=>subInfo.PostsCount)</td>
+                    <td>@Html.LabelFor(m=>action.Action)</td>
                 </tr>
             </thead>
             @foreach (ImageSharing.Models.EntityInfo.SubscriptionInfo sub in Model)
@@ -27,7 +39,15 @@
                     <td>@sub.UserName</td>
                     <td>@sub.Surname</td>
                     <td>@sub.PostsCount</td>
-                    <td>@Html.ActionLink("Unfollow", "Unfollow", "UserHome", new { area = "User", id = sub.friendId }, null)</td>
+                    <td>
+                        <div class="ReferenceContainer">
+                            <a href="@Url.Action("Unfollow", "UserHome", new { area = "User", id = sub.friendId })">
+                                <div>
+                                    @Html.LabelFor(m => action.Unfollow)
+                                </div>
+                            </a>
+                        </div>
+                    </td>
                 </tr>
             }
         </table>
