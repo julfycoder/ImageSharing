@@ -7,14 +7,14 @@
 <div id="PostsConsoleContainer">
     @using (Html.BeginForm("ChangePosts", "AdminHome", FormMethod.Post, new { area = "Admin", enctype = "multipart/form-data" }))
     {
-        <table>
+        <table id="AdminConsoleGrid">
             <thead>
                 <tr>
-                    <td>ID</td>
-                    <td>@Html.LabelFor(m => Model[0].Author)</td>
-                    <td>@Html.LabelFor(m => Model[0].DateTime)</td>
-                    <td>@Html.LabelFor(m => Model[0].Description)</td>
-                    <td>@Html.LabelFor(m => Model[0].ImageName)</td>
+                    <th>ID</th>
+                    <th>@Html.LabelFor(m => Model[0].Author)</th>
+                    <th>@Html.LabelFor(m => Model[0].DateTime)</th>
+                    <th>@Html.LabelFor(m => Model[0].Description)</th>
+                    <th>@Html.LabelFor(m => Model[0].ImageName)</th>
                 </tr>
             </thead>
             @for (int i = 0; i < Model.Count(); i++)
@@ -50,6 +50,42 @@
                 </div>
             </a>
         </div>
+        
+        <script type="text/javascript">
+
+            var grid = document.getElementById('AdminConsoleGrid');
+
+            $("#AdminConsoleGrid>thead>tr>th>label").click(function (e) {
+                sortGrid($(this.parentElement).index());
+            });
+
+            grid.onclick = function (e) {
+                if (e.target.tagName != 'TH') return;
+                sortGrid(e.target.cellIndex);
+            };
+
+            function sortGrid(colNum) {
+                var tbody = grid.getElementsByTagName('tbody')[0];
+
+                var rowsArray = [].slice.call(tbody.rows);
+
+                var compare;
+
+                compare = function (rowA, rowB) {
+                    return rowA.cells[colNum].innerHTML > rowB.cells[colNum].innerHTML ? 1 : -1;
+
+                }
+                rowsArray.sort(compare);
+
+                grid.removeChild(tbody);
+
+                for (var i = 0; i < rowsArray.length; i++) {
+                    tbody.appendChild(rowsArray[i]);
+                }
+
+                grid.appendChild(tbody);
+            }
+        </script>
     }
     <div id="AdministrationConsoleAddPostContainer">
         @using (Html.BeginForm("AddPost", "AdminHome", FormMethod.Post, new { area = "Admin", enctype = "multipart/form-data" }))
@@ -64,13 +100,13 @@
                 </thead>
                 <tr>
                     <td>
-                        <input data-val="true" data-val-required="@Html.LabelFor(m=>messages.FieldRequiredMessage).ToString()" id="AuthorID" name="AuthorID" type="text" value="" class="input-validation-error" /><br />
+                        <input data-val="true" data-val-required="@Html.LabelFor(m => messages.FieldRequiredMessage).ToString()" id="AuthorID" name="AuthorID" type="text" value="" class="input-validation-error" /><br />
                         <span class="field-validation-valid" data-valmsg-for="AuthorID" data-valmsg-replace="true"></span>
                     </td>
                     <td>
                         <input type="text" name="Description" /></td>
                     <td>
-                        <input data-val="true" data-val-required="@Html.LabelFor(m=>messages.FieldRequiredMessage).ToString()" type="file" name="Image" id="Image" class="input-validation-error" /><br />
+                        <input data-val="true" data-val-required="@Html.LabelFor(m => messages.FieldRequiredMessage).ToString()" type="file" name="Image" id="Image" class="input-validation-error" /><br />
                         <span class="field-validation-valid" data-valmsg-for="Image" data-valmsg-replace="true"></span></td>
                     <td>
                         <div class="ReferenceContainer">

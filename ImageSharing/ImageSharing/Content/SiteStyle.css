@@ -357,6 +357,19 @@ a div label
 {
     border-spacing:30px 15px;
 }
+#AdminConsoleGrid thead tr th
+{
+    cursor:pointer;
+    text-align:center;
+}
+#AdminConsoleGrid thead tr th:hover
+{
+    background-color:#ffd276;
+}
+#AdminConsoleGrid thead tr th label
+{
+    cursor:pointer;
+}
 /*ABOUT*/
 #AboutContainer
 {

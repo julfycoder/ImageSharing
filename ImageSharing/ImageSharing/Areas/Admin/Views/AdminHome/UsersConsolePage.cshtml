@@ -7,43 +7,45 @@
 <div id="UsersConsoleContainer">
     @using (Html.BeginForm("ChangeUsers", "AdminHome", FormMethod.Post, new { area = "Admin", enctype = "multipart/form-data" }))
     {
-        <table>
+        <table id="AdminConsoleGrid">
             <thead>
                 <tr>
-                    <td>ID</td>
-                    <td>@Html.LabelFor(m => Model[0].Surname)</td>
-                    <td>@Html.LabelFor(m => Model[0].Name)</td>
-                    <td>@Html.LabelFor(m => Model[0].Email)</td>
-                    <td>@Html.LabelFor(m => Model[0].AvatarName)</td>
-                    <td>@Html.LabelFor(m => Model[0].Role)</td>
+                    <th>ID</th>
+                    <th>@Html.LabelFor(m => Model[0].Surname)</th>
+                    <th>@Html.LabelFor(m => Model[0].Name)</th>
+                    <th>@Html.LabelFor(m => Model[0].Email)</th>
+                    <th>@Html.LabelFor(m => Model[0].AvatarName)</th>
+                    <th>@Html.LabelFor(m => Model[0].Role)</th>
                 </tr>
             </thead>
-            @for (int i = 0; i < Model.Count(); i++)
-            {
-                <tr>
-                    <td>
-                        <input type="text" value="@Model[i].ID" name="users[@i].ID" readonly="true" /></td>
-                    <td>
-                        <input type="text" value="@Model[i].Surname" name="users[@i].Surname" /></td>
-                    <td>
-                        <input type="text" value="@Model[i].Name" name="users[@i].Name" /></td>
-                    <td>
-                        <input type="text" value="@Model[i].Email" name="users[@i].Email" /></td>
-                    <td>
-                        <input type="text" value="@Model[i].AvatarName" readonly="true"/><input type="file" name="avatars[@i]" /></td>
-                    <td>
-                        <input type="text" value="@Model[i].Role" name="users[@i].Role" /></td>
-                    <td>
-                        <div class="ReferenceContainer">
-                            <a href="@Url.Action("DeleteUser", "AdminHome", new { area = "Admin", id = Model[i].ID })">
-                                <div>
-                                    @Html.LabelFor(m => action.Delete)
-                                </div>
-                            </a>
-                        </div>
-                    </td>
-                </tr>
-        }
+            <tbody>
+                @for (int i = 0; i < Model.Count(); i++)
+                {
+                    <tr>
+                        <td>
+                            <input type="text" value="@Model[i].ID" name="users[@i].ID" readonly="true" /></td>
+                        <td>
+                            <input type="text" value="@Model[i].Surname" name="users[@i].Surname" /></td>
+                        <td>
+                            <input type="text" value="@Model[i].Name" name="users[@i].Name" /></td>
+                        <td>
+                            <input type="text" value="@Model[i].Email" name="users[@i].Email" /></td>
+                        <td>
+                            <input type="text" value="@Model[i].AvatarName" readonly="true"/><input type="file" name="avatars[@i]" /></td>
+                        <td>
+                            <input type="text" value="@Model[i].Role" name="users[@i].Role" /></td>
+                        <td>
+                            <div class="ReferenceContainer">
+                                <a href="@Url.Action("DeleteUser", "AdminHome", new { area = "Admin", id = Model[i].ID })">
+                                    <div>
+                                        @Html.LabelFor(m => action.Delete)
+                                    </div>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
         </table>
         <br />
         <br />
@@ -55,6 +57,42 @@
                 </div>
             </a>
         </div>
+        
+        <script type="text/javascript">
+
+            var grid = document.getElementById('AdminConsoleGrid');
+
+            $("#AdminConsoleGrid>thead>tr>th>label").click(function (e) {
+                sortGrid($(this.parentElement).index());
+            });
+
+            grid.onclick = function (e) {
+                if (e.target.tagName != 'TH') return;
+                sortGrid(e.target.cellIndex);
+            };
+
+            function sortGrid(colNum) {
+                var tbody = grid.getElementsByTagName('tbody')[0];
+
+                var rowsArray = [].slice.call(tbody.rows);
+
+                var compare;
+
+                compare = function (rowA, rowB) {
+                    return rowA.cells[colNum].innerHTML > rowB.cells[colNum].innerHTML ? 1 : -1;
+
+                }
+                rowsArray.sort(compare);
+
+                grid.removeChild(tbody);
+
+                for (var i = 0; i < rowsArray.length; i++) {
+                    tbody.appendChild(rowsArray[i]);
+                }
+
+                grid.appendChild(tbody);
+            }
+        </script>
     }
     <div id="AdministrationConsoleAddUserContainer">
         @using (Html.BeginForm("AddUser", "AdminHome", FormMethod.Post, new { area = "Admin", enctype = "multipart/form-data" }))
@@ -109,5 +147,6 @@
             </table>
         }
     </div>
+    <script src="~/Scripts/jquery-ui-1.8.24.min.js"></script>
     @Scripts.Render("~/bundles/jqueryval")
 </div>

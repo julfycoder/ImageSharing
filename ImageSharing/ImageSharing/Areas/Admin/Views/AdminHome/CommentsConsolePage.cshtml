@@ -7,12 +7,12 @@
 <div id="CommentsConsoleContainer">
     @using (Html.BeginForm("ChangeComments", "AdminHome"))
     {
-        <table>
+        <table id="AdminConsoleGrid">
             <thead>
                 <tr>
-                    <td>@Html.LabelFor(m => Model[0].PostID)</td>
-                    <td>ID</td>
-                    <td>@Html.LabelFor(m => Model[0].Comments.ToList()[0].Text)</td>
+                    <th>@Html.LabelFor(m => Model[0].PostID)</th>
+                    <th>ID</th>
+                    <th>@Html.LabelFor(m => Model[0].Comments.ToList()[0].Text)</th>
                 </tr>
             </thead>
             @{var count = 0;}
@@ -50,7 +50,43 @@
                 </div>
             </a>
         </div>
-      }
+        
+         <script type="text/javascript">
+
+             var grid = document.getElementById('AdminConsoleGrid');
+
+             $("#AdminConsoleGrid>thead>tr>th>label").click(function (e) {
+                 sortGrid($(this.parentElement).index());
+             });
+
+             grid.onclick = function (e) {
+                 if (e.target.tagName != 'TH') return;
+                 sortGrid(e.target.cellIndex);
+             };
+
+             function sortGrid(colNum) {
+                 var tbody = grid.getElementsByTagName('tbody')[0];
+
+                 var rowsArray = [].slice.call(tbody.rows);
+
+                 var compare;
+
+                 compare = function (rowA, rowB) {
+                     return rowA.cells[colNum].innerHTML > rowB.cells[colNum].innerHTML ? 1 : -1;
+
+                 }
+                 rowsArray.sort(compare);
+
+                 grid.removeChild(tbody);
+
+                 for (var i = 0; i < rowsArray.length; i++) {
+                     tbody.appendChild(rowsArray[i]);
+                 }
+
+                 grid.appendChild(tbody);
+             }
+        </script>
+    }
     <div id="AdministrationConsoleAddCommentContainer">
         @using (Html.BeginForm("AddComment", "AdminHome", new { area = "Admin" }))
         {
@@ -64,11 +100,11 @@
                 </thead>
                 <tr>
                     <td>
-                        <input data-val="true" data-val-required="@Html.LabelFor(m=>messages.FieldRequiredMessage).ToString()" id="PostID" name="PostID" type="text" value="" class="input-validation-error" /><br />
+                        <input data-val="true" data-val-required="@Html.LabelFor(m => messages.FieldRequiredMessage).ToString()" id="PostID" name="PostID" type="text" value="" class="input-validation-error" /><br />
                         <span class="field-validation-valid" data-valmsg-for="PostID" data-valmsg-replace="true"></span>
                     </td>
                     <td>
-                        <input data-val="true" data-val-required="@Html.LabelFor(m=>messages.FieldRequiredMessage).ToString()" id="Text" name="Text" type="text" value="" class="input-validation-error" /><br />
+                        <input data-val="true" data-val-required="@Html.LabelFor(m => messages.FieldRequiredMessage).ToString()" id="Text" name="Text" type="text" value="" class="input-validation-error" /><br />
                         <span class="field-validation-valid" data-valmsg-for="Text" data-valmsg-replace="true"></span>
                     </td>
                     <td>
